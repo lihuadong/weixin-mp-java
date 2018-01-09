@@ -61,7 +61,7 @@ public class ResponseMsgBuilder {
 	 * @param image		发送的图片
 	 * @return String	xml格式的数据
 	 */
-	public String image(Image image){
+	public static String image(Image image){
 
 		String returnStr = "";
 		
@@ -87,7 +87,7 @@ public class ResponseMsgBuilder {
 	 * @param voice		发送的语音
 	 * @return String	xml格式的数据
 	 */
-	public String voice(Voice voice){
+	public static String voice(Voice voice){
 		
 		String returnStr = "";
 		
@@ -113,7 +113,7 @@ public class ResponseMsgBuilder {
 	 * @param video		发送的视频
 	 * @return String	xml格式的数据
 	 */
-	public String video(Video video){
+	public static String video(Video video){
 
 		String returnStr = "";
 		
@@ -141,7 +141,7 @@ public class ResponseMsgBuilder {
 	 * @param music		发送的音乐
 	 * @return String	xml格式的数据
 	 */
-	public String music(Music music){
+	public static String music(Music music){
 
 		String returnStr = "";
 		
@@ -171,7 +171,7 @@ public class ResponseMsgBuilder {
 	 * @param articles	发送的图文(不可超过10个)
 	 * @return String	xml格式的数据
 	 */
-	public String articles(List<Article> articles){
+	public static String articles(List<Article> articles){
 				
 		String returnStr = "";
 		
@@ -182,7 +182,7 @@ public class ResponseMsgBuilder {
 		//填充回复内容
 		Element rootXML = new Element("xml");
 		rootXML.addContent(new Element("ToUserName").setText(articles.get(0).getToUserNameGID()));
-		rootXML.addContent(new Element("FromUserName").setText(articles.get(0).getToUserNameGID()));
+		rootXML.addContent(new Element("FromUserName").setText(articles.get(0).getFromUserNameOpenID()));
 		rootXML.addContent(new Element("CreateTime").setText(articles.get(0).getCreateTime()));
 		rootXML.addContent(new Element("MsgType").setText(articles.get(0).getMsgType()));//"news"
 		rootXML.addContent(new Element("ArticleCount").setText(String.valueOf(articles.size())));
@@ -191,7 +191,7 @@ public class ResponseMsgBuilder {
 		Element fXML = new Element("Articles");
 		Element mXML = null;
 
-		for(int i = 0 ;i<=articles.size();i++){
+		for(int i = 0 ;i<articles.size();i++){
 			mXML = new Element("item");
 			mXML.addContent(new Element("Title").setText(((Article)articles.get(i)).getTitle()));
 			mXML.addContent(new Element("Description").setText(((Article)articles.get(i)).getDescription()));
