@@ -35,6 +35,7 @@ import weixin.util.HttpsDataManager;
 public class UserManager {
 
 	private static Logger logger = Logger.getLogger(UserManager.class); 	
+	
 	private String accesstoken;
 	
 	public UserManager(){}
@@ -43,7 +44,14 @@ public class UserManager {
 		this.accesstoken = accesstoken;
 	}
 	
-
+    public String getUserInfoStringByOpenid(String openid){
+    	
+		//调用获取用户信息的接口
+	    String  getUserInforUrl = APIBaseConfig.USER_INFO+this.accesstoken+"&openid="+openid+"&lang=zh_CN";
+	    String  strJSONRes  = HttpsDataManager.sendData(getUserInforUrl, "获取用户信息非WEB方式");
+	    return strJSONRes;
+	    
+    }
 	 
     /**
      * 
