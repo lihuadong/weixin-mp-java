@@ -6,7 +6,7 @@ weixinmp4j，项目原名weixin4j
 此项目为是更好的使用微信公众平台的功能而进行的JAVA版本的代码封装
 在调用对应的方法之前需要传对应项目的Accesstoken 
 建议在使用之前Accesstoken先进行缓存，存入DB或文件均可
-weixin.base包中AccesstokenManager也可以供使用
+weixin.base包中AccesstokenManager也可以使用
 
 一、项目说明
 1、jdom 对xml数据进行处理
@@ -21,6 +21,9 @@ weixin.base包中AccesstokenManager也可以供使用
 * 王思宇
 * 姜敏
 * 黎晓东
+* 陈哲
+* 张克宁
+* 曹红芳
 
 # 项目更新记录
 * 2016-06-25 项目重构之后重新导入原项目名 weixin4j
