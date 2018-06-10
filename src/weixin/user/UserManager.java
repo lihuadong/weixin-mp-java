@@ -25,7 +25,11 @@ import weixin.util.HttpsDataManager;
  * 
  * UserManager
  * 
- * 李华栋
+ * 获取用户信息的方式中，通过关注获取的用户信息与通过网页面获取的用户是不一样的
+ * 主要体现两者需要传的access_token 不一样。
+ * 网页部分是通过OAuth的方式获取的
+ * 普通的是通过两小时一个周期来获取的
+ * 
  * 李华栋
  * 2016年5月4日 下午1:17:29
  * 
@@ -37,20 +41,49 @@ public class UserManager {
 	private static Logger logger = Logger.getLogger(UserManager.class); 	
 	
 	private String accesstoken;
-	
-	public UserManager(){}
-	
+
 	public UserManager(String accesstoken){
 		this.accesstoken = accesstoken;
 	}
 	
-    public String getUserInfoStringByOpenid(String openid){
+	/**
+	 * 
+	 * getUserInfo(调用获取用户信息的接口)
+	 * (这里描述这个方法适用条件 – 可选)
+	 * @param openid
+	 * @return 
+	 *String
+	 * @exception 
+	 * @since  0.0.1
+	 */
+    public String getUserInfo(String openid){
     	
-		//调用获取用户信息的接口
+		
 	    String  getUserInforUrl = APIBaseConfig.USER_INFO+this.accesstoken+"&openid="+openid+"&lang=zh_CN";
-	    String  strJSONRes  = HttpsDataManager.sendData(getUserInforUrl, "获取用户信息非WEB方式");
+	    String  strJSONRes  = HttpsDataManager.sendData(getUserInforUrl, "get user information");
+	    
+	    logger.info("UserManager-getUserInfoStringByOpenid:"+strJSONRes);
+	    
 	    return strJSONRes;
 	    
+    }
+    
+    /**
+     * 
+     * getUserInfoFromWeb(调用获取用户信息的接口(网页OAuth部分))
+     * (这里描述这个方法适用条件 – 可选)
+     * @param openid
+     * @return 
+     *String
+     * @exception 
+     * @since  0.0.1
+     */
+    public String  getUserInfoFromWeb(String openid){
+    	
+	    String  getSNSUserInforUrl = APIBaseConfig.USER_INFO_WEB+this.accesstoken+"&openid="+openid+"&lang=zh_CN";
+	    String  strJSONRes  = HttpsDataManager.sendData(getSNSUserInforUrl, "get user information by oauth");
+    
+    	    return strJSONRes;
     }
 	 
     /**
@@ -68,8 +101,11 @@ public class UserManager {
     	
     		
 		//调用获取用户信息的接口
-	    String  getUserInforUrl = APIBaseConfig.USER_INFO+this.accesstoken+"&openid="+openid+"&lang=zh_CN";
-	    String  strJSONRes  = HttpsDataManager.sendData(getUserInforUrl, "获取用户信息非WEB方式");
+	    String  getUserInforUrl = APIBaseConfig.USER_INFO_WEB+this.accesstoken+"&openid="+openid+"&lang=zh_CN";
+	    String  strJSONRes  = HttpsDataManager.sendData(getUserInforUrl, "get user information by oauth");
+	    
+	    logger.info("UserManager-getUserInfoByOpenid-result:"+strJSONRes);
+	    System.out.println("UserManager-getUserInfoByOpenid-result:"+strJSONRes);
 	    
 	    HashMap  map   = new HashMap();
 	    try {
@@ -275,21 +311,7 @@ public class UserManager {
 	    return map;
     }
     
-    public JSONObject  getUserInfoFromWeb(String openid,String accesstoken){
-    	
-		//调用获取用户信息的接口
-	    String  getSNSUserInforUrl = APIBaseConfig.USER_INFO_WEB+accesstoken+"&openid="+openid+"&lang=zh_CN";
-	    String  strJSONRes  = HttpsDataManager.sendData(getSNSUserInforUrl, "get user information");
-    
-	    JSONObject singleUseInfoObject = null;
-	    try {
-				singleUseInfoObject = new JSONObject(strJSONRes);		
-	    } catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	    return singleUseInfoObject;
-    }
+
     
     
 

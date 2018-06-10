@@ -33,6 +33,7 @@ import weixin.msg.model.event.account.NamingVerifySuccess;
 import weixin.msg.model.event.account.QualificationVerifyFail;
 import weixin.msg.model.event.account.QualificationVerifySuccess;
 import weixin.msg.model.event.account.VerifyExpired;
+import weixin.msg.model.event.minapp.UserEnterTempsession;
 
 /**
  * 
@@ -82,6 +83,7 @@ public class RequestEventMsgBuilder {
 	private String expiredTime;
 	private String failTime;
 	private String failReason;
+	private String sessionFrom;
 	
 	/**
 	 * getRegularMessage 构建事件类微信消息对象
@@ -164,6 +166,8 @@ public class RequestEventMsgBuilder {
 				failTime = element.getValue().trim();
 			} else if(element.getName().equals("FailReason")){
 				failReason = element.getValue().trim();
+			} else if(element.getName().equals("SessionFrom")){
+				sessionFrom = element.getValue().trim();
 			}
 		}
 		
@@ -206,6 +210,8 @@ public class RequestEventMsgBuilder {
 			wxmsg = getAnnualRenew();
 		} else if(event.equals("verify_expired")){
 			wxmsg = getVerifyExpired();
+		} else if(event.equals("user_enter_tempsession")){
+			wxmsg  = getUserEnterTempsession();
 		}
 				
 		return wxmsg;
@@ -554,6 +560,19 @@ public class RequestEventMsgBuilder {
 		ve.setExpiredTime(expiredTime);
 		
 		return ve;
+	}
+	
+	private UserEnterTempsession getUserEnterTempsession(){
+		
+		UserEnterTempsession  uet  = new UserEnterTempsession();
+		
+		uet.setToUserNameGID(toUserName);
+		uet.setFromUserNameOpenID(fromUserName);
+		uet.setCreateTime(createTime);
+		uet.setMsgType(msgType);
+		uet.setEvent(event);
+		uet.setSessionFrom(sessionFrom);
+		return uet;
 	}
 	
 	/**

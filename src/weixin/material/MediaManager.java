@@ -62,7 +62,7 @@ public class MediaManager {
 		
 		try {
 			JSONObject res = new JSONObject(response);
-			if(response.contains("create_at")){
+			if(response.contains("created_at")){
 				hm.put("type",res.getString("type"));
 				hm.put("create_at", res.getString("created_at"));
 				if(type.equals("thumb")){

@@ -44,9 +44,9 @@ public class QrcodeManager {
 	 * @exception 
 	 * @since  0.0.1
 	 */
-	public HashMap getTempQrcode(int expire, int sceneId){
+	public HashMap<String, Object> getTempQrcode(int expire, int sceneId){
 		
-		HashMap hm = new HashMap();
+		HashMap<String, Object> hm = new HashMap<String, Object>();
 		
 		//临时二维码有效时间最长为30天
 		if(expire>2592000){
@@ -67,25 +67,26 @@ public class QrcodeManager {
 			
 			rootJson.put("action_info", scene);
 			
-			 System.out.println("QrcodeManager getTempQrcode:"+rootJson.toString());
+			 //System.out.println("QrcodeManager getTempQrcode:"+rootJson.toString());
 			 
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}		
 				
-		//调用创建标签接口
+		//调用接口
 	    String url = APIBaseConfig.QRCode_GET_URL+this.accesstoken;
 	    String response = HttpsDataManager.sendData(url, rootJson.toString());
 	    
 		//解析对应的JSON代码
 	    try{
+	    	
 		    	JSONObject responseJson = new JSONObject(response);
 		    	hm.put("ticket", responseJson.getString("ticket"));
 		    	hm.put("expire_seconds", responseJson.getInt("expire_seconds"));
 		    	hm.put("url", responseJson.getString("url").replace("\\",""));
-	    } catch(JSONException e){
-	    	
-	        System.out.println("QrcodeManager:"+response);
+		    	
+	    } catch(JSONException e){	    	
+	    		e.printStackTrace();
 	    }
 	    
 	    return hm;
