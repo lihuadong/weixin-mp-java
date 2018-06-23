@@ -1,10 +1,10 @@
 /**
- * 包打听全知道-微信H5版本
+ * 微信H5版本
  * weixin.pay
  * UnifiedOrder.java
  * Ver0.0.1
  * 2015年1月23日-下午5:00:23
- *  2015全智道(北京)科技有限公司-版权所有
+ * 2015全智道(北京)科技有限公司-版权所有
  * 
  */
 package weixin.pay;
@@ -14,14 +14,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
-import java.util.UUID;
 
 import org.apache.log4j.Logger;
 import org.jdom.JDOMException;
 
-import weixin.util.XMLUtil;
 import weixin.util.HttpsDataManager;
-import weixin.pay.WeixinPaySign;
+import weixin.util.XMLUtil;
 
 
 /**
