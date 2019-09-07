@@ -1,10 +1,10 @@
 /**
- * 包打听全知道-微信H5版本
+ * 包到位小程序SaaS
  * weixin.qrcode
  * QrcodeManager.java
  * Ver0.0.1
  * 2016年6月27日-下午1:51:16
- *  2016全智道(北京)科技有限公司-版权所有
+ *  2014-2019 全智道(北京)科技有限公司
  * 
  */
 package weixin.qrcode;

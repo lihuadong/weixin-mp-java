@@ -1,5 +1,5 @@
 /**
- * 包打听全知道-微信H5版本
+ * 包到位小程序SaaS
  * weixin.message
  * WeixinMsg.java
  * Ver0.0.1

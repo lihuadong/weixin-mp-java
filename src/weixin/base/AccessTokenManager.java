@@ -1,16 +1,18 @@
 /**
- * 包打听全知道-微信H5版本
+ * 包到位小程序SaaS
  * weixin.base
  * AccessToken.java
  * Ver0.0.1
  * 2016年6月20日-下午3:06:02
- *  2016全智道(北京)科技有限公司-版权所有
+ *  2014-2019 全智道(北京)科技有限公司
  * 
  */
 package weixin.base;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -25,6 +27,7 @@ import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import weixin.user.UserManager;
 import weixin.util.Util4Properties;
 
 
@@ -153,8 +156,38 @@ public class AccessTokenManager extends   TimerTask {
     	
 
     		AccessTokenManager   accessTokenManager  = new AccessTokenManager();
-    		//Timer timer  = new Timer();
-    		//timer.schedule(accessTokenManager, 0,10000);
+    		String at = accessTokenManager.accesstoken;
+    		UserManager  userManager  = new UserManager(at);
+    		List openidList  = userManager.getSubscribeList("");
+    		for(int i=0;i<openidList.size();i++) {
+//    			HashMap  hm = userManager.getUserInfoByOpenid((String)openidList.get(i));
+    			
+    			String openid  = (String)openidList.get(i);
+    			String res = userManager.getUserInfo(openid);
+    			try {
+					JSONObject json  = new JSONObject(res);
+					
+					System.out.println(json.getString("openid"));
+					System.out.println(json.getString("headimgurl"));
+					System.out.println("headimgurl");
+					
+//					if(json.getString("remark")== "shaozi100" || json.getString("remark")=="shaozi200") {
+//						System.out.println(userManager.getUserInfo(openid));
+//					}
+					
+					
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+    			
+    			
+//    			System.out.println("openid: "+hm.get("openid"));
+//    			System.out.println("nickname: "+hm.get("nickname"));
+//    			System.out.println("image_url: "+hm.get("headimgurl"));
+//    			System.out.println("unionid: "+hm.get("unionid"));
+    			
+    		}
 
     }
 }

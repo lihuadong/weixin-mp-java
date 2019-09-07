@@ -1,5 +1,5 @@
 /**
- * 包打听全知道-微信H5版本
+ * 包到位小程序SaaS
  * weixin.message.kefu
  * ImageDetail.java
  * Ver0.0.1

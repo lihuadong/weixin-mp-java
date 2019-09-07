@@ -1,10 +1,10 @@
 /**
- * 包打听全知道-微信H5版本
+ * 包到位小程序SaaS
  * weixin.msg.model
  * Articles.java
  * Ver0.0.1
  * 2016年6月20日-下午5:17:43
- *  2016全智道(北京)科技有限公司-版权所有
+ *  2014-2019 全智道(北京)科技有限公司
  * 
  */
 package weixin.msg.model.common;
@@ -24,6 +24,13 @@ import weixin.msg.model.base.WeixinMsgBase;
  */
 public class Article extends WeixinMsgBase{
 	
+	/**
+	 * serialVersionUID:TODO（用一句话描述这个变量表示什么）
+	 *
+	 * @since 0.0.1
+	 */
+	
+	private static final long serialVersionUID = 1L;
 	private String title;		//图文消息标题
 	private String description;	//图文消息描述
 	private String picUrl;		//图片链接，支持JPG、PNG格式，较好的效果为大图360*200，小图200*200

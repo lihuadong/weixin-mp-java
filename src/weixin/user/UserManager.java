@@ -1,10 +1,10 @@
 /**
- * 包打听全知道-微信H5版本
+ * 包到位小程序SaaS
  * weixin.user
  * UserManager.java
  * Ver0.0.1
  * 2016年5月4日-下午1:17:29
- *  2016全智道(北京)科技有限公司-版权所有
+ * 2014-2019 全智道(北京)科技有限公司
  * 
  */
 package weixin.user;
@@ -326,27 +326,28 @@ public class UserManager {
 	 */
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
-		  //1、获取accesstoken 
-			//AccessTokenManager  atm  = new AccessTokenManager();
-			//System.out.println(atm);
-			//AccessTokenManager.accesstoken = "k0YYIvs9Mbb8HIExX0tDh6iBDEIMAidDp2O72T7OFllF8gHdmNdJcIbzDIljiCFuLCcRBt8svtrriaknFZVuzJpm6yb7c9rf_9xQCS0hUcaDS2EBk9xS8PT9X3gR6JawQEYbAFAUIC";
-	        
-		/*	//2、测试所有的会员ID显示
-		UserManager  um  = new UserManager();
-			List  list  = um.getSubscribeList("");
-			
-			System.out.println("list size:"+list.size());
-			
-			List<String> nicknames = new ArrayList<String>();			
-			for(int i=0;i<list.size();i++){
-				
-				String nickname = um.getNicknameByOpenid((String) list.get(i));
-				System.out.println("nickname:"+nickname+"\t"+"openid:"+(String) list.get(i));			
-				nicknames.add("nickname: "+nickname+"  openid: "+(String) list.get(i));
-			}
-			for(int i=0;i<nicknames.size();i++){
-				System.out.println(nicknames.get(i));//nickname: 七月  openid: oFHIYtxveXh57uRNKptUAwBH2u7Y,nickname: 吉  openid: oFHIYt3kwFCqgAak7YaTJirZlzdQ,nickname: 文立  openid: oFHIYt59P471ITZ_aKHudE4Ggokc
-			}*/
+//		  //1、获取accesstoken 
+//			//AccessTokenManager  atm  = new AccessTokenManager();
+//			//System.out.println(atm);
+//			//AccessTokenManager.accesstoken = "k0YYIvs9Mbb8HIExX0tDh6iBDEIMAidDp2O72T7OFllF8gHdmNdJcIbzDIljiCFuLCcRBt8svtrriaknFZVuzJpm6yb7c9rf_9xQCS0hUcaDS2EBk9xS8PT9X3gR6JawQEYbAFAUIC";
+//	        
+//		//2、测试所有的会员ID显示
+//		String accesstoken  = "";
+//		UserManager  um  = new UserManager(accesstoken);
+//			List  list  = um.getSubscribeList("");
+//			
+//			System.out.println("list size:"+list.size());
+//			
+//			List<String> nicknames = new ArrayList<String>();			
+//			for(int i=0;i<list.size();i++){
+//				
+//				String nickname = um.getNicknameByOpenid((String) list.get(i));
+//				System.out.println("nickname:"+nickname+"\t"+"openid:"+(String) list.get(i));			
+//				nicknames.add("nickname: "+nickname+"  openid: "+(String) list.get(i));
+//			}
+//			for(int i=0;i<nicknames.size();i++){
+//				System.out.println(nicknames.get(i));//nickname: 七月  openid: oFHIYtxveXh57uRNKptUAwBH2u7Y,nickname: 吉  openid: oFHIYt3kwFCqgAak7YaTJirZlzdQ,nickname: 文立  openid: oFHIYt59P471ITZ_aKHudE4Ggokc
+//			}
 		
 //----------------------------------------------------------------------------------------------
 		
@@ -379,7 +380,8 @@ public class UserManager {
 		System.out.println("openid1: "+openid1+"\n image_url1: "+image_url1);
 		System.out.println("openid2: "+openid2+"\n image_url2: "+image_url2);
 		*/
-		String accesstoken  ="Wa3L0sZ8jGGXd225pUXv-B3iXNKnZu9ZErFbfpXqPAzp0hCnHq1qIkYAs2LVslVltz3p_T-ZdaIfXi8qZY6tqtsWziU2-wI6OHhtatox3SFBi-4AhezcB5p2pVxub6axEZWfAAATOL";
+		
+		String accesstoken  ="22_22rIf8Vy72Rtd0ltS4pyrh03lordpHXbm2DphC7e62F50ISWwN7RgYrzLHbLwJjOQ4eRNPHU9m7fgbWfW4XdZo-11_ZIiIb23PCSP7PvNbQ68Hn1J84-A8Pn8qSHxkWucUt-R9FJNQASPJrUTKEjAHAZQK";
 		//4、测试获取用户信息
 		UserManager um = new UserManager(accesstoken);
 		HashMap hm = null;
@@ -434,6 +436,7 @@ public class UserManager {
 		System.out.println("result1: "+result1);
 		*/
 	}
+
 	
 	
 }
