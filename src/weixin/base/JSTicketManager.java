@@ -22,7 +22,6 @@ import weixin.util.HttpsDataManager;
  * JSTicketManager
  * 
  * 李华栋
- * 李华栋
  * 2015年1月14日 下午4:01:52
  * 
  * @version 0.0.1
