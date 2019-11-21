@@ -15,6 +15,7 @@ import org.jdom.Element;
 
 import weixin.msg.model.base.WeixinMsgBase;
 import weixin.msg.model.event.ClickEvent;
+import weixin.msg.model.event.LocationEvent;
 import weixin.msg.model.event.LocationSelectEvent;
 import weixin.msg.model.event.MassSendJobFinishEvent;
 import weixin.msg.model.event.PicPhotoOrAlbumEvent;
@@ -24,7 +25,6 @@ import weixin.msg.model.event.ScanEvent;
 import weixin.msg.model.event.ScancodePushEvent;
 import weixin.msg.model.event.ScancodeWaitmsgEvent;
 import weixin.msg.model.event.SubscribeEvent;
-import weixin.msg.model.event.LocationEvent;
 import weixin.msg.model.event.TemplateSendJobFinishEvent;
 import weixin.msg.model.event.ViewEvent;
 import weixin.msg.model.event.account.AnnualRenew;

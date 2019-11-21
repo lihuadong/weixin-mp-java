@@ -9,7 +9,9 @@
  */
 package weixin.base;
 
-
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
 /**
  * 
@@ -22,20 +24,26 @@ package weixin.base;
  * @version 0.0.1
  * 
  */
-public class APIBaseConfig {
+public class APIConfig {
 
-/*	1. 通用域名(api.weixin.qq.com)，使用该域名将访问官方指定就近的接入点；
-	2. 上海域名(sh.api.weixin.qq.com)，使用该域名将访问上海的接入点；
-	3. 深圳域名(sz.api.weixin.qq.com)，使用该域名将访问深圳的接入点；
-	4. 香港域名(hk.api.weixin.qq.com)，使用该域名将访问香港的接入点。*/
-	
 	 private  static String  HK_DOMAIN="https://hk.api.weixin.qq.com/";
 	 private  static String  SH_DOMAIN="https://sh.api.weixin.qq.com/";
 	 private  static String  SZ_DOMAIN="https://sz.api.weixin.qq.com/";
 	 private  static String  ALL_DOMAIN="https://api.weixin.qq.com/";	 
-//	 private static String CURRENT_API  = Util4Properties.readPropertiesFile(APIConfig.class.getResourceAsStream("/weixin.properties"), "allarea_api"); 
-	 private static String CURRENT_API  = ALL_DOMAIN; 
-
+	 
+	private static String CURRENT_API; 
+	static{
+			
+			Properties prop = new Properties();  
+			InputStream in = APIConfig.class.getResourceAsStream("/weixin.properties"); 
+			
+			try {  
+	            prop.load(in);  
+	        } catch (IOException e) {  
+	            e.printStackTrace();  
+	        }  	
+			CURRENT_API = prop.getProperty("ALL_DOMAIN");  
+		}
 	
 	 
 			/****************************************************************************************************

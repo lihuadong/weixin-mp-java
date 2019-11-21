@@ -11,9 +11,9 @@ import java.util.List;
  */
 public class TemplateMsg {
 	
-	private String touser;		//发给的用户(openid)
+	private String touser;			//发给的用户(openid)
 	private String template_id;	//模板id
-	private String url;	//模板消息打开的URL
+	private String url;					//模板消息打开的URL
 	private List<String> labels;//模板空白部分标签
 	private List<String> values;//模板空白部分填写内容
 	private List<String> colors;//模板空白部分填写文字颜色

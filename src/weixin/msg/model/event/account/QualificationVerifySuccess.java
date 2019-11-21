@@ -9,7 +9,7 @@
  */
 package weixin.msg.model.event.account;
 
-import weixin.msg.model.base.WeixinEventMsg;
+import weixin.msg.model.base.WeixinMsg4Event;
 
 /**
  * 
@@ -22,7 +22,7 @@ import weixin.msg.model.base.WeixinEventMsg;
  * @version 0.0.1
  * 
  */
-public class QualificationVerifySuccess extends WeixinEventMsg{
+public class QualificationVerifySuccess extends WeixinMsg4Event{
 
 	
 	private String  expiredTime;

@@ -34,7 +34,7 @@ import weixin.msg.model.base.WeixinMsgBase;
  * @version 0.0.1
  * 
  */
-public class Request {
+public class RequestMsg {
 	
 	/**
 	 * getMessage 解析请求内容并构建微信消息对象
@@ -54,13 +54,7 @@ public class Request {
 		} catch (JDOMException | IOException e) {
 			e.printStackTrace();
 		}
-
-		XMLOutputter XMLOut = new XMLOutputter();  
-		
-		//String tempStr = XMLOut.outputString(doc);
-		//System.out.println("-------------request message-------------");
-		//System.out.println(tempStr);
-		
+	
 		//获得文件的根元素
 		Element root = doc.getRootElement();			
 		//获得根元素的第一级子节点

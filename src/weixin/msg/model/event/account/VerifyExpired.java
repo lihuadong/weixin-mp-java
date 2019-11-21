@@ -9,7 +9,7 @@
  */
 package weixin.msg.model.event.account;
 
-import weixin.msg.model.base.WeixinEventMsg;
+import weixin.msg.model.base.WeixinMsg4Event;
 
 /**
  * 
@@ -22,7 +22,7 @@ import weixin.msg.model.base.WeixinEventMsg;
  * @version 0.0.1
  * 
  */
-public class VerifyExpired extends WeixinEventMsg{
+public class VerifyExpired extends WeixinMsg4Event{
 	
 	//ToUserName	开发者微信号
 	//FromUserName	发送方帐号（一个OpenID，此时发送方是系统帐号）

@@ -1,13 +1,11 @@
 package weixin.card;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
-import weixin.base.APIBaseConfig;
+import weixin.base.APIConfig;
 import weixin.util.HttpsDataManager;
 
 /**
@@ -35,7 +33,7 @@ public class CardUsing {
 	public  String qrcodeCreateCard(JSONObject cardJson){
 		
 
-		String url = APIBaseConfig.CARD_THROW_QRCODE_CREATE_URL+this.accesstoken;
+		String url = APIConfig.CARD_THROW_QRCODE_CREATE_URL+this.accesstoken;
 		HttpsDataManager dataManager = new HttpsDataManager();
 		String res = dataManager.sendData(url, cardJson.toString());
 		return res;
@@ -49,7 +47,7 @@ public class CardUsing {
 	public  String CreateLandingpageCard(JSONObject landingpageJson){
 		
 
-		String url = APIBaseConfig.CARD_LANDINGPAGE_CREATE_URL+this.accesstoken;
+		String url = APIConfig.CARD_LANDINGPAGE_CREATE_URL+this.accesstoken;
 		HttpsDataManager dataManager = new HttpsDataManager();
 		String res = dataManager.sendData(url, landingpageJson.toString());
 		return res;
@@ -66,7 +64,7 @@ public class CardUsing {
 	public  String CodeDepositCard(String card_id,List<String> codes) throws JSONException{
 		
 
-		String url = APIBaseConfig.CARD_CODE_DEPOSIT_URL+this.accesstoken;
+		String url = APIConfig.CARD_CODE_DEPOSIT_URL+this.accesstoken;
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("card_id", card_id);
 		jsonObject.put("code", codes);
@@ -85,7 +83,7 @@ public class CardUsing {
 	public  String CodeGetDepositCountCard(String card_id) throws JSONException{
 		
 
-		String url = APIBaseConfig.CARD_CODE_GETDEPOSITCOUNT_URL+this.accesstoken;
+		String url = APIConfig.CARD_CODE_GETDEPOSITCOUNT_URL+this.accesstoken;
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("card_id", card_id);
 		HttpsDataManager dataManager = new HttpsDataManager();
@@ -104,7 +102,7 @@ public class CardUsing {
 	public  String CodeCheckCodeCard(String card_id,List<String> codes) throws JSONException{
 		
 
-		String url = APIBaseConfig.CARD_CODE_CHECKCODE_URL+this.accesstoken;
+		String url = APIConfig.CARD_CODE_CHECKCODE_URL+this.accesstoken;
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("card_id", card_id);
 		jsonObject.put("code", codes);
@@ -124,7 +122,7 @@ public class CardUsing {
 	public  String MPNewsCard(String card_id) throws JSONException{
 		
 
-		String url = APIBaseConfig.CARD_MPNEWS_GETHTML_URL+this.accesstoken;
+		String url = APIConfig.CARD_MPNEWS_GETHTML_URL+this.accesstoken;
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("card_id", card_id);
 		HttpsDataManager dataManager = new HttpsDataManager();

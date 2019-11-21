@@ -9,7 +9,7 @@
  */
 package weixin.msg;
 
-import weixin.base.APIBaseConfig;
+import weixin.base.APIConfig;
 import weixin.util.HttpsDataManager;
 
 /**
@@ -23,12 +23,12 @@ import weixin.util.HttpsDataManager;
  * @version 0.0.1
  * 
  */
-public class Response {
+public class ResponseMsg {
 	
 	
 	private String accesstoken;
 	
-	public Response(String accesstoken){
+	public ResponseMsg(String accesstoken){
 		this.accesstoken = accesstoken;
 	}
 	/**
@@ -40,7 +40,7 @@ public class Response {
 	 */
 	 public String sendCSMsg(String strJSON){
 		 
-			String url = APIBaseConfig.MSG_CS_URL+ this.accesstoken;
+			String url = APIConfig.MSG_CS_URL+ this.accesstoken;
 		    return HttpsDataManager.sendData(url, strJSON);
 	 }
 	
@@ -53,7 +53,7 @@ public class Response {
 	 */
 	 public String sendTptMsg(String strJSON){
 		 
-			String url = APIBaseConfig.MSG_TMPT_URL+ this.accesstoken;
+			String url = APIConfig.MSG_TMPT_URL+ this.accesstoken;
 			
 			//System.out.println("APIConfig.MSG_TMPT_URL:"+APIConfig.MSG_TMPT_URL);
 			
@@ -70,7 +70,7 @@ public class Response {
 	 */
 	 public String sendGroupMsg_Tag(String strJSON){
 		 
-			String url = APIBaseConfig.MSG_GROUP_TAG_URL+ this.accesstoken;
+			String url = APIConfig.MSG_GROUP_TAG_URL+ this.accesstoken;
 		    return HttpsDataManager.sendData(url, strJSON);
 	 }
 	 
@@ -83,7 +83,7 @@ public class Response {
 	 */
 	 public String sendGroupMsg_Openid(String strJSON){
 		 
-			String url = APIBaseConfig.MSG_GROUP_OPENID_URL+ this.accesstoken;
+			String url = APIConfig.MSG_GROUP_OPENID_URL+ this.accesstoken;
 		    return HttpsDataManager.sendData(url, strJSON);
 		    
 	 }
@@ -98,7 +98,7 @@ public class Response {
 	*/
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Response  res   = new Response("at");
+		ResponseMsg  res   = new ResponseMsg("at");
 		res.sendTptMsg("AAAABBB");
 	}
 

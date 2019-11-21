@@ -22,7 +22,7 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import weixin.base.APIBaseConfig;
+import weixin.base.APIConfig;
 import weixin.util.HttpsDataManager;
 import weixin.util.HttpsFileUpload;
 
@@ -54,7 +54,7 @@ public class MediaManager {
 	public HashMap<String, String> addMedia(String filePath,String type){
 		HashMap<String, String> hm = new HashMap<String, String>();
 		
-		String url = APIBaseConfig.ADD_MEDIA+ this.accesstoken+"&type="+type;
+		String url = APIConfig.ADD_MEDIA+ this.accesstoken+"&type="+type;
 		HttpsFileUpload hf = new HttpsFileUpload();
 		Map<String, String> fileMap = new HashMap<String, String>();
 		fileMap.put("media", filePath);
@@ -92,7 +92,7 @@ public class MediaManager {
 	public boolean downMedia(String mediaId, String filePath, String fileName){
 		
 		boolean success = true;
-		String url = APIBaseConfig.GET_MEDIA+ this.accesstoken+"&media_id="+mediaId;
+		String url = APIConfig.GET_MEDIA+ this.accesstoken+"&media_id="+mediaId;
 		
 		try {
 			URL mediaUrl = new URL(url);
@@ -160,7 +160,7 @@ public class MediaManager {
 	public String getVideoUrl(String mediaId){
 		String video_url = "";
 		
-		String url = APIBaseConfig.GET_MEDIA+ this.accesstoken+"&media_id="+mediaId;
+		String url = APIConfig.GET_MEDIA+ this.accesstoken+"&media_id="+mediaId;
 		String response = HttpsDataManager.sendData(url);
 		if(response.contains("video_url")){
 			video_url = response.substring(14,response.length()-2);

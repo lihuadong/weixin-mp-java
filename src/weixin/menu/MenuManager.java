@@ -4,7 +4,7 @@
  * MenuManager.java
  * Ver0.0.1
  * 2016年6月20日-下午4:21:55
- *  2014-2019 全智道(北京)科技有限公司
+ * 2014-2019 全智道(北京)科技有限公司
  * 
  */
 package weixin.menu;
@@ -12,7 +12,7 @@ package weixin.menu;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import weixin.base.APIBaseConfig;
+import weixin.base.APIConfig;
 import weixin.util.HttpsDataManager;
 
 /**
@@ -53,7 +53,7 @@ public class MenuManager {
 		boolean success = false;
 		
 		//调用自定义菜单创建接口
-	    String url = APIBaseConfig.CREATE_MENU+this.accesstoken;
+	    String url = APIConfig.CREATE_MENU+this.accesstoken;
 	    String response = HttpsDataManager.sendData(url, jsonStr);
 	    
 	    //解析对应的JSON代码
@@ -83,7 +83,7 @@ public class MenuManager {
 		String response = null;
 		
 		//调用自定义菜单查询接口
-		String url = APIBaseConfig.GET_MENU+this.accesstoken;
+		String url = APIConfig.GET_MENU+this.accesstoken;
 		response = HttpsDataManager.sendData(url);
 		
 		return new JSONObject(response);
@@ -103,7 +103,7 @@ public class MenuManager {
 		boolean success = false;
 		
 		//调用自定义菜单删除接口
-		String url = APIBaseConfig.DELETE_MENU+this.accesstoken;
+		String url = APIConfig.DELETE_MENU+this.accesstoken;
 		String response = HttpsDataManager.sendData(url);
 		
 		//解析对应的JSON代码

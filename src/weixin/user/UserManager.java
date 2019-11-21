@@ -18,7 +18,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import weixin.base.APIBaseConfig;
+import weixin.base.APIConfig;
 import weixin.util.HttpsDataManager;
 
 /**
@@ -59,7 +59,7 @@ public class UserManager {
     public String getUserInfo(String openid){
     	
 		
-	    String  getUserInforUrl = APIBaseConfig.USER_INFO+this.accesstoken+"&openid="+openid+"&lang=zh_CN";
+	    String  getUserInforUrl = APIConfig.USER_INFO+this.accesstoken+"&openid="+openid+"&lang=zh_CN";
 	    String  strJSONRes  = HttpsDataManager.sendData(getUserInforUrl, "get user information");
 	    
 	    logger.info("UserManager-getUserInfoStringByOpenid:"+strJSONRes);
@@ -80,7 +80,7 @@ public class UserManager {
      */
     public String  getUserInfoFromWeb(String openid){
     	
-	    String  getSNSUserInforUrl = APIBaseConfig.USER_INFO_WEB+this.accesstoken+"&openid="+openid+"&lang=zh_CN";
+	    String  getSNSUserInforUrl = APIConfig.USER_INFO_WEB+this.accesstoken+"&openid="+openid+"&lang=zh_CN";
 	    String  strJSONRes  = HttpsDataManager.sendData(getSNSUserInforUrl, "get user information by oauth");
     
     	    return strJSONRes;
@@ -101,7 +101,7 @@ public class UserManager {
     	
     		
 		//调用获取用户信息的接口
-	    String  getUserInforUrl = APIBaseConfig.USER_INFO_WEB+this.accesstoken+"&openid="+openid+"&lang=zh_CN";
+	    String  getUserInforUrl = APIConfig.USER_INFO_WEB+this.accesstoken+"&openid="+openid+"&lang=zh_CN";
 	    String  strJSONRes  = HttpsDataManager.sendData(getUserInforUrl, "get user information by oauth");
 	    
 	    logger.info("UserManager-getUserInfoByOpenid-result:"+strJSONRes);
@@ -196,7 +196,7 @@ public class UserManager {
 		
 		while(true){
 			//调用获取用户列表接口
-			String url = APIBaseConfig.GET_USERLIST+this.accesstoken+"&next_openid="+firstId;
+			String url = APIConfig.GET_USERLIST+this.accesstoken+"&next_openid="+firstId;
 			String response = HttpsDataManager.sendData(url);//!!!HttpsDataManager需要有GET的请求方式
 			//解析对应的JSON代码
 			try{
@@ -247,7 +247,7 @@ public class UserManager {
 		}
 		
 		//调用设置用户备注名接口
-		String url = APIBaseConfig.UPDATE_REMARK+this.accesstoken;
+		String url = APIConfig.UPDATE_REMARK+this.accesstoken;
 		String response = HttpsDataManager.sendData(url, rootJson.toString());
 		
 		//解析对应的JSON代码
@@ -277,7 +277,7 @@ public class UserManager {
     	      
 		
 		//调用获取用户信息的接口
-	    String  getSNSUserInforUrl = APIBaseConfig.USER_INFO_WEB+accesstoken+"&openid="+openid+"&lang=zh_CN";
+	    String  getSNSUserInforUrl = APIConfig.USER_INFO_WEB+accesstoken+"&openid="+openid+"&lang=zh_CN";
 	    String  strJSONRes  = HttpsDataManager.sendData(getSNSUserInforUrl, "get user information");
     
 	    HashMap  map   = new HashMap();

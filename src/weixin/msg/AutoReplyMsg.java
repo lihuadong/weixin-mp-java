@@ -20,7 +20,7 @@ package weixin.msg;
  * @version 0.0.1
  * 
  */
-public class AutoReply {
+public class AutoReplyMsg {
 
 	/**
 	 * main(这里用一句话描述这个方法的作用)

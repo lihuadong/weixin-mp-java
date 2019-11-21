@@ -14,7 +14,7 @@ import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import weixin.base.APIBaseConfig;
+import weixin.base.APIConfig;
 import weixin.util.HttpsDataManager;
 
 /**
@@ -74,7 +74,7 @@ public class QrcodeManager {
 		}		
 				
 		//调用接口
-	    String url = APIBaseConfig.QRCode_GET_URL+this.accesstoken;
+	    String url = APIConfig.QRCode_GET_URL+this.accesstoken;
 	    String response = HttpsDataManager.sendData(url, rootJson.toString());
 	    
 		//解析对应的JSON代码
@@ -133,7 +133,7 @@ public class QrcodeManager {
 		}		
 				
 		//调用创建标签接口
-	    String url = APIBaseConfig.QRCode_GET_URL+this.accesstoken;
+	    String url = APIConfig.QRCode_GET_URL+this.accesstoken;
 	    String response = HttpsDataManager.sendData(url, rootJson.toString());
 	    
 		//解析对应的JSON代码
@@ -175,7 +175,7 @@ public class QrcodeManager {
 		}		
 				
 		//调用创建标签接口
-	    String url = APIBaseConfig.QRCode_GET_URL+this.accesstoken;
+	    String url = APIConfig.QRCode_GET_URL+this.accesstoken;
 	    String response = HttpsDataManager.sendData(url, rootJson.toString());
 	    
 		//解析对应的JSON代码

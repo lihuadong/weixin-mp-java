@@ -27,52 +27,59 @@ import weixin.util.HttpsDataManager;
  * @version 0.0.1
  * 
  */
-public class JSTicketManager extends  TimerTask{
+public class JSTicketManager {
 
 	private static Logger logger = Logger.getLogger(JSTicketManager.class);   
 	
 	//JS Ticket 与微信服务器通讯的重要票据
-	public 	static String jsTicket = "";
-	public 	static int expires_in = 7200;//默认是7200秒过期
+	public 	 String jsTicket = null;
+	public 	 int expires_in = 7200;//默认是7200秒过期
 	
-	private String accesstoken;
-  
+	/**
+	 * jsTicket
+	 *
+	 * @return  the jsTicket
+	 * @since   0.0.1
+	*/
+	
+	public String getJsTicket() {
+		return jsTicket;
+	}
+
+	/**
+	 * expires_in
+	 *
+	 * @return  the expires_in
+	 * @since   0.0.1
+	*/
+	
+	public int getExpires_in() {
+		return expires_in;
+	}
+
+	
 	public JSTicketManager(String accesstoken){
-		this.accesstoken = accesstoken;
-		run();
-	}
-
-	/* (non-Javadoc)
-	 * @see java.util.TimerTask#run()
-	 */
-	@Override
-	public void run() {
-		
-        String url = APIBaseConfig.JSTICKET_URL+ this.accesstoken+"&type=jsapi";
+        
+		String url = APIConfig.JSTICKET_URL+accesstoken+"&type=jsapi";
 		//发送Https请求
-		String result = HttpsDataManager.sendData(url, "weixin js ticket");
+		String result = HttpsDataManager.sendData(url);
 		
-		//如果出现 invalid credential 那么要进行重新的请求 accesstoken 
 		if(result.contains("invalid credential")){
-			//new AccessTokenManager();
-			//result = HttpsDataManager.sendData(url, "weixin js ticket");
+				logger.info("JSTicketManager-JS-Ticket:"+result);
+		}else {
+
+				try {
+					JSONObject json = new JSONObject(result);
+					jsTicket  = json.getString("ticket");
+					expires_in =  json.getInt("expires_in");
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				logger.info("JSTicketManager-JS-Ticket:"+jsTicket);
 		}
-
-			
-			JSONObject json;
-			try {
-				json = new JSONObject(result);
-				jsTicket  = json.getString("ticket");
-				expires_in =  json.getInt("expires_in");
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			logger.info("【通知5】JS-Ticket:"+JSTicketManager.jsTicket);
-
 	}
 
-	
 	/**
 	 * main(这里用一句话描述这个方法的作用)
 	 * (这里描述这个方法适用条件 – 可选)
@@ -83,7 +90,6 @@ public class JSTicketManager extends  TimerTask{
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-//		AccessTokenManager   accessTokenManager  = new AccessTokenManager();
-//		JSTicketManager  jsm  = new JSTicketManager();
+
 	}
 }

@@ -9,7 +9,7 @@
  */
 package weixin.msg.model.event;
 
-import weixin.msg.model.base.WeixinEventMsg;
+import weixin.msg.model.base.WeixinMsg4Event;
 
 /**
  * 
@@ -22,7 +22,7 @@ import weixin.msg.model.base.WeixinEventMsg;
  * @version 0.0.1
  * 
  */
-public class TemplateSendJobFinishEvent extends WeixinEventMsg{
+public class TemplateSendJobFinishEvent extends WeixinMsg4Event{
 	
 	//ToUserName	公众号微信号(From WeixinMsg)
 	//FromUserName	接收模板消息的用户的openid(From WeixinMsg)

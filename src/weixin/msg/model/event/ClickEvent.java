@@ -9,7 +9,7 @@
  */
 package weixin.msg.model.event;
 
-import weixin.msg.model.base.WeixinEventMsg;
+import weixin.msg.model.base.WeixinMsg4Event;
 
 /**
  * 
@@ -25,7 +25,7 @@ import weixin.msg.model.base.WeixinEventMsg;
  * @param <String>
  * 
  */
-public class ClickEvent extends WeixinEventMsg{
+public class ClickEvent extends WeixinMsg4Event{
 	
 	//ToUserName	开发者微信号(From WeixinMsg)
 	//FromUserName	发送方帐号（一个OpenID）(From WeixinMsg)

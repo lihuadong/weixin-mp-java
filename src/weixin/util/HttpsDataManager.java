@@ -34,6 +34,7 @@ import org.apache.commons.httpclient.params.HttpMethodParams;
  */
 public class HttpsDataManager {
 
+	
 	public static String sendData(String url,String data){
 		    
 
@@ -46,6 +47,8 @@ public class HttpsDataManager {
 
 		return receiveData;
 	}
+	
+	
 
 	/**
 	* 
@@ -59,7 +62,7 @@ public class HttpsDataManager {
 	* @since  0.0.1
 	*/
 	@SuppressWarnings("deprecation")
-	static String send(String url,Map<String,String> paramsMap){
+	private static String send(String url,Map<String,String> paramsMap){
 		    
 		String result = null;
 		PostMethod postMethod = null;
@@ -69,7 +72,6 @@ public class HttpsDataManager {
 		postMethod = new PostMethod(url);
 					
 		postMethod.setRequestBody((String)paramsMap.get("data"));
-//		System.out.println("发送的Http数据包为:"+paramsMap.get("data"));
 		
 		HttpClientParams httparams = new HttpClientParams();
 		httparams.setSoTimeout(60000);
@@ -96,7 +98,7 @@ public class HttpsDataManager {
 	}
 	
 	@SuppressWarnings("deprecation")
-	static String send(String url,Map<String,String> headerMap,Map<String,String> bodyMap){
+	private static String send(String url,Map<String,String> headerMap,Map<String,String> bodyMap){
 		    
 		String result = null;
 		PostMethod postMethod = null;
@@ -169,10 +171,5 @@ public class HttpsDataManager {
 		}
 		
 		return result;
-	}
-
-	public static void main(String []args){
-		
-		
 	}
 }

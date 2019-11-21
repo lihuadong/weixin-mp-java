@@ -9,7 +9,7 @@
  */
 package weixin.msg.model.event;
 
-import weixin.msg.model.base.WeixinEventMsg;
+import weixin.msg.model.base.WeixinMsg4Event;
 
 /**
  * 
@@ -22,7 +22,7 @@ import weixin.msg.model.base.WeixinEventMsg;
  * @version 0.0.1
  * 
  */
-public class MassSendJobFinishEvent extends WeixinEventMsg{
+public class MassSendJobFinishEvent extends WeixinMsg4Event{
 	
 	//ToUserName	公众号的微信号(From WeixinMsg)
 	//FromUserName	公众号群发助手的微信号，为mphelper(From WeixinMsg)

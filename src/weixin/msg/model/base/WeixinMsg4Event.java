@@ -20,7 +20,7 @@ package weixin.msg.model.base;
  * @version 0.0.1
  * 
  */
-public class WeixinEventMsg extends WeixinMsgBase {
+public class WeixinMsg4Event extends WeixinMsgBase {
 	
 	private static final long serialVersionUID = 3916977988990270964L;
 	/**

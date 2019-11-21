@@ -30,7 +30,7 @@ public class Util4Properties {
     //读取weixin.properties配置文件
     public static String readPropertiesFile(InputStream is,String key){
         
-    		Properties properties = new Properties();
+    	Properties properties = new Properties();
         try{
             InputStream inputStream = is;
             properties.load(inputStream);

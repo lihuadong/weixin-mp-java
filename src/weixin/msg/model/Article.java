@@ -9,7 +9,7 @@
  */
 package weixin.msg.model;
 
-import weixin.msg.model.base.WeixinMsg;
+import weixin.msg.model.base.WeixinMsgBase;
 
 /**
  * 
@@ -22,7 +22,7 @@ import weixin.msg.model.base.WeixinMsg;
  * @version 0.0.1
  * 
  */
-public class Article extends WeixinMsg{
+public class Article extends WeixinMsgBase{
 	
 	private String title;		//图文消息标题
 	private String description;	//图文消息描述
