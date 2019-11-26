@@ -1,5 +1,6 @@
 /**
- * 包到位小程序SaaS
+ * 
+ * 微信-公众号-封装接口JAVA版本
  * weixin
  * JSTicketManager.java
  * Ver0.0.1
@@ -8,8 +9,6 @@
  * 
  */
 package weixin.base;
-
-import java.util.TimerTask;
 
 import org.apache.log4j.Logger;
 import org.json.JSONException;
