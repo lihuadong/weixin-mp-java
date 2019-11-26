@@ -215,7 +215,8 @@ public class APIURL {
 			
 			//创建个性化菜单
 			public  final static String  CREATE_CONDITIONAL_MENU = CURRENT_API+"cgi-bin/menu/addconditional?access_token=";
-			
+			public  final static String  DELETE_CONDITIONAL_MENU = CURRENT_API+"cgi-bin/menu/delconditional?access_token=";
+			public  final static String  TRYMATCH_CONDITIONAL_MENU = CURRENT_API+"cgi-bin/menu/trymatch?access_token=";
 			/**
 			 * ----------------------------------------------------------------------素材管理-----------------------------------------------------------------------
             */
