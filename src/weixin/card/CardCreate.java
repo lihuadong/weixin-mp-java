@@ -3,7 +3,7 @@ package weixin.card;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import weixin.base.APIConfig;
+import weixin.base.APIURL;
 import weixin.util.HttpsDataManager;
 import weixin.util.HttpsFileUpload;
 /**
@@ -33,7 +33,7 @@ public class CardCreate {
 	public  String uploadLogoCard(String imagePath){
 		
 
-		String url = APIConfig.CARD_LOGO_URL+this.accesstoken;
+		String url = APIURL.CARD_LOGO_URL+this.accesstoken;
 		HttpsFileUpload fileUpload = new HttpsFileUpload();
 		String res = fileUpload.uploadMedia(url ,imagePath, imagePath.substring(imagePath.lastIndexOf(".")));
 		return res;
@@ -47,7 +47,7 @@ public class CardCreate {
 	 */
 	public  String createCard(JSONObject cardJson){
 		
-		String url = APIConfig.CARD_CREATE_URL+this.accesstoken;
+		String url = APIURL.CARD_CREATE_URL+this.accesstoken;
 		HttpsDataManager dataManager = new HttpsDataManager();
 		String res = dataManager.sendData(url, cardJson.toString());
 		return res;
@@ -63,7 +63,7 @@ public class CardCreate {
 	 */
 	public  String payCellCard(String card_id, boolean is_open) throws JSONException{
 	
-		String url = APIConfig.CARD_PAYCELL_URL+this.accesstoken;
+		String url = APIURL.CARD_PAYCELL_URL+this.accesstoken;
 		HttpsDataManager dataManager = new HttpsDataManager();
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("card_id", card_id);

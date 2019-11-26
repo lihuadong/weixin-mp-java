@@ -60,7 +60,7 @@ public class JSTicketManager {
 	
 	public JSTicketManager(String accesstoken){
         
-		String url = APIConfig.JSTICKET_URL+accesstoken+"&type=jsapi";
+		String url = APIURL.JSTICKET_URL+accesstoken+"&type=jsapi";
 		//发送Https请求
 		String result = HttpsDataManager.sendData(url);
 		

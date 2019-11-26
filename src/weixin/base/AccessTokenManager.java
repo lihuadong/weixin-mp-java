@@ -62,7 +62,7 @@ public class AccessTokenManager{
 
 	public AccessTokenManager(){
 				try{
-					    String url = APIConfig.ACCESSTOKEN_GET_URL+appid+"&secret="+appsecret;
+					    String url = APIURL.ACCESSTOKEN_GET_URL+appid+"&secret="+appsecret;
 						String result  = HttpsDataManager.sendData(url);
 				   		JSONObject  json   = new JSONObject(result);
 					

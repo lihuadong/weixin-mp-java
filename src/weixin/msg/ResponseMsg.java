@@ -9,7 +9,7 @@
  */
 package weixin.msg;
 
-import weixin.base.APIConfig;
+import weixin.base.APIURL;
 import weixin.util.HttpsDataManager;
 
 /**
@@ -40,7 +40,7 @@ public class ResponseMsg {
 	 */
 	 public String sendCSMsg(String strJSON){
 		 
-			String url = APIConfig.MSG_CS_URL+ this.accesstoken;
+			String url = APIURL.MSG_CS_URL+ this.accesstoken;
 		    return HttpsDataManager.sendData(url, strJSON);
 	 }
 	
@@ -53,7 +53,7 @@ public class ResponseMsg {
 	 */
 	 public String sendTptMsg(String strJSON){
 		 
-			String url = APIConfig.MSG_TMPT_URL+ this.accesstoken;
+			String url = APIURL.MSG_TMPT_URL+ this.accesstoken;
 			
 			//System.out.println("APIConfig.MSG_TMPT_URL:"+APIConfig.MSG_TMPT_URL);
 			
@@ -70,7 +70,7 @@ public class ResponseMsg {
 	 */
 	 public String sendGroupMsg_Tag(String strJSON){
 		 
-			String url = APIConfig.MSG_GROUP_TAG_URL+ this.accesstoken;
+			String url = APIURL.MSG_GROUP_TAG_URL+ this.accesstoken;
 		    return HttpsDataManager.sendData(url, strJSON);
 	 }
 	 
@@ -83,7 +83,7 @@ public class ResponseMsg {
 	 */
 	 public String sendGroupMsg_Openid(String strJSON){
 		 
-			String url = APIConfig.MSG_GROUP_OPENID_URL+ this.accesstoken;
+			String url = APIURL.MSG_GROUP_OPENID_URL+ this.accesstoken;
 		    return HttpsDataManager.sendData(url, strJSON);
 		    
 	 }

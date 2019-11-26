@@ -26,7 +26,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import weixin.base.APIConfig;
+import weixin.base.APIURL;
 import weixin.msg.model.material.Article;
 import weixin.util.HttpsDataManager;
 import weixin.util.HttpsFileUpload;
@@ -58,7 +58,7 @@ public class MaterialManager {
 	public String addNews(List<Article> articles){
 		String mediaId = "";
 		
-		String url = APIConfig.ADD_NEWS + this.accesstoken;
+		String url = APIURL.ADD_NEWS + this.accesstoken;
 		try {
 			JSONObject rootJson = new JSONObject();
 			JSONArray artArray = new JSONArray();
@@ -97,7 +97,7 @@ public class MaterialManager {
 	public String uploadImg(String filePath){
 		String imgUrl = "";
 		
-		String url = APIConfig.UPLOAD_IMG + this.accesstoken;
+		String url = APIURL.UPLOAD_IMG + this.accesstoken;
 		
 		HttpsFileUpload hf = new HttpsFileUpload();
 		Map<String, String> fileMap = new HashMap<String, String>();
@@ -128,7 +128,7 @@ public class MaterialManager {
 	public HashMap<String, String> addMaterial(String filePath, String type, Map<String,String> description){
 		HashMap<String, String> hm = new HashMap<String, String>();
 		
-		String url = APIConfig.ADD_MATERIAL + this.accesstoken+"&type="+type;
+		String url = APIURL.ADD_MATERIAL + this.accesstoken+"&type="+type;
 		
 		try {
 			HttpsFileUpload hf = new HttpsFileUpload();
@@ -169,7 +169,7 @@ public class MaterialManager {
 	public List<Article> getMaterial_article(String mediaId){
 		List<Article> list = new ArrayList<Article>();
 		
-		String url = APIConfig.GET_MATERIAL + this.accesstoken;
+		String url = APIURL.GET_MATERIAL + this.accesstoken;
 		try {
 			JSONObject rootJson = new JSONObject();
 			rootJson.put("media_id", mediaId);
@@ -208,7 +208,7 @@ public class MaterialManager {
 	public HashMap<String,String> getMaterial_videoUrl(String mediaId){
 		HashMap<String,String> hm = new HashMap<String,String>();
 		
-		String url = APIConfig.GET_MATERIAL + this.accesstoken;
+		String url = APIURL.GET_MATERIAL + this.accesstoken;
 		try {
 			JSONObject rootJson = new JSONObject();
 			rootJson.put("media_id", mediaId);
@@ -236,7 +236,7 @@ public class MaterialManager {
 	 */
 	public boolean downMaterial(String mediaId, String filePath, String fileName){
 		boolean success = true;
-		String url = APIConfig.GET_MATERIAL+ this.accesstoken;
+		String url = APIURL.GET_MATERIAL+ this.accesstoken;
 		
 		try {
 			JSONObject rootJson = new JSONObject();
@@ -313,7 +313,7 @@ public class MaterialManager {
 	public boolean deleteMaterial(String mediaId){
 		boolean success = false;
 		
-		String url = APIConfig.DELETE_MATERIAL + this.accesstoken;
+		String url = APIURL.DELETE_MATERIAL + this.accesstoken;
 		try {
 			JSONObject rootJson = new JSONObject();
 			rootJson.put("media_id", mediaId);
@@ -340,7 +340,7 @@ public class MaterialManager {
 	public boolean updateNews(String mediaId, int index, Article article){
 		boolean success = false;
 		
-		String url = APIConfig.UPDATE_NEWS + this.accesstoken;
+		String url = APIURL.UPDATE_NEWS + this.accesstoken;
 		try {
 			JSONObject rootJson = new JSONObject();
 			rootJson.put("media_id", mediaId);
@@ -373,7 +373,7 @@ public class MaterialManager {
 	public HashMap<String,Integer> getMaterialCount(){
 		HashMap<String,Integer> hm = new HashMap<String,Integer>();
 		
-		String url = APIConfig.GET_MATERIAL_COUNT + this.accesstoken;
+		String url = APIURL.GET_MATERIAL_COUNT + this.accesstoken;
 		String response = HttpsDataManager.sendData(url);
 		try {
 			JSONObject res = new JSONObject(response);
@@ -403,7 +403,7 @@ public class MaterialManager {
 	public List<HashMap> getMaterilaList(String type, int offset, int count){
 		List<HashMap> list = new ArrayList<HashMap>();
 		
-		String url = APIConfig.GET_MATERIAL_LIST + this.accesstoken;
+		String url = APIURL.GET_MATERIAL_LIST + this.accesstoken;
 		try {
 			JSONObject rootJson = new JSONObject();
 			rootJson.put("type", type);

@@ -24,18 +24,15 @@ import java.util.Properties;
  * @version 0.0.1
  * 
  */
-public class APIConfig {
+public class APIURL {
 
-	 private  static String  HK_DOMAIN="https://hk.api.weixin.qq.com/";
-	 private  static String  SH_DOMAIN="https://sh.api.weixin.qq.com/";
-	 private  static String  SZ_DOMAIN="https://sz.api.weixin.qq.com/";
-	 private  static String  ALL_DOMAIN="https://api.weixin.qq.com/";	 
-	 
+	//有不同区域的服务结点 
 	private static String CURRENT_API; 
+	
 	static{
 			
 			Properties prop = new Properties();  
-			InputStream in = APIConfig.class.getResourceAsStream("/weixin.properties"); 
+			InputStream in = APIURL.class.getResourceAsStream("/weixin.properties"); 
 			
 			try {  
 	            prop.load(in);  
@@ -199,7 +196,10 @@ public class APIConfig {
 			public  final static  String  UPDATE_REMARK  = CURRENT_API+"cgi-bin/user/info/updateremark?access_token=";
 			
 			
-			//----------菜单管理----------//
+			/**
+			 * --------------------------------------------------------------------菜单管理----------
+			 */
+			
 			/**
 			 * 自定义菜单创建URL
 			 */
@@ -213,6 +213,8 @@ public class APIConfig {
 			 */
 			public  final static  String  DELETE_MENU  = CURRENT_API+"cgi-bin/menu/delete?access_token=";
 			
+			//创建个性化菜单
+			public  final static String  CREATE_CONDITIONAL_MENU = CURRENT_API+"cgi-bin/menu/addconditional?access_token=";
 			
 			/**
 			 * ----------------------------------------------------------------------素材管理-----------------------------------------------------------------------
