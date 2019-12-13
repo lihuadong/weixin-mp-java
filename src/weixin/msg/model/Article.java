@@ -1,10 +1,11 @@
 /**
- * 包到位小程序SaaS
+ * 
+ * 微信-公众号-封装接口JAVA版本
  * weixin.msg.model
  * Articles.java
  * Ver0.0.1
  * 2016年6月20日-下午5:17:43
- *  2014-2019 全智道(北京)科技有限公司
+ * 2014-2019 全智道(北京)科技有限公司
  * 
  */
 package weixin.msg.model;
@@ -15,7 +16,6 @@ import weixin.msg.model.base.WeixinMsgBase;
  * 
  * Articles
  * 
- * 李华栋
  * 李华栋
  * 2016年6月20日 下午5:17:43
  * 
