@@ -1,5 +1,7 @@
 /**
  * 
+ *  微信-公众号-封装接口JAVA版本
+ * 
  */
 package weixin.msg.model.tpt;
 
