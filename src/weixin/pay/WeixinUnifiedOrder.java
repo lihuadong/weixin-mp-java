@@ -18,7 +18,7 @@ import java.util.TreeMap;
 import org.apache.log4j.Logger;
 import org.jdom.JDOMException;
 
-import weixin.util.HttpsDataManager;
+import weixin.util.HTTPSDataManager;
 import weixin.util.XMLUtil;
 
 
@@ -136,7 +136,7 @@ public class WeixinUnifiedOrder {
 
 		
 		//XML数据发送到微信支付后台返回预付订单号
-		String res  = HttpsDataManager.sendData(WeixinPayConfig.UNIFIDORDER_URL, data);
+		String res  = HTTPSDataManager.sendData(WeixinPayConfig.UNIFIDORDER_URL, data);
 		logger.debug("后台的返回支付结果："+res);
 				
 		String prepay_id = "";

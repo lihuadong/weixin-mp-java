@@ -6,7 +6,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import weixin.base.APIURL;
-import weixin.util.HttpsDataManager;
+import weixin.util.HTTPSDataManager;
 
 /**
  * 
@@ -34,7 +34,7 @@ public class CardUsing {
 		
 
 		String url = APIURL.CARD_THROW_QRCODE_CREATE_URL+this.accesstoken;
-		HttpsDataManager dataManager = new HttpsDataManager();
+		HTTPSDataManager dataManager = new HTTPSDataManager();
 		String res = dataManager.sendData(url, cardJson.toString());
 		return res;
 	}
@@ -48,7 +48,7 @@ public class CardUsing {
 		
 
 		String url = APIURL.CARD_LANDINGPAGE_CREATE_URL+this.accesstoken;
-		HttpsDataManager dataManager = new HttpsDataManager();
+		HTTPSDataManager dataManager = new HTTPSDataManager();
 		String res = dataManager.sendData(url, landingpageJson.toString());
 		return res;
 	}
@@ -68,7 +68,7 @@ public class CardUsing {
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("card_id", card_id);
 		jsonObject.put("code", codes);
-		HttpsDataManager dataManager = new HttpsDataManager();
+		HTTPSDataManager dataManager = new HTTPSDataManager();
 		String res = dataManager.sendData(url, jsonObject.toString());
 		return res;
 	}
@@ -86,7 +86,7 @@ public class CardUsing {
 		String url = APIURL.CARD_CODE_GETDEPOSITCOUNT_URL+this.accesstoken;
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("card_id", card_id);
-		HttpsDataManager dataManager = new HttpsDataManager();
+		HTTPSDataManager dataManager = new HTTPSDataManager();
 		String res = dataManager.sendData(url, jsonObject.toString());
 		return res;
 	}
@@ -106,7 +106,7 @@ public class CardUsing {
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("card_id", card_id);
 		jsonObject.put("code", codes);
-		HttpsDataManager dataManager = new HttpsDataManager();
+		HTTPSDataManager dataManager = new HTTPSDataManager();
 		String res = dataManager.sendData(url, jsonObject.toString());
 		return res;
 	}
@@ -125,7 +125,7 @@ public class CardUsing {
 		String url = APIURL.CARD_MPNEWS_GETHTML_URL+this.accesstoken;
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("card_id", card_id);
-		HttpsDataManager dataManager = new HttpsDataManager();
+		HTTPSDataManager dataManager = new HTTPSDataManager();
 		String res = dataManager.sendData(url, jsonObject.toString());
 		return res;
 	}

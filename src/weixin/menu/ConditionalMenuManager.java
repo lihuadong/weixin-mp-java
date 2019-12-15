@@ -1,5 +1,6 @@
 /**
- * 包到位小程序SaaS
+ * 
+ * 微信-公众号-封装接口JAVA版本
  * weixin.menu
  * ConditionalMenuManager.java
  * Ver0.0.1
@@ -13,7 +14,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import weixin.base.APIURL;
-import weixin.util.HttpsDataManager;
+import weixin.util.HTTPSDataManager;
 
 /**
  * 
@@ -38,9 +39,9 @@ public class ConditionalMenuManager {
 	
 	
 	public JSONObject createMenu(String jsonStr){		
-		//调用自定义菜单创建接口
+		//调用个性化菜单创建接口
 	    String url = APIURL.CREATE_CONDITIONAL_MENU + this.accesstoken;
-	    String response = HttpsDataManager.sendData(url, jsonStr);
+	    String response = HTTPSDataManager.sendData(url, jsonStr);
 	    
 	    //解析对应的JSON代码
 	    try{
@@ -53,9 +54,26 @@ public class ConditionalMenuManager {
 	
 	public JSONObject deleteMenu(){
 		
-		//调用自定义菜单删除接口
-		String url = APIURL.DELETE_MENU+this.accesstoken;
-		String response = HttpsDataManager.sendData(url);
+		MenuManager  menu  = new MenuManager(this.accesstoken);
+		responseJSON =menu.deleteMenu();
+	    
+		return responseJSON;
+	}
+	
+	public JSONObject getMenu(){
+				
+		MenuManager  menu  = new MenuManager(this.accesstoken);
+		responseJSON =menu.getMenu();
+		return responseJSON;
+	}
+	
+
+	
+	public JSONObject tryMatchMenu(String jsonStr){
+		
+		//调用个性化菜单测试接口
+		String url = APIURL.TRYMATCH_CONDITIONAL_MENU+this.accesstoken;
+		String response = HTTPSDataManager.sendData(url,jsonStr);
 		
 		//解析对应的JSON代码
 	    try{
@@ -63,9 +81,9 @@ public class ConditionalMenuManager {
 	    } catch(JSONException e){
 	    	e.printStackTrace();
 	    }
-	    
 		return responseJSON;
 	}
+	
 	
 	/**
 	 * main(这里用一句话描述这个方法的作用)

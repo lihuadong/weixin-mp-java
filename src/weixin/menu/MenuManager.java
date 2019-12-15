@@ -1,11 +1,11 @@
 /**
  * 
- * 包到位小程序SaaS
+ * 微信-公众号-封装接口JAVA版本
  * weixin.menu
  * MenuManager.java
  * Ver0.0.1
  * 2016年6月20日-下午4:21:55
- * 2014-2019 全智道(北京)科技有限公司
+ * 2014-2019 ©全智道(北京)科技有限公司
  * 
  */
 package weixin.menu;
@@ -14,7 +14,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import weixin.base.APIURL;
-import weixin.util.HttpsDataManager;
+import weixin.util.HTTPSDataManager;
 
 /**
  * 
@@ -54,7 +54,7 @@ public class MenuManager {
 		
 		//调用自定义菜单创建接口
 	    String url = APIURL.CREATE_MENU+this.accesstoken;
-	    String response = HttpsDataManager.sendData(url, jsonStr);
+	    String response = HTTPSDataManager.sendData(url, jsonStr);
 	    	    
 	    try {
 			 responseJSON  = new JSONObject(response);
@@ -79,7 +79,7 @@ public class MenuManager {
 		
 		//调用自定义菜单查询接口
 		String url = APIURL.GET_MENU+this.accesstoken;
-		String response = HttpsDataManager.sendData(url);
+		String response = HTTPSDataManager.sendData(url);
 		
 		try {
 			responseJSON = new JSONObject(response);
@@ -102,7 +102,7 @@ public class MenuManager {
 		
 		//调用自定义菜单删除接口
 		String url = APIURL.DELETE_MENU+this.accesstoken;
-		String response = HttpsDataManager.sendData(url);
+		String response = HTTPSDataManager.sendData(url);
 		
 		//解析对应的JSON代码
 	    try{

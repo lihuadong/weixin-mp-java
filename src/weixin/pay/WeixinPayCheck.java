@@ -4,7 +4,7 @@
  * WeixinPayCheck.java
  * Ver0.0.1
  * 2016年11月15日-下午5:38:34
- *  2014-2019 全智道(北京)科技有限公司
+ *  2014-2019 ©全智道(北京)科技有限公司
  * 
  */
 package weixin.pay;
@@ -64,7 +64,7 @@ public class WeixinPayCheck {
 		//请求内容XML化
 		String data = WeixinPaySign.getRequestXml(signDataMap);
 		//XML数据发送到微信支付后台返回查询数据
-		String resXML  = weixin.util.HttpsDataManager.sendData(WeixinPayConfig.ORDERQUERY_URL, data);	
+		String resXML  = weixin.util.HTTPSDataManager.sendData(WeixinPayConfig.ORDERQUERY_URL, data);	
 
 		Map<String, String> payXMLMap = null;
 		String trade_state = null,return_code = null;

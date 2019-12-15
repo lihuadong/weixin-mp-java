@@ -12,7 +12,7 @@ package weixin.shorturl;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import weixin.util.HttpsDataManager;
+import weixin.util.HTTPSDataManager;
 
 /**
  * 
@@ -38,7 +38,7 @@ public class ShortUrlManager {
 		String url = "https://api.weixin.qq.com/cgi-bin/shorturl?access_token="+ this.at; 
 	    String data ="{\"action\":\"long2short\",\"long_url\":\""+longurl+"\"}";
 
-	    String res = HttpsDataManager.sendData(url,data);
+	    String res = HTTPSDataManager.sendData(url,data);
 	    
 	    JSONObject jsonObj;
 		try {

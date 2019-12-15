@@ -23,7 +23,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import weixin.base.APIURL;
-import weixin.util.HttpsDataManager;
+import weixin.util.HTTPSDataManager;
 import weixin.util.HttpsFileUpload;
 
 /**
@@ -161,7 +161,7 @@ public class MediaManager {
 		String video_url = "";
 		
 		String url = APIURL.GET_MEDIA+ this.accesstoken+"&media_id="+mediaId;
-		String response = HttpsDataManager.sendData(url);
+		String response = HTTPSDataManager.sendData(url);
 		if(response.contains("video_url")){
 			video_url = response.substring(14,response.length()-2);
 		} else{

@@ -1,10 +1,11 @@
 /**
- * 包到位小程序SaaS
+ * 
+ * 微信-公众号-封装接口JAVA版本
  * weixin.util
  * HttpsDataManager.java
  * Ver0.0.1
  * 2014年9月28日-下午1:51:11
- *  2014全智道(北京)科技有限公司-版权所有
+ * 2014全智道(北京)科技有限公司-版权所有
  * 
  */
 package weixin.util;
@@ -26,29 +27,24 @@ import org.apache.commons.httpclient.params.HttpMethodParams;
  * HttpsDataManager
  * 
  * 李华栋
- * 李华栋
  * 2014年9月28日 下午1:51:11
  * 
  * @version 0.0.1
  * 
  */
-public class HttpsDataManager {
+public class HTTPSDataManager {
 
 	
 	public static String sendData(String url,String data){
 		    
-
 		String receiveData  = null;
 		      
 		Map<String,String> paramsData = new HashMap<String,String>();
-		paramsData.put("data", data);
-		       
+		paramsData.put("data", data);		       
 		receiveData = send(url,paramsData);
 
 		return receiveData;
 	}
-	
-	
 
 	/**
 	* 
@@ -85,9 +81,9 @@ public class HttpsDataManager {
 				System.out.println("发送HTTPS数据错误 http response status is " + statusCode);
 			}
 		} catch (HttpException e) {
-			System.out.println("error url=" + url);
+			e.printStackTrace();
 		} catch (IOException e) {
-			System.out.println("error url=" + url);
+			e.printStackTrace();
 		} finally {
 			if (postMethod != null) {
 				postMethod.releaseConnection();
@@ -133,7 +129,7 @@ public class HttpsDataManager {
 	}
 	
 	/**
-	* 
+	 * 
 	* send(GET方式发送HTTPS请求)
 	* @param url
 	* @param paramsMap

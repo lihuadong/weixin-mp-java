@@ -4,7 +4,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import weixin.base.APIURL;
-import weixin.util.HttpsDataManager;
+import weixin.util.HTTPSDataManager;
 import weixin.util.HttpsFileUpload;
 /**
  * 
@@ -48,7 +48,7 @@ public class CardCreate {
 	public  String createCard(JSONObject cardJson){
 		
 		String url = APIURL.CARD_CREATE_URL+this.accesstoken;
-		HttpsDataManager dataManager = new HttpsDataManager();
+		HTTPSDataManager dataManager = new HTTPSDataManager();
 		String res = dataManager.sendData(url, cardJson.toString());
 		return res;
 	}
@@ -64,7 +64,7 @@ public class CardCreate {
 	public  String payCellCard(String card_id, boolean is_open) throws JSONException{
 	
 		String url = APIURL.CARD_PAYCELL_URL+this.accesstoken;
-		HttpsDataManager dataManager = new HttpsDataManager();
+		HTTPSDataManager dataManager = new HTTPSDataManager();
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("card_id", card_id);
 		jsonObject.put("is_open", is_open);

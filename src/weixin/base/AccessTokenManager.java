@@ -18,7 +18,7 @@ import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import weixin.util.HttpsDataManager;
+import weixin.util.HTTPSDataManager;
 
 
 /**
@@ -63,7 +63,7 @@ public class AccessTokenManager{
 	public AccessTokenManager(){
 				try{
 					    String url = APIURL.ACCESSTOKEN_GET_URL+appid+"&secret="+appsecret;
-						String result  = HttpsDataManager.sendData(url);
+						String result  = HTTPSDataManager.sendData(url);
 				   		JSONObject  json   = new JSONObject(result);
 					
 						accesstoken  = json.getString("access_token");

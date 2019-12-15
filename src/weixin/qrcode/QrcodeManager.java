@@ -1,10 +1,11 @@
 /**
- * 包到位小程序SaaS
+ * 
+ * 微信-公众号-封装接口JAVA版本
  * weixin.qrcode
  * QrcodeManager.java
  * Ver0.0.1
  * 2016年6月27日-下午1:51:16
- *  2014-2019 全智道(北京)科技有限公司
+ * 2014-2019 全智道(北京)科技有限公司
  * 
  */
 package weixin.qrcode;
@@ -15,7 +16,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import weixin.base.APIURL;
-import weixin.util.HttpsDataManager;
+import weixin.util.HTTPSDataManager;
 
 /**
  * 
@@ -75,7 +76,7 @@ public class QrcodeManager {
 				
 		//调用接口
 	    String url = APIURL.QRCode_GET_URL+this.accesstoken;
-	    String response = HttpsDataManager.sendData(url, rootJson.toString());
+	    String response = HTTPSDataManager.sendData(url, rootJson.toString());
 	    
 		//解析对应的JSON代码
 	    try{
@@ -134,7 +135,7 @@ public class QrcodeManager {
 				
 		//调用创建标签接口
 	    String url = APIURL.QRCode_GET_URL+this.accesstoken;
-	    String response = HttpsDataManager.sendData(url, rootJson.toString());
+	    String response = HTTPSDataManager.sendData(url, rootJson.toString());
 	    
 		//解析对应的JSON代码
 	    try{
@@ -176,7 +177,7 @@ public class QrcodeManager {
 				
 		//调用创建标签接口
 	    String url = APIURL.QRCode_GET_URL+this.accesstoken;
-	    String response = HttpsDataManager.sendData(url, rootJson.toString());
+	    String response = HTTPSDataManager.sendData(url, rootJson.toString());
 	    
 		//解析对应的JSON代码
 	    try{

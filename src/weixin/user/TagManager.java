@@ -18,7 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import weixin.base.APIURL;
-import weixin.util.HttpsDataManager;
+import weixin.util.HTTPSDataManager;
 
 /**
  * 
@@ -65,7 +65,7 @@ public class TagManager {
 		
 		//调用创建标签接口
 	    String url = APIURL.CREATE_TAG+this.accesstoken;
-	    String response = HttpsDataManager.sendData(url, rootJson.toString());
+	    String response = HTTPSDataManager.sendData(url, rootJson.toString());
 	    
 		//解析对应的JSON代码
 	    try{
@@ -101,7 +101,7 @@ public class TagManager {
 		
 		//调用查询标签接口
 	    String url = APIURL.GET_TAG+this.accesstoken;
-	    String response = HttpsDataManager.sendData(url);
+	    String response = HTTPSDataManager.sendData(url);
 	    
 		//解析对应的JSON代码
 	    try{
@@ -149,7 +149,7 @@ public class TagManager {
 		
 		//调用编辑标签接口
 	    String url = APIURL.UPDATE_TAG+this.accesstoken;
-	    String response = HttpsDataManager.sendData(url, rootJson.toString());
+	    String response = HTTPSDataManager.sendData(url, rootJson.toString());
 	    
 		//解析对应的JSON代码
 	    try{
@@ -190,7 +190,7 @@ public class TagManager {
 		
 		//调用删除标签接口
 	    String url = APIURL.DELETE_TAG+this.accesstoken;
-	    String response = HttpsDataManager.sendData(url, rootJson.toString());
+	    String response = HTTPSDataManager.sendData(url, rootJson.toString());
 	    
 		//解析对应的JSON代码
 	    try{
@@ -232,7 +232,7 @@ public class TagManager {
 		
 			//调用获取标签下粉丝列表接口
 			String url = APIURL.GET_USERLIST_TAG+this.accesstoken;
-			String response = HttpsDataManager.sendData(url, rootJson.toString());
+			String response = HTTPSDataManager.sendData(url, rootJson.toString());
 	    
 			//解析对应的JSON代码
 			try{

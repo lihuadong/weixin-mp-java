@@ -28,7 +28,7 @@ import org.json.JSONObject;
 
 import weixin.base.APIURL;
 import weixin.msg.model.material.Article;
-import weixin.util.HttpsDataManager;
+import weixin.util.HTTPSDataManager;
 import weixin.util.HttpsFileUpload;
 
 /**
@@ -74,7 +74,7 @@ public class MaterialManager {
 				artArray.put(subJson);
 			}
 			rootJson.put("articles", artArray);
-			String response = HttpsDataManager.sendData(url, rootJson.toString());
+			String response = HTTPSDataManager.sendData(url, rootJson.toString());
 			
 			JSONObject resJson = new JSONObject(response);
 			if(!response.contains("errcode")){
@@ -173,7 +173,7 @@ public class MaterialManager {
 		try {
 			JSONObject rootJson = new JSONObject();
 			rootJson.put("media_id", mediaId);
-			String response = HttpsDataManager.sendData(url, rootJson.toString());
+			String response = HTTPSDataManager.sendData(url, rootJson.toString());
 			
 			JSONObject resJson = new JSONObject(response);
 			if(response.contains("news_item")){
@@ -212,7 +212,7 @@ public class MaterialManager {
 		try {
 			JSONObject rootJson = new JSONObject();
 			rootJson.put("media_id", mediaId);
-			String response = HttpsDataManager.sendData(url, rootJson.toString());
+			String response = HTTPSDataManager.sendData(url, rootJson.toString());
 			
 			JSONObject resJson = new JSONObject(response);
 			if(response.contains("title")){
@@ -317,7 +317,7 @@ public class MaterialManager {
 		try {
 			JSONObject rootJson = new JSONObject();
 			rootJson.put("media_id", mediaId);
-			String response = HttpsDataManager.sendData(url, rootJson.toString());
+			String response = HTTPSDataManager.sendData(url, rootJson.toString());
 			
 			JSONObject resJson = new JSONObject(response);
 			if(resJson.getInt("errcode")==0){
@@ -355,7 +355,7 @@ public class MaterialManager {
 			subJson.put("content_source_url", article.getContent_source_url());
 			rootJson.put("articles", subJson);
 			
-			String response = HttpsDataManager.sendData(url, rootJson.toString());
+			String response = HTTPSDataManager.sendData(url, rootJson.toString());
 			JSONObject resJson = new JSONObject(response);
 			if(resJson.getInt("errcode")==0){
 				success = true;
@@ -374,7 +374,7 @@ public class MaterialManager {
 		HashMap<String,Integer> hm = new HashMap<String,Integer>();
 		
 		String url = APIURL.GET_MATERIAL_COUNT + this.accesstoken;
-		String response = HttpsDataManager.sendData(url);
+		String response = HTTPSDataManager.sendData(url);
 		try {
 			JSONObject res = new JSONObject(response);
 			if(response.contains("voice_count")){
@@ -409,7 +409,7 @@ public class MaterialManager {
 			rootJson.put("type", type);
 			rootJson.put("offset", offset);
 			rootJson.put("count", count);
-			String response = HttpsDataManager.sendData(url, rootJson.toString());
+			String response = HTTPSDataManager.sendData(url, rootJson.toString());
 			
 			JSONObject resJson = new JSONObject(response);
 			//获取素材列表失败

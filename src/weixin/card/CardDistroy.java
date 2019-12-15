@@ -4,7 +4,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import weixin.base.APIURL;
-import weixin.util.HttpsDataManager;
+import weixin.util.HTTPSDataManager;
 
 /**
  * 
@@ -36,7 +36,7 @@ public class CardDistroy {
 	public  String getCodeCard(String card_id,String code,boolean check_consume) throws JSONException{
 		
 		String url = APIURL.CARD_GETCODE_URL+this.accesstoken;
-		HttpsDataManager dataManager = new HttpsDataManager();
+		HTTPSDataManager dataManager = new HTTPSDataManager();
 		JSONObject data = new JSONObject();
 		try {
 			data.put("card_id", card_id);
@@ -61,7 +61,7 @@ public class CardDistroy {
 	public  String codeConsumeCard(String card_id,String code) throws JSONException{
 	
 		String url = APIURL.CARD_CODE_CONSUME_URL+this.accesstoken;
-		HttpsDataManager dataManager = new HttpsDataManager();
+		HTTPSDataManager dataManager = new HTTPSDataManager();
 		JSONObject data = new JSONObject();
 		data.put("card_id", card_id);
 		data.put("code", code);
@@ -80,7 +80,7 @@ public class CardDistroy {
 	public  String codeConsumeCard(String code) throws JSONException{
 		
 		String url = APIURL.CARD_CODE_CONSUME_URL+this.accesstoken;
-		HttpsDataManager dataManager = new HttpsDataManager();
+		HTTPSDataManager dataManager = new HTTPSDataManager();
 		JSONObject data = new JSONObject();
 		data.put("code", code);
 		String res = dataManager.sendData(url, data.toString());
@@ -97,7 +97,7 @@ public class CardDistroy {
 	public  String codeDecryptCard(String encrypt_code) throws JSONException{
 		
 		String url = APIURL.CARD_CODE_DECRYPT_URL+this.accesstoken;
-		HttpsDataManager dataManager = new HttpsDataManager();
+		HTTPSDataManager dataManager = new HTTPSDataManager();
 		JSONObject data = new JSONObject();
 		data.put("encrypt_code", encrypt_code);
 		String res = dataManager.sendData(url, data.toString());

@@ -14,7 +14,7 @@ import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import weixin.util.HttpsDataManager;
+import weixin.util.HTTPSDataManager;
 
 /**
  * 
@@ -61,7 +61,7 @@ public class JSTicketManager {
         
 		String url = APIURL.JSTICKET_URL+accesstoken+"&type=jsapi";
 		//发送Https请求
-		String result = HttpsDataManager.sendData(url);
+		String result = HTTPSDataManager.sendData(url);
 		
 		if(result.contains("invalid credential")){
 				logger.info("JSTicketManager-JS-Ticket:"+result);

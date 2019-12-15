@@ -5,13 +5,13 @@
  * ResponseMsg.java
  * Ver0.0.1
  * 2016年6月20日-下午1:59:16
- * 2014-2019 全智道(北京)科技有限公司
+ * 2014-2019 ©全智道(北京)科技有限公司
  * 
  */
 package weixin.msg;
 
 import weixin.base.APIURL;
-import weixin.util.HttpsDataManager;
+import weixin.util.HTTPSDataManager;
 
 /**
  * 
@@ -41,7 +41,7 @@ public class ResponseMsg {
 	 public String sendCSMsg(String strJSON){
 		 
 			String url = APIURL.MSG_CS_URL+ this.accesstoken;
-		    return HttpsDataManager.sendData(url, strJSON);
+		    return HTTPSDataManager.sendData(url, strJSON);
 	 }
 	
 	/**
@@ -54,7 +54,7 @@ public class ResponseMsg {
 	 public String sendTptMsg(String strJSON){
 		 
 			String url = APIURL.MSG_TMPT_URL+ this.accesstoken;			
-		    return HttpsDataManager.sendData(url, strJSON);
+		    return HTTPSDataManager.sendData(url, strJSON);
 	 }
 	 
 	 /**
@@ -67,7 +67,7 @@ public class ResponseMsg {
 	 public String sendGroupMsg_Tag(String strJSON){
 		 
 			String url = APIURL.MSG_GROUP_TAG_URL+ this.accesstoken;
-		    return HttpsDataManager.sendData(url, strJSON);
+		    return HTTPSDataManager.sendData(url, strJSON);
 	 }
 	 
 	 /**
@@ -80,7 +80,7 @@ public class ResponseMsg {
 	 public String sendGroupMsg_Openid(String strJSON){
 		 
 			String url = APIURL.MSG_GROUP_OPENID_URL+ this.accesstoken;
-		    return HttpsDataManager.sendData(url, strJSON);
+		    return HTTPSDataManager.sendData(url, strJSON);
 	 }
 
 }
