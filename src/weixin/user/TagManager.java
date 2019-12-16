@@ -1,10 +1,10 @@
 /**
- * 包到位小程序SaaS
+ * 微信-公众号-封装接口JAVA版本
  * weixin.user
  * UserTagManager.java
  * Ver0.0.1
  * 2016年6月21日-下午1:29:41
- *  2014-2019 全智道(北京)科技有限公司
+ * 2014-2019 ©全智道(北京)科技有限公司
  * 
  */
 package weixin.user;
@@ -41,18 +41,14 @@ public class TagManager {
 
     /**
      * 
-     * createTag创建标签)
-     *一个公众号，最多可以创建100个标签。
+     * 创建标签
+     * 一个公众号，最多可以创建100个标签。
      * @param tag
-     * @return 
-     *HashMap
-     * @throws JSONException 
+     * @return JSONObject
      * @exception 
      * @since  0.0.1
      */
-	public HashMap createTag(String tag){
-		HashMap<String, String> hm = new HashMap<String, String>();
-		
+	public JSONObject createTag(String tag){
 		//构建请求信息
 		JSONObject rootJson = new JSONObject();
 		JSONObject subJson = new JSONObject();
@@ -66,61 +62,41 @@ public class TagManager {
 		//调用创建标签接口
 	    String url = APIURL.CREATE_TAG+this.accesstoken;
 	    String response = HTTPSDataManager.sendData(url, rootJson.toString());
-	    
-		//解析对应的JSON代码
+	    JSONObject responseJson =null;
+		
+	    //解析对应的JSON代码
 	    try{
-	    	JSONObject responseJson  = new JSONObject(response);
-	    	JSONObject content = (JSONObject)responseJson.get("tag");
-	    	hm.put("id", content.getString("id"));
-	    	hm.put("name", content.getString("name"));
-	    	hm.put("count", "0");
+	    	responseJson  = new JSONObject(response);
+	    	
 	    } catch(JSONException e){
-	    	System.out.println(response);
+	    	e.printStackTrace();
 	    }
 	    
-		return hm;
+		return responseJson;
 	}
 	
 	/**
 	 * 
-	 * getTag(获取公众号已创建的标签)
+	 * 获取公众号已创建的标签
 	 * @param tag
-	 * @return 
-	 *List
+	 * @return JSONObject
 	 * @exception 
 	 * @since  0.0.1
 	 */
-	public List getTag(String tag){
-		//每一个list元素都是一个hashmap
-		//map.put("id","1");
-		//map.put("name","1");
-		//map.put("count","1");
-		
-		List<HashMap> tagList = new ArrayList<HashMap>();
-		HashMap<String, String> hm = null;
-		
+	public JSONObject getTag(){
+
 		//调用查询标签接口
 	    String url = APIURL.GET_TAG+this.accesstoken;
 	    String response = HTTPSDataManager.sendData(url);
-	    
+	    JSONObject responseJson =null;
 		//解析对应的JSON代码
 	    try{
-	    	JSONObject responseJson  = new JSONObject(response);	
-	    	JSONArray tags = (JSONArray) responseJson.get("tags");
-	    	JSONObject content = null;
-	    	for(int i=0;i<tags.length();i++){
-	    		content = tags.getJSONObject(i);
-	    		hm = new HashMap<String, String>();
-	    		hm.put("id", content.getInt("id")+"");
-		    	hm.put("name", content.getString("name"));
-		    	hm.put("count", content.getInt("count")+"");
-		    	tagList.add(hm);
-	    	}
+	    	responseJson  = new JSONObject(response);	
 	    } catch(JSONException e){
-	    	System.out.println(response);
+	    	e.printStackTrace();
 	    }
 	    
-		return tagList;
+		return responseJson;
 	}
 	
 	/**
