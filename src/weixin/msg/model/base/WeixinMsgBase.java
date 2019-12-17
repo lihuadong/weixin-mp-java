@@ -22,19 +22,8 @@ package weixin.msg.model.base;
  */
 public class WeixinMsgBase implements java.io.Serializable {
 
-	/**
-	 * serialVersionUID:TODO（用一句话描述这个变量表示什么）
-	 *
-	 * @since 0.0.1
-	 */
 	
 	private static final long serialVersionUID = 8670109920887773831L;
-	/**
-	 * toUserName
-	 *
-	 * @return  the toUserName
-	 * @since   0.0.1
-	 */
 	
 	private String toUserNameGID; 			//开发者微信号
 	private String fromUserNameOpenID;	//发送方帐号（一个OpenID）
@@ -147,17 +136,4 @@ public class WeixinMsgBase implements java.io.Serializable {
 				+ ", msgType=" + msgType + "]";
 	}
 	
-	/**
-	 * main(这里用一句话描述这个方法的作用)
-	 * (这里描述这个方法适用条件 – 可选)
-	 * @param args 
-	 *void
-	 * @exception 
-	 * @since  0.0.1
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
 }
