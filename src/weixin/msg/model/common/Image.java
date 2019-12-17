@@ -1,10 +1,11 @@
 /**
- * 包到位小程序SaaS
+ *  
+ * 微信-公众号-封装接口JAVA版本
  * weixin.message
  * Image.java
  * Ver0.0.1
  * 2014年9月5日-上午8:48:00
- *  2014全智道(北京)科技有限公司-版权所有
+ * 2014全智道(北京)科技有限公司-版权所有
  * 
  */
 package weixin.msg.model.common;
