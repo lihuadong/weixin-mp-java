@@ -5,7 +5,7 @@
  * AnnualRenew.java
  * Ver0.0.1
  * 2016年6月27日-下午5:47:25
- * 2014-2019 全智道(北京)科技有限公司
+ * 2014-2019 ©全智道(北京)科技有限公司
  * 
  */
 package weixin.msg.model.event.account;

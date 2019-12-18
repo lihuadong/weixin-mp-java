@@ -1,5 +1,6 @@
 /**
- * 包到位小程序SaaS
+ * 
+ * 微信-公众号-封装接口JAVA版本
  * weixin.msg.model.event
  * LocationEvent.java
  * Ver0.0.1
@@ -30,6 +31,10 @@ public class LocationEvent extends WeixinMsg4Event{
 	//MsgType		消息类型，event(From WeixinMsg)
 	//Event			事件类型，LOCATION(From WeixinEventMsg)
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String latitude;	//地理位置纬度
 	private String longitude;	//地理位置经度
 	private String precision;	//地理位置精度

@@ -1,10 +1,11 @@
 /**
- * 包到位小程序SaaS
+ * 
+ * 微信-公众号-封装接口JAVA版本
  * weixin.msg.model.event
  * ClickEvent.java
  * Ver0.0.1
  * 2016年6月20日-下午5:30:14
- *  2014-2019 全智道(北京)科技有限公司
+ * 2014-2019 ©全智道(北京)科技有限公司
  * 
  */
 package weixin.msg.model.event;
@@ -34,6 +35,11 @@ public class ClickEvent extends WeixinMsg4Event{
 	//Event			事件类型，CLICK(From WeixinEventMsg)
 	//EventKey		事件KEY值，与自定义菜单接口中KEY值对应(From WeixinEventMsg)
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public ClickEvent(){
 		setMsgType("event");
 		setEvent("CLICK");

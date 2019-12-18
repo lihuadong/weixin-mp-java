@@ -24,7 +24,7 @@ import java.util.List;
  */
 public class Articles {
 
-	private List  articles;
+	private List<?>  articles;
 
 	/**
 	 * articlesList
@@ -33,14 +33,14 @@ public class Articles {
 	 * @since   0.0.1
 	 */
 	
-	public List getArticles() {
+	public List<?> getArticles() {
 		return articles;
 	}
 
 	/**
 	 * @param articlesList the articlesList to set
 	 */
-	public void setArticles(List articles) {
+	public void setArticles(List<?> articles) {
 		this.articles = articles;
 	}
 

@@ -1,5 +1,6 @@
 /**
- * 包到位小程序SaaS
+ * 
+ * 微信-公众号-封装接口JAVA版本
  * weixin.msg.model.event
  * MassSendJobFinishEvent.java
  * Ver0.0.1
@@ -31,6 +32,10 @@ public class MassSendJobFinishEvent extends WeixinMsg4Event{
 	//Event			事件信息，此处为MASSSENDJOBFINISH(From WeixinEventMsg)
 	//MsgID			群发的消息ID(From WeixinEventMsg)
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String status;		//群发的结果，为"send success"或"send fail"或"err(num)"
 	private String totalCount;	//tag_id下粉丝数；或者openid_list中的粉丝数
 	private String filterCount;	//过滤后准备发送的粉丝数，原则上FilterCount = SentCount + ErrorCount

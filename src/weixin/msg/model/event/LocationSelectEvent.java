@@ -1,5 +1,6 @@
 /**
- * 包到位小程序SaaS
+ * 
+ * 微信-公众号-封装接口JAVA版本
  * weixin.msg.model.event
  * LocationSelectEvent.java
  * Ver0.0.1
@@ -30,6 +31,8 @@ public class LocationSelectEvent extends WeixinMsg4Event{
 	//Event			事件类型，location_select(From WeixinEventMsg)
 	//EventKey		事件KEY值，由开发者在创建菜单时设定(From WeixinEventMsg)
 	
+
+	private static final long serialVersionUID = 4657937018077826551L;
 	private String sendLocationInfo;	//发送的位置信息
 	private String location_X;			//X坐标信息
 	private String location_Y;			//Y坐标信息

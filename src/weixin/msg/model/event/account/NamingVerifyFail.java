@@ -1,10 +1,11 @@
 /**
- * 包到位小程序SaaS
+ * 
+ * 微信-公众号-封装接口JAVA版本
  * weixin.msg.model.event.account
  * NamingVerifyFail.java
  * Ver0.0.1
  * 2016年6月27日-下午5:42:56
- *  2014-2019 全智道(北京)科技有限公司
+ * 2014-2019 ©全智道(北京)科技有限公司
  * 
  */
 package weixin.msg.model.event.account;
@@ -30,6 +31,10 @@ public class NamingVerifyFail extends WeixinMsg4Event{
 	//MsgType		消息类型，event
 	//Event			事件类型 naming_verify_fail
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String failTime;	//失败发生时间 (整形)，时间戳
 	private String failReason;	//认证失败的原因
 	
