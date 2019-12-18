@@ -1,4 +1,4 @@
-package test.weixin.util;
+package weixin.util;
 
 import weixin.util.HTTPSDataManager;
 

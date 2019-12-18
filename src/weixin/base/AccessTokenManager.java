@@ -14,7 +14,6 @@ import java.io.InputStream;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -60,41 +59,27 @@ public class AccessTokenManager{
 		appsecret = prop.getProperty("appsecret");  
 	}
 
-	public AccessTokenManager(){
-				try{
-					    String url = APIURL.ACCESSTOKEN_GET_URL+appid+"&secret="+appsecret;
-						String result  = HTTPSDataManager.sendData(url);
-				   		JSONObject  json   = new JSONObject(result);
-					
-						accesstoken  = json.getString("access_token");
-						expires_in =  json.getInt("expires_in");
-			
-						logger.info("AccessTokenManager-accesstoken:"+accesstoken);
-						logger.info("AccessTokenManager-expires_in:"+expires_in);
-						
-				} catch(JSONException e){
-					e.printStackTrace();
-				}
+	public AccessTokenManager() {
+		try {
+			String url = APIURL.ACCESSTOKEN_GET_URL + appid + "&secret=" + appsecret;
+			String result = HTTPSDataManager.sendData(url);
+			JSONObject json = new JSONObject(result);
+
+			accesstoken = json.getString("access_token");
+			expires_in = json.getInt("expires_in");
+
+			logger.info("AccessTokenManager-accesstoken:" + accesstoken);
+			logger.info("AccessTokenManager-expires_in:" + expires_in);
+
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
 	}
 
-	/**
-	 * accesstoken
-	 *
-	 * @return  the accesstoken
-	 * @since   0.0.1
-	*/
 	
 	public String getAccesstoken() {
 		return accesstoken;
 	}
-
-
-	/**
-	 * expires_in
-	 *
-	 * @return  the expires_in
-	 * @since   0.0.1
-	*/
 	
 	public int getExpires_in() {
 		return expires_in;

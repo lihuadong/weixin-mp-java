@@ -5,7 +5,7 @@
  * PropertiesFileOper.java
  * Ver0.0.1
  * 2015年5月29日-下午5:14:39
- * 2015全智道(北京)科技有限公司-版权所有
+ * 2014-2019 ©全智道(北京)科技有限公司
  * 
  */
 package weixin.util;
@@ -27,7 +27,6 @@ import java.util.Properties;
  */
 public class Util4Properties {
 
-	
     //读取weixin.properties配置文件
     public static String readPropertiesFile(InputStream is,String key){
         
@@ -39,6 +38,6 @@ public class Util4Properties {
         }catch (IOException e) {
             e.printStackTrace();
         }
-       return  properties.getProperty(key);
+        return  properties.getProperty(key);
     }
 }

@@ -5,12 +5,10 @@
  * QrcodeManager.java
  * Ver0.0.1
  * 2016年6月27日-下午1:51:16
- * 2014-2019 全智道(北京)科技有限公司
+ * 2014-2019 ©全智道(北京)科技有限公司
  * 
  */
 package weixin.qrcode;
-
-import java.util.HashMap;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,11 +27,11 @@ import weixin.util.HTTPSDataManager;
  * @version 0.0.1
  * 
  */
-public class QrcodeManager {
+public class QRCodeManager {
 	
 	private String accesstoken;
-	  
-	public QrcodeManager(String accesstoken){
+	
+	public QRCodeManager(String accesstoken){
 		this.accesstoken = accesstoken;
 	}
 	
@@ -45,9 +43,7 @@ public class QrcodeManager {
 	 * @exception 
 	 * @since  0.0.1
 	 */
-	public HashMap<String, Object> getTempQrcode(int expire, int sceneId){
-		
-		HashMap<String, Object> hm = new HashMap<String, Object>();
+	public JSONObject getTempQRcode(int expire, int sceneId){
 		
 		//临时二维码有效时间最长为30天
 		if(expire>2592000){
@@ -67,8 +63,6 @@ public class QrcodeManager {
 			scene.put("scene", scene_id);
 			
 			rootJson.put("action_info", scene);
-			
-			 //System.out.println("QrcodeManager getTempQrcode:"+rootJson.toString());
 			 
 		} catch (JSONException e) {
 			e.printStackTrace();
@@ -79,18 +73,14 @@ public class QrcodeManager {
 	    String response = HTTPSDataManager.sendData(url, rootJson.toString());
 	    
 		//解析对应的JSON代码
-	    try{
-	    	
-		    	JSONObject responseJson = new JSONObject(response);
-		    	hm.put("ticket", responseJson.getString("ticket"));
-		    	hm.put("expire_seconds", responseJson.getInt("expire_seconds"));
-		    	hm.put("url", responseJson.getString("url").replace("\\",""));
-		    	
-	    } catch(JSONException e){	    	
-	    		e.printStackTrace();
-	    }
-	    
-	    return hm;
+		JSONObject responseJson =null;
+		try {
+			responseJson = new JSONObject(response);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    return responseJson;
 	}
 	
 	/**
@@ -101,10 +91,9 @@ public class QrcodeManager {
 	 * @exception 
 	 * @since  0.0.1
 	 */
-	public HashMap getTempQrcode(int sceneId){
-		
-		//临时二维码默认有效期为60秒
-		return getTempQrcode(60, sceneId);
+	public JSONObject getTempQRcode(int sceneId){
+		//临时二维码默认有效期为30秒
+		return getTempQRcode(30, sceneId);
 	}
 	
 	/**
@@ -115,10 +104,8 @@ public class QrcodeManager {
 	 * @exception 
 	 * @since  0.0.1
 	 */
-	public HashMap getPermQrcode(String sceneStr){
+	public JSONObject getPermQRcode(String sceneStr){
 		
-		HashMap<String, String> hm = new HashMap<String, String>();
-				
 		//填充请求内容
 		JSONObject rootJson = new JSONObject();
 		try {
@@ -138,15 +125,14 @@ public class QrcodeManager {
 	    String response = HTTPSDataManager.sendData(url, rootJson.toString());
 	    
 		//解析对应的JSON代码
+	    JSONObject responseJson=null;
 	    try{
-	    	JSONObject responseJson = new JSONObject(response);
-	    	hm.put("ticket", responseJson.getString("ticket"));
-	    	hm.put("url", responseJson.getString("url").replace("\\",""));
+	    	responseJson = new JSONObject(response);
 	    } catch(JSONException e){
-	    	System.out.println(response);
+	    	e.printStackTrace();
 	    }
 	    
-	    return hm;
+	    return responseJson;
 	}
 	
 	/**
@@ -157,10 +143,8 @@ public class QrcodeManager {
 	 * @exception 
 	 * @since  0.0.1
 	 */
-	public HashMap getPermQrcode(int sceneId){
+	public JSONObject getPermQRcode(int sceneId){
 		
-		HashMap<String, String> hm = new HashMap<String, String>();
-				
 		//填充请求内容
 		JSONObject rootJson = new JSONObject();
 		try {
@@ -180,15 +164,14 @@ public class QrcodeManager {
 	    String response = HTTPSDataManager.sendData(url, rootJson.toString());
 	    
 		//解析对应的JSON代码
+	    JSONObject responseJson=null;
 	    try{
-	    	JSONObject responseJson = new JSONObject(response);
-	    	hm.put("ticket", responseJson.getString("ticket"));
-	    	hm.put("url", responseJson.getString("url").replace("\\",""));
+	    	responseJson = new JSONObject(response);
 	    } catch(JSONException e){
-	    	System.out.println(response);
+	    	e.printStackTrace();
 	    }
 	    
-	    return hm;
+	    return responseJson;
 	}
 	
 }

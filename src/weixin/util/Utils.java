@@ -31,7 +31,6 @@ import org.jdom.output.XMLOutputter;
  */
 public class Utils {
 
-	
 	/**
 	 * 获取当前时间(yyyyMMddHHmmss)
 	 * @return String	当前时间戳
