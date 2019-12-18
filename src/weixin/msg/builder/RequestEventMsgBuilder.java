@@ -5,7 +5,7 @@
  * RequestEventMsg.java
  * Ver0.0.1
  * 2016年6月20日-下午1:56:42
- * 2014-2019 全智道(北京)科技有限公司
+ * 2014-2019 ©全智道(北京)科技有限公司
  * 
  */
 package weixin.msg.builder;
@@ -40,7 +40,6 @@ import weixin.msg.model.event.minapp.UserEnterTempsession;
  * 
  * RequestEventMsg
  * 
- * 李华栋
  * 李华栋
  * 2016年6月20日 下午1:56:42
  * 
@@ -219,6 +218,7 @@ public class RequestEventMsgBuilder {
 	}
 	
 	/**
+	 *关注/取消关注事件
 	 *构造 SubscribeEvent对象 
 	 **/
 	private SubscribeEvent getSubscribe(){
@@ -238,6 +238,7 @@ public class RequestEventMsgBuilder {
 	}
 	
 	/**
+	 *扫描带参数二维码事件
 	 *构造 ScanEvent对象 
 	 **/
 	private ScanEvent getScan(){
@@ -255,6 +256,7 @@ public class RequestEventMsgBuilder {
 	}
 	
 	/**
+	 *上报地理位置事件
 	 *构造 LocationEvent对象 
 	 **/
 	private LocationEvent getLocation(){
@@ -273,6 +275,7 @@ public class RequestEventMsgBuilder {
 	}
 	
 	/**
+	 *自定义菜单点击事件
 	 *构造 ClickEvent对象 
 	 **/
 	private ClickEvent getClick(){
@@ -289,6 +292,7 @@ public class RequestEventMsgBuilder {
 	}
 	
 	/**
+	 *点击菜单跳转链接
 	 *构造 ViewEvent对象 
 	 **/
 	private ViewEvent getView(){
@@ -307,22 +311,6 @@ public class RequestEventMsgBuilder {
 		return ve;
 	}
 	
-	/**
-	 *构造 TemplateSendJobFinishEvent对象 
-	 **/
-	private TemplateSendJobFinishEvent getTemplate(){
-		TemplateSendJobFinishEvent te = new TemplateSendJobFinishEvent();
-		
-		te.setToUserNameGID(toUserName);
-		te.setFromUserNameOpenID(fromUserName);
-		te.setCreateTime(createTime);
-		te.setMsgType(msgType);
-		te.setEvent(event);
-		te.setMsgId(msgID);
-		te.setStatus(status);
-		
-		return te;
-	}
 	
 	/**
 	 *构造 LocationSelectEvent对象 
@@ -444,6 +432,25 @@ public class RequestEventMsgBuilder {
 		return se;
 	}
 	
+	/////////////////////////////////////////////////////////////////////被动推送///////////////////////
+	
+	/**
+	 *构造 TemplateSendJobFinishEvent对象 
+	 **/
+	private TemplateSendJobFinishEvent getTemplate(){
+		TemplateSendJobFinishEvent te = new TemplateSendJobFinishEvent();
+		
+		te.setToUserNameGID(toUserName);
+		te.setFromUserNameOpenID(fromUserName);
+		te.setCreateTime(createTime);
+		te.setMsgType(msgType);
+		te.setEvent(event);
+		te.setMsgId(msgID);
+		te.setStatus(status);
+		
+		return te;
+	}
+	
 	/**
 	 *构造 MassSendJobFinishEvent对象 
 	 **/
@@ -562,6 +569,7 @@ public class RequestEventMsgBuilder {
 		
 		return ve;
 	}
+	
 	
 	private UserEnterTempsession getUserEnterTempsession(){
 		

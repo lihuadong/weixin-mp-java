@@ -5,7 +5,7 @@
  * ResponseGroupMsg.java
  * Ver0.0.1
  * 2016年6月20日-下午3:45:17
- * 2014-2019 全智道(北京)科技有限公司
+ * 2014-2019 ©全智道(北京)科技有限公司
  * 
  */
 package weixin.msg.builder;
@@ -19,7 +19,6 @@ import org.json.JSONObject;
  * 
  * ResponseGroupMsg
  * 
- * 李华栋
  * 李华栋
  * 2016年6月20日 下午3:45:17
  * 

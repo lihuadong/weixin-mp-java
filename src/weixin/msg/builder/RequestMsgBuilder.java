@@ -27,7 +27,6 @@ import weixin.msg.model.common.Voice;
  * RequestMsg
  * 
  * 李华栋
- * 李华栋
  * 2016年6月20日 下午1:56:27
  * 
  * @version 0.0.1
@@ -46,7 +45,7 @@ public class RequestMsgBuilder {
 	private String thumbMediaId;
 	private String picUrl;
 	private String format;
-	private String recognition;
+	private String recognition;//区分有无开通语音识别
 	private String loc_x;
 	private String loc_y;
 	private String scale;
@@ -54,6 +53,7 @@ public class RequestMsgBuilder {
 	private String title;
 	private String description;
 	private String url;
+
 	
 	/**
 	 * getRegularMessage 构建普通微信消息对象
@@ -67,7 +67,7 @@ public class RequestMsgBuilder {
 		WeixinMsgBase wxmsg = null;
 		//获取请求信息
 		Element element = null;
-		recognition = "";	//区分有无开通语音识别
+
 		for(int i=0;i<list.size();i++){
 			element = (Element)list.get(i);
 			if(element.getName().equals("ToUserName")){

@@ -42,7 +42,7 @@ public class ResponseMsgBuilder {
 	 */
 	public static String text(Text text){
 
-		String returnStr = "";
+		String returnStr = null;
 		
 		//填充回复内容
 		Element rootXML = new Element("xml");
@@ -64,7 +64,7 @@ public class ResponseMsgBuilder {
 	 */
 	public static String image(Image image){
 
-		String returnStr = "";
+		String returnStr = null;
 		
 		//填充回复内容
 		Element rootXML = new Element("xml");
@@ -90,7 +90,7 @@ public class ResponseMsgBuilder {
 	 */
 	public static String voice(Voice voice){
 		
-		String returnStr = "";
+		String returnStr = null;
 		
 		//填充回复内容
 		Element rootXML = new Element("xml");
@@ -116,7 +116,7 @@ public class ResponseMsgBuilder {
 	 */
 	public static String video(Video video){
 
-		String returnStr = "";
+		String returnStr = null;
 		
 		//填充回复内容
 		Element rootXML = new Element("xml");
@@ -144,7 +144,7 @@ public class ResponseMsgBuilder {
 	 */
 	public static String music(Music music){
 
-		String returnStr = "";
+		String returnStr = null;
 		
 		//填充回复内容
 		Element rootXML = new Element("xml");		
@@ -174,7 +174,7 @@ public class ResponseMsgBuilder {
 	 */
 	public static String articles(List<Article> articles){
 				
-		String returnStr = "";
+		String returnStr = null;
 		
 		//图文消息限制10条以内
 		if(articles.size()>10)
@@ -205,11 +205,6 @@ public class ResponseMsgBuilder {
 		//转换为xml格式字符串
 		returnStr = Utils.getXMLType(rootXML);
 		return returnStr;
-	}
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
 
 }
