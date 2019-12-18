@@ -1,10 +1,9 @@
 /**
  * 
- *  微信-公众号-封装接口JAVA版本
- *  
+ * 微信-公众号-封装接口JAVA版本
  * Ver0.0.1
  * 2016年6月27日-下午5:47:25
- * 2014-2019 全智道(北京)科技有限公司
+ * 2014-2019 ©全智道(北京)科技有限公司
  * 
  */
 package weixin.msg.model.tpt;
@@ -18,11 +17,11 @@ import java.util.List;
 public class TemplateMsg {
 	
 	private String touser;			//发给的用户(openid)
-	private String template_id;	//模板id
+	private String template_id;		//模板id
 	private String url;					//模板消息打开的URL
-	private List<String> labels;//模板空白部分标签
-	private List<String> values;//模板空白部分填写内容
-	private List<String> colors;//模板空白部分填写文字颜色
+	private List<String> labels;	//模板空白部分标签
+	private List<String> values;	//模板空白部分填写内容
+	private List<String> colors;	//模板空白部分填写文字颜色
 	
 	/**
 	 * @return the touser

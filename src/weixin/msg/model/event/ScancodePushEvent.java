@@ -1,10 +1,11 @@
 /**
- * 包到位小程序SaaS
+ * 
+ * 微信-公众号-封装接口JAVA版本
  * weixin.msg.model.event
  * ScancodePushEvent.java
  * Ver0.0.1
  * 2016年6月24日-下午5:47:14
- *  2014-2019 全智道(北京)科技有限公司
+ * 2014-2019 ©全智道(北京)科技有限公司
  * 
  */
 package weixin.msg.model.event;
@@ -30,6 +31,10 @@ public class ScancodePushEvent extends WeixinMsg4Event{
 	//Event			事件类型，scancode_push(From WeixinEventMsg)
 	//EventKey		事件KEY值，由开发者在创建菜单时设定(From WeixinEventMsg)
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String scanCodeInfo;	//扫描信息
 	private String scanType;		//扫描类型，一般是qrcode
 	private String scanResult;		//扫描结果，即二维码对应的字符串信息

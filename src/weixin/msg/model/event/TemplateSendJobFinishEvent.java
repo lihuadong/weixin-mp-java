@@ -1,10 +1,11 @@
 /**
- * 包到位小程序SaaS
+ * 
+ * 微信-公众号-封装接口JAVA版本
  * weixin.msg.model.event
  * TemlateSendJobFinishEvent.java
  * Ver0.0.1
  * 2016年6月20日-下午5:42:41
- *  2014-2019 全智道(北京)科技有限公司
+ * 2014-2019 ©全智道(北京)科技有限公司
  * 
  */
 package weixin.msg.model.event;
@@ -31,6 +32,10 @@ public class TemplateSendJobFinishEvent extends WeixinMsg4Event{
 	//Event			事件为模板消息发送结束(From WeixinEventMsg)
 	//MsgID			消息id(From WeixinMsg)
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String status;	//发送状态（成功、用户拒绝接收、发送失败）
 	
 	public TemplateSendJobFinishEvent(){
