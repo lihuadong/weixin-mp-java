@@ -32,20 +32,20 @@ public class ResponseMsg {
 	}
 	
 	/**
-	 * sendCSMsg(统一发送客服消息)
+	 * 统一发送客服消息sendCSMsg()
 	 * @param strJSON 
 	 * String
 	 * @exception 
 	 * @since  0.0.1
 	 */
-	 public String sendCSMsg(String strJSON){
+	 public String sendKefuMsg(String strJSON){
 		 
 			String url = APIURL.MSG_CS_URL+ this.accesstoken;
 		    return HTTPSDataManager.sendData(url, strJSON);
 	 }
 	
 	/**
-	 * sendTptMsg(统一发送模板消息)
+	 * 统一发送模板消息sendTptMsg()
 	 * @param strJSON 
 	 * String
 	 * @exception 
@@ -65,8 +65,8 @@ public class ResponseMsg {
 	 * @since  0.0.1
 	 */
 	 public String sendGroupMsg_Tag(String strJSON){
-		 
-			String url = APIURL.MSG_GROUP_TAG_URL+ this.accesstoken;
+
+		 	String url = APIURL.MSG_GROUP_TAG_URL+ this.accesstoken;
 		    return HTTPSDataManager.sendData(url, strJSON);
 	 }
 	 
@@ -82,5 +82,17 @@ public class ResponseMsg {
 			String url = APIURL.MSG_GROUP_OPENID_URL+ this.accesstoken;
 		    return HTTPSDataManager.sendData(url, strJSON);
 	 }
+	 
+	 /**
+	  * 通过API推送订阅模板消息给到授权微信用户
+	  * @param strJSON
+	  * @return
+	  */
+	 public String sendSubscribemsg(String strJSON) {
+		 String url = APIURL.MSG_SUBSCRIBE_URL+ this.accesstoken;
+		 return HTTPSDataManager.sendData(url, strJSON);		 
+	 }
+	 
+	 
 
 }
