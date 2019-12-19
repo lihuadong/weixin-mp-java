@@ -1,5 +1,6 @@
 /**
- * 包到位小程序SaaS
+ * 
+ * 微信-公众号-封装接口JAVA版本
  * weixin.msg.model.event
  * PicSysphotoEvent.java
  * Ver0.0.1
@@ -30,6 +31,8 @@ public class PicSysphotoEvent extends WeixinMsg4Event{
 	//Event			事件类型，pic_sysphoto(From WeixinEventMsg)
 	//EventKey		事件KEY值，由开发者在创建菜单时设定(From WeixinEventMsg)
 	
+
+	private static final long serialVersionUID = -7234327122510789513L;
 	private String sendPicsInfo;	//发送的图片信息
 	private String count;			//发送的图片数量
 	private String picList;			//图片列表

@@ -13,7 +13,7 @@ public class ResponseCSMsgBuilderTester {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 				
-//				String touser = "oFHIYt2guBTMngMiwFCAQdpOlu5k";
+				String touser = "oFHIYt2guBTMngMiwFCAQdpOlu5k";
 				
 		        //1-1、构造文本
 //				Text  text   = new Text();
@@ -24,8 +24,8 @@ public class ResponseCSMsgBuilderTester {
 //				text.setText(ct);
 //				//text.setTouser("oFHIYt78MuQjL0dNnLLO-Fn7cixE");
 //				text.setTouser(touser);
-				
-				//1-2、构造图片消息
+//				
+//				//1-2、构造图片消息
 //				Image image = new Image();
 //				ImageDetail image_d = new ImageDetail();
 //				image_d.setMedia_id("GCsXLR3-7T97ZyryykoYR57R3ewU5RTrR_NdqWmujpY");

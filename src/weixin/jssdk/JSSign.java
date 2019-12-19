@@ -98,5 +98,5 @@ public class JSSign {
         for (Map.Entry entry : ret.entrySet()) {
             System.out.println(entry.getKey() + ", " + entry.getValue());
         }
-    };
+    }
 }

@@ -1,10 +1,11 @@
 /**
- * 包到位小程序SaaS
+ * 
+ * 微信-公众号-封装接口JAVA版本
  * weixin.msg.model.event.account
  * QualificationVerifySuccess.java
  * Ver0.0.1
  * 2016年6月27日-下午3:43:47
- *  2014-2019 全智道(北京)科技有限公司
+ * 2014-2019 ©全智道(北京)科技有限公司
  * 
  */
 package weixin.msg.model.event.account;
@@ -25,6 +26,10 @@ import weixin.msg.model.base.WeixinMsg4Event;
 public class QualificationVerifySuccess extends WeixinMsg4Event{
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String  expiredTime;
 
 	/**

@@ -1,10 +1,11 @@
 /**
- * 包到位小程序SaaS
+ * 
+ * 微信-公众号-封装接口JAVA版本
  * weixin.msg.model.event
  * ViewEvent.java
  * Ver0.0.1
  * 2016年6月20日-下午5:40:41
- *  2014-2019 全智道(北京)科技有限公司
+ * 2014-2019 ©全智道(北京)科技有限公司
  * 
  */
 package weixin.msg.model.event;
@@ -31,6 +32,10 @@ public class ViewEvent extends WeixinMsg4Event{
 	//Event			事件类型，VIEW(From WeixinEventMsg)
 	//EventKey		事件KEY值，设置的跳转URL(From WeixinEventMsg)
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String menuID;	//指菜单ID，如果是个性化菜单，则可以通过这个字段，知道是哪个规则的菜单被点击了
 	
 	public ViewEvent(){

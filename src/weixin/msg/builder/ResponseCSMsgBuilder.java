@@ -17,13 +17,13 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import weixin.msg.model.cs.Article;
-import weixin.msg.model.cs.Card;
-import weixin.msg.model.cs.Image;
-import weixin.msg.model.cs.Music;
-import weixin.msg.model.cs.Text;
-import weixin.msg.model.cs.Video;
-import weixin.msg.model.cs.Voice;
+import weixin.msg.model.kefu.Article;
+import weixin.msg.model.kefu.Card;
+import weixin.msg.model.kefu.Image;
+import weixin.msg.model.kefu.Music;
+import weixin.msg.model.kefu.Text;
+import weixin.msg.model.kefu.Video;
+import weixin.msg.model.kefu.Voice;
 
 /**
  * 

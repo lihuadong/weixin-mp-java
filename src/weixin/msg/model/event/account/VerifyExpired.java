@@ -1,10 +1,11 @@
 /**
- * 包到位小程序SaaS
+ * 
+ * 微信-公众号-封装接口JAVA版本
  * weixin.msg.model.event.account
  * VerifyExpired.java
  * Ver0.0.1
  * 2016年6月27日-下午5:51:08
- *  2014-2019 全智道(北京)科技有限公司
+ * 2014-2019 ©全智道(北京)科技有限公司
  * 
  */
 package weixin.msg.model.event.account;
@@ -30,6 +31,10 @@ public class VerifyExpired extends WeixinMsg4Event{
 	//MsgType		消息类型，event
 	//Event			事件类型 verify_expired
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String expiredTime;	//有效期 (整形)，指的是时间戳，表示已于该时间戳认证过期，需要重新发起微信认证
 
 	/**

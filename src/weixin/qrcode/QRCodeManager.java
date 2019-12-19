@@ -2,7 +2,7 @@
  * 
  * 微信-公众号-封装接口JAVA版本
  * weixin.qrcode
- * QrcodeManager.java
+ * QRCodeManager.java
  * Ver0.0.1
  * 2016年6月27日-下午1:51:16
  * 2014-2019 ©全智道(北京)科技有限公司
@@ -18,9 +18,10 @@ import weixin.util.HTTPSDataManager;
 
 /**
  * 
- * QrcodeManager
+ * QRCodeManager
  * 
- * 李华栋
+ * HTTP GET请求（请使用https协议）https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=TICKET
+ * 提醒：TICKET记得进行UrlEncode
  * 李华栋
  * 2016年6月27日 下午1:51:16
  * 
@@ -94,6 +95,48 @@ public class QRCodeManager {
 	public JSONObject getTempQRcode(int sceneId){
 		//临时二维码默认有效期为30秒
 		return getTempQRcode(30, sceneId);
+	}
+	
+	public JSONObject getTempQRcode(int expire, String sceneStr) {
+		//临时二维码有效时间最长为30天
+		if(expire>2592000){
+			expire = 2592000;
+		}
+		//填充请求内容
+		JSONObject rootJson = new JSONObject();
+		try {
+			rootJson.put("expire_seconds", expire);
+			rootJson.put("action_name", "QR_STR_SCENE");
+						
+			JSONObject scene_str = new JSONObject();
+			scene_str.put("scene_str", sceneStr);
+			
+			JSONObject scene = new JSONObject();
+			scene.put("scene", scene_str);
+			
+			rootJson.put("action_info", scene);
+			 
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}		
+				
+		//调用接口
+	    String url = APIURL.QRCode_GET_URL+this.accesstoken;
+	    String response = HTTPSDataManager.sendData(url, rootJson.toString());
+	    
+		//解析对应的JSON代码
+		JSONObject responseJson =null;
+		try {
+			responseJson = new JSONObject(response);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    return responseJson;
+	}
+	
+	public JSONObject getTempQRcode(String sceneStr) {
+		return getTempQRcode(30, sceneStr);
 	}
 	
 	/**

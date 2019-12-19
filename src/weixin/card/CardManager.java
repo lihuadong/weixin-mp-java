@@ -11,9 +11,5 @@ package weixin.card;
 
 public class CardManager {
 	
-	
-	
-	public static void main(String[] args) {
-		
-	}
+
 }
