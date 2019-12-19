@@ -7,7 +7,7 @@
  *  2014全智道(北京)科技有限公司-版权所有
  * 
  */
-package weixin.msg.model.cs;
+package weixin.msg.model.kefu;
 
 import java.util.List;
 

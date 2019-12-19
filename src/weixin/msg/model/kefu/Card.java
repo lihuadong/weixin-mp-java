@@ -1,4 +1,4 @@
-package weixin.msg.model.cs;
+package weixin.msg.model.kefu;
 
 import weixin.msg.model.base.KefuMsgBase;
 
