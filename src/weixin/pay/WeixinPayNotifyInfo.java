@@ -1,3 +1,14 @@
+/**
+ * 
+ * 微信-公众号-封装接口JAVA版本
+ * weixin.pay
+ * WxPayConfig.java
+ * Ver0.0.1
+ * 2015年1月23日-下午4:15:00
+ * 2014-2019 ©全智道(北京)科技有限公司
+ * 
+ */
+
 package weixin.pay;
 
 import java.io.IOException;
