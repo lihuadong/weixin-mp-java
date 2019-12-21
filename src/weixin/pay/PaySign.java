@@ -66,41 +66,11 @@ public class PaySign {
             }
         }
         sb.append("key=" +key);
-        logger.debug("签名使用的KEY:"+key);
-        logger.debug("需要签名的字符串:"+sb.toString());
-        
         String sign = MD5Util.MD5Encode(sb.toString(), characterEncoding).toUpperCase();
-        //String sign = WeixinPaySign.getMD5(sb.toString());
-        logger.debug("字符串的签名:"+sign.toUpperCase());
-        
         return sign.toUpperCase();
         
     }
 	
-/*	public static String createSign(String characterEncoding,SortedMap<Object,Object> parameters){
-        
-		StringBuffer sb = new StringBuffer();
-        Set es = parameters.entrySet();
-        Iterator it = es.iterator();
-        while(it.hasNext()) {
-            Map.Entry entry = (Map.Entry)it.next();
-            String k = (String)entry.getKey();
-            Object v = entry.getValue();
-            if(null != v && !"".equals(v) 
-                    && !"sign".equals(k) && !"key".equals(k)) {
-                sb.append(k + "=" + v + "&");
-            }
-        }
-        
-        System.out.println("（1）使用默认签名方式签名内容\n"+sb.toString());
-        sb.append("key=" + WeixinPayConfig.KEY);
-        System.out.println("（2）使用默认签名方式签名内容\n"+sb.toString());
-        //String sign = MD5Util.MD5Encode(sb.toString(), characterEncoding).toUpperCase();
-        String sign = WeixinPaySign.getMD5(sb.toString());
-        System.out.println("（3）使用默认签名方式签名内容\n"+sign);
-        return sign.toUpperCase();
-        
-    }*/
 	
 	public static String createJSPaySign(String characterEncoding,SortedMap<Object,Object> parameters){
         

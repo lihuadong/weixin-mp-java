@@ -38,8 +38,6 @@ public class PayUnifiedOrder {
 	
 	//统一支付接口请求地址
 	String unifiedorderUrl;
-	
-	
 	///////////////////////////////////////////////统一支付接口相关参数
 	//公众账号ID  
 	String appid;

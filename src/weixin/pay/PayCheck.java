@@ -72,32 +72,24 @@ public class PayCheck {
 		String err_code_des = null;
 		
 		try {	
-				try {
-					
-					payXMLMap = weixin.util.XMLUtil.doXMLParse(resXML);
-					trade_state = payXMLMap.get("trade_state");
-					return_code = payXMLMap.get("return_code");
-					err_code_des =  payXMLMap.get("err_code_des");
-					
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				payXMLMap = weixin.util.XMLUtil.doXMLParse(resXML);
+				trade_state = payXMLMap.get("trade_state");
+				return_code = payXMLMap.get("return_code");
+				err_code_des =  payXMLMap.get("err_code_des");
 				
 		} catch (JDOMException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 				
 
 		
-		if(return_code.equals("SUCCESS")){
-			if(trade_state.equals("SUCCESS")){
-				flag  = true;
-			}else{
-				flag  = false;
-			}
-		}else{
-			flag  = false;
+		if(return_code.equals("SUCCESS") && trade_state.equals("SUCCESS")){
+			flag  = true;
 		}
+		
 		return flag;
 	}
 	

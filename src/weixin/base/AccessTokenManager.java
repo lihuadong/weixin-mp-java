@@ -55,8 +55,8 @@ public class AccessTokenManager{
             e.printStackTrace();  
         }  	
 
-		appid = prop.getProperty("appid");  
-		appsecret = prop.getProperty("appsecret");  
+		appid = prop.getProperty("APPID");  
+		appsecret = prop.getProperty("APPSECRET");  
 	}
 
 	public AccessTokenManager() {

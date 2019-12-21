@@ -9,8 +9,6 @@
  * 
  */
 
-
-
 package weixin.pay;
 
 import java.util.Iterator;
@@ -36,18 +34,6 @@ public class PayByQRUrl {
 	 public   TreeMap<Object,Object> parameters = new TreeMap<Object,Object>();  //静态链接参数
 	 public   String  payUrl; //静态链接
 	 
-/*	 public WeixinQRPayUrl(String productID){
-		 
-		 this.parameters.put("appid",WeixinPayConfig.APPID);
-		 this.parameters.put("mch_id",WeixinPayConfig.MCHID);
-		 this.parameters.put("time_stamp", WeixinQRPayUrl.create_timestamp());
-		 this.parameters.put("nonce_str",WeixinQRPayUrl.create_nonce_str());
-		 this.parameters.put("product_id",productID);
-		 String str  = WeixinPaySign.createSign("utf-8", this.parameters);
-		 this.parameters.put("sign",str);
-		 
-	 }*/
-	 
 	 public PayByQRUrl(String productID,String key){
 		 
 		 this.parameters.put("appid",PayConfig.APPID);
@@ -65,12 +51,10 @@ public class PayByQRUrl {
 	 }
 	 
 	 public String getPayUrl(){
-		 
 		 String str1 = PayByQRUrl.creat_wxpayurl(parameters);
 		 String str2  ="weixin://wxpay/bizpayurl?"+str1;
 		 payUrl  = str2.substring(0, str2.length()-1);
 		 return payUrl;
-		 
 	 }
 	 
 
