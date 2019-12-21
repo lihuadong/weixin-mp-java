@@ -35,7 +35,7 @@ import weixin.util.XMLUtil;
  * @date 2016年1月18日 下午2:39:29
  * @version V1.0.0
  */
-public class WeixinPayNotifyInfo {
+public class PayNotify {
 
 	/**
 	 * 返回状态码
@@ -314,9 +314,9 @@ public class WeixinPayNotifyInfo {
 	}
 
 	//这个方法基本不用
-	public static WeixinPayNotifyInfo getNotifyInfoByMap(Map<String,String> notifyXMLMap) throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchFieldException{
+	public static PayNotify getNotifyInfoByMap(Map<String,String> notifyXMLMap) throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchFieldException{
 
-		WeixinPayNotifyInfo info = new WeixinPayNotifyInfo();
+		PayNotify info = new PayNotify();
 		//反射机制获取所有的属性
 		Field[] fields = info.getClass().getDeclaredFields();
 		//设置私有属性可以访问
@@ -359,7 +359,7 @@ public class WeixinPayNotifyInfo {
 	 * @throws InvocationTargetException
 	 * @throws NoSuchFieldException
 	 */
-	public  WeixinPayNotifyInfo(InputStream is){
+	public  PayNotify(InputStream is){
 		
 		
 		SAXBuilder sax = new SAXBuilder(); 
@@ -382,19 +382,6 @@ public class WeixinPayNotifyInfo {
 	
 	}
 	
-	public  WeixinPayNotifyInfo(){}
+	public  PayNotify(){}
 	
-	public static void main(String[] args) {
-		Map<String,String> notifyXMLMap = new HashMap<>();
-		notifyXMLMap.put("openid", "openid");
-		notifyXMLMap.put("cash_fee","100");
-		try {
-			System.out.println(getNotifyInfoByMap(notifyXMLMap));
-		} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
-				| InvocationTargetException | NoSuchFieldException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
 }

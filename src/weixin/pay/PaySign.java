@@ -46,9 +46,9 @@ import weixin.util.MD5Util;
  * @version 0.0.1
  * 
  */
-public class WeixinPaySign {
+public class PaySign {
 
-	private static Logger logger = Logger.getLogger(WeixinPaySign.class);   
+	private static Logger logger = Logger.getLogger(PaySign.class);   
 	
 	public static String createSign(String characterEncoding,SortedMap<Object,Object> parameters,String key){
         
@@ -116,7 +116,7 @@ public class WeixinPaySign {
                 sb.append(k + "=" + v + "&");
             }
         }
-        sb.append("key=" + WeixinPayConfig.KEY);
+        sb.append("key=" + PayConfig.KEY);
         String sign = MD5Util.MD5Encode(sb.toString(), characterEncoding).toUpperCase();
         return sign;
     }
@@ -221,19 +221,6 @@ public class WeixinPaySign {
 		return str;
     }
     
-	/**
-	 * main(这里用一句话描述这个方法的作用)
-	 * (这里描述这个方法适用条件 – 可选)
-	 * @param args 
-	 *void
-	 * @exception 
-	 * @since  0.0.1
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		String str ="appid=wx4fd80eab6384f6f1&mch_id=10023596&nonce_str=0976fdc1-f261-4b7e-8c48-acbfa721e984&product_id=ipaiban1&time_stamp=1481885603&key=4d964874c8237a54fae33e8a0f357089";
-		String res  = WeixinPaySign.getMD5(str);
-		System.out.println(res.toUpperCase());
-	}
+
 
 }

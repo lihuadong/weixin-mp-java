@@ -30,13 +30,13 @@ import org.jdom.JDOMException;
  * @version 0.0.1
  * 
  */
-public class WeixinPayCheck {
+public class PayCheck {
 
 	private String appid;
 	private String mchid;
 	private String key;
 	
-	public WeixinPayCheck(String appid,String mchid,String key){
+	public PayCheck(String appid,String mchid,String key){
 		this.appid  = appid;
 		this.mchid  = mchid;
 		this.key  = key;
@@ -63,9 +63,9 @@ public class WeixinPayCheck {
 		signDataMap.put("sign",sign);
 		
 		//请求内容XML化
-		String data = WeixinPaySign.getRequestXml(signDataMap);
+		String data = PaySign.getRequestXml(signDataMap);
 		//XML数据发送到微信支付后台返回查询数据
-		String resXML  = weixin.util.HTTPSDataManager.sendData(WeixinPayConfig.ORDERQUERY_URL, data);	
+		String resXML  = weixin.util.HTTPSDataManager.sendData(PayConfig.ORDERQUERY_URL, data);	
 
 		Map<String, String> payXMLMap = null;
 		String trade_state = null,return_code = null;
@@ -105,7 +105,7 @@ public class WeixinPayCheck {
 	//生成签名
 	private  String  genSign(SortedMap<Object, Object>  signDataMap){
 		
-		String sign  = WeixinPaySign.createSign("utf-8", signDataMap,this.key);
+		String sign  = PaySign.createSign("utf-8", signDataMap,this.key);
 		return sign;
 	}
 	

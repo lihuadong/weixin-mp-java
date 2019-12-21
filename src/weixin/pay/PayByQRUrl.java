@@ -31,7 +31,7 @@ import java.util.UUID;
  * @version 0.0.1
  * 
  */
-public class WeixinQRPayUrl {
+public class PayByQRUrl {
 
 	 public   TreeMap<Object,Object> parameters = new TreeMap<Object,Object>();  //静态链接参数
 	 public   String  payUrl; //静态链接
@@ -48,14 +48,14 @@ public class WeixinQRPayUrl {
 		 
 	 }*/
 	 
-	 public WeixinQRPayUrl(String productID,String key){
+	 public PayByQRUrl(String productID,String key){
 		 
-		 this.parameters.put("appid",WeixinPayConfig.APPID);
-		 this.parameters.put("mch_id",WeixinPayConfig.MCHID);
-		 this.parameters.put("time_stamp", WeixinQRPayUrl.create_timestamp());
-		 this.parameters.put("nonce_str",WeixinQRPayUrl.create_nonce_str());
+		 this.parameters.put("appid",PayConfig.APPID);
+		 this.parameters.put("mch_id",PayConfig.MCHID);
+		 this.parameters.put("time_stamp", PayByQRUrl.create_timestamp());
+		 this.parameters.put("nonce_str",PayByQRUrl.create_nonce_str());
 		 this.parameters.put("product_id",productID);
-		 String str  = WeixinPaySign.createSign("utf-8", this.parameters,key);
+		 String str  = PaySign.createSign("utf-8", this.parameters,key);
 		 this.parameters.put("sign",str);
 		 
 	 }
@@ -66,7 +66,7 @@ public class WeixinQRPayUrl {
 	 
 	 public String getPayUrl(){
 		 
-		 String str1 = WeixinQRPayUrl.creat_wxpayurl(parameters);
+		 String str1 = PayByQRUrl.creat_wxpayurl(parameters);
 		 String str2  ="weixin://wxpay/bizpayurl?"+str1;
 		 payUrl  = str2.substring(0, str2.length()-1);
 		 return payUrl;
@@ -97,19 +97,4 @@ public class WeixinQRPayUrl {
 	       return sb.toString();
 	 }
 	 
-	/**
-	 * main(这里用一句话描述这个方法的作用)
-	 * (这里描述这个方法适用条件 – 可选)
-	 * @param args 
-	 *void
-	 * @exception 
-	 * @since  0.0.1
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		WeixinQRPayUrl  nl  = new WeixinQRPayUrl("ipaiban1",WeixinPayConfig.KEY);
-        String  url = nl.getPayUrl();
-        System.out.println(url);
-	}
-
 }

@@ -34,7 +34,7 @@ import weixin.util.XMLUtil;
  * @version 0.0.1
  * 
  */
-public class WeixinUnifiedOrder {
+public class PayUnifiedOrder {
 	
 	//统一支付接口请求地址
 	String unifiedorderUrl;
@@ -79,7 +79,7 @@ public class WeixinUnifiedOrder {
 	///////用来保存对应信息的Map
 	public SortedMap<Object,Object> parameters;
 	
-	private static Logger logger = Logger.getLogger(WeixinUnifiedOrder.class);   
+	private static Logger logger = Logger.getLogger(PayUnifiedOrder.class);   
 	
 	/**
 	 * 
@@ -87,7 +87,7 @@ public class WeixinUnifiedOrder {
 	 *
 	 * @param map 根据不同订单传进不同参数
 	 */
-	public WeixinUnifiedOrder(HashMap<String, String> map){
+	public PayUnifiedOrder(HashMap<String, String> map){
 
 		this.parameters = new TreeMap<Object,Object>();
 		this.parameters.put("appid", map.get("appid"));
@@ -128,16 +128,16 @@ public class WeixinUnifiedOrder {
 	public String getPrepayId(String key){
 		
 		//到这里时所有的参数都已经加载完毕
-		String sign = WeixinPaySign.createSign("utf-8", this.parameters,key);
+		String sign = PaySign.createSign("utf-8", this.parameters,key);
 		this.parameters.put("sign",sign);
 		
 		//请求内容XML化
-		String data = WeixinPaySign.getRequestXml(parameters);
+		String data = PaySign.getRequestXml(parameters);
 		logger.debug("提交后台的支付数据为："+data);
 
 		
 		//XML数据发送到微信支付后台返回预付订单号
-		String res  = HTTPSDataManager.sendData(WeixinPayConfig.UNIFIDORDER_URL, data);
+		String res  = HTTPSDataManager.sendData(PayConfig.UNIFIDORDER_URL, data);
 		logger.debug("后台的返回支付结果："+res);
 				
 		String prepay_id = "";
