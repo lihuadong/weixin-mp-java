@@ -9,8 +9,6 @@
  * 
  */
 
-
-
 package weixin.pay;
 
 import java.io.BufferedReader;
@@ -50,7 +48,7 @@ public class PaySign {
 
 	private static Logger logger = Logger.getLogger(PaySign.class);   
 	
-	public static String createSign(String characterEncoding,SortedMap<Object,Object> parameters,String key){
+	public  String createSign(String characterEncoding,SortedMap<Object,Object> parameters,String key){
         
 		StringBuffer sb = new StringBuffer();
         Set es = parameters.entrySet();
@@ -72,7 +70,7 @@ public class PaySign {
     }
 	
 	
-	public static String createJSPaySign(String characterEncoding,SortedMap<Object,Object> parameters){
+	public  String createJSPaySign(String characterEncoding,SortedMap<Object,Object> parameters){
         
 		StringBuffer sb = new StringBuffer();
         Set es = parameters.entrySet();
@@ -98,7 +96,7 @@ public class PaySign {
      * @param parameters  请求参数
      * @return
      */
-    public static String getRequestXml(SortedMap<Object,Object> parameters){
+    public  String getRequestXml(SortedMap<Object,Object> parameters){
         
     		StringBuffer sb = new StringBuffer();
         sb.append("<xml>");
@@ -126,7 +124,7 @@ public class PaySign {
      * @param outputStr 提交的数据
      * @return 返回微信服务器响应的信息
      */
-    public static String httpsRequest(String requestUrl, String requestMethod, String outputStr) {
+    public  String httpsRequest(String requestUrl, String requestMethod, String outputStr) {
         try {
             // 创建SSLContext对象，并使用我们指定的信任管理器初始化
             //TrustManager[] tm = { new MyX509TrustManager() };
@@ -176,7 +174,7 @@ public class PaySign {
     }
     
     
-    public static String getMD5(String str) {
+    public  String getMD5(String str) {
         try {
             // 生成一个MD5加密计算摘要
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -191,6 +189,5 @@ public class PaySign {
 		return str;
     }
     
-
 
 }

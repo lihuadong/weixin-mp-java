@@ -63,7 +63,7 @@ public class PayCheck {
 		signDataMap.put("sign",sign);
 		
 		//请求内容XML化
-		String data = PaySign.getRequestXml(signDataMap);
+		String data = new PaySign().getRequestXml(signDataMap);
 		//XML数据发送到微信支付后台返回查询数据
 		String resXML  = weixin.util.HTTPSDataManager.sendData(PayConfig.ORDERQUERY_URL, data);	
 
@@ -97,7 +97,7 @@ public class PayCheck {
 	//生成签名
 	private  String  genSign(SortedMap<Object, Object>  signDataMap){
 		
-		String sign  = PaySign.createSign("utf-8", signDataMap,this.key);
+		String sign  = new PaySign().createSign("utf-8", signDataMap,this.key);
 		return sign;
 	}
 	

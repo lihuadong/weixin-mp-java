@@ -126,11 +126,11 @@ public class PayUnifiedOrder {
 	public String getPrepayId(String key){
 		
 		//到这里时所有的参数都已经加载完毕
-		String sign = PaySign.createSign("utf-8", this.parameters,key);
+		String sign = new PaySign().createSign("utf-8", this.parameters,key);
 		this.parameters.put("sign",sign);
 		
 		//请求内容XML化
-		String data = PaySign.getRequestXml(parameters);
+		String data = new PaySign().getRequestXml(parameters);
 		logger.debug("提交后台的支付数据为："+data);
 
 		
@@ -158,17 +158,9 @@ public class PayUnifiedOrder {
 		
 		//返回之前把时间戳加入列表中,网页前端会使用
 		this.parameters.put("timeStamp", Long.toString(System.currentTimeMillis() / 1000));
-
-		
-		//MemCachedManager mcManager = MemCachedManager.getMemcachedManager();
-		//mcManager.setKey("qr_pay_data", "发送统一下单的返回的内容prepay_id："+prepay_id);
 		
 		return prepay_id;
 		
-	}
-	
-	
-
-	
+	}	
 
 }

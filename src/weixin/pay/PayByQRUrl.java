@@ -41,7 +41,7 @@ public class PayByQRUrl {
 		 this.parameters.put("time_stamp", PayByQRUrl.create_timestamp());
 		 this.parameters.put("nonce_str",PayByQRUrl.create_nonce_str());
 		 this.parameters.put("product_id",productID);
-		 String str  = PaySign.createSign("utf-8", this.parameters,key);
+		 String str  = new PaySign().createSign("utf-8", this.parameters,key);
 		 this.parameters.put("sign",str);
 		 
 	 }
