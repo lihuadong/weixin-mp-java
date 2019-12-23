@@ -24,6 +24,10 @@ import weixin.msg.model.base.WeixinMsgBase;
  */
 public class Music extends WeixinMsgBase{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2382685411810390780L;
 	private String title;			//音乐标题
 	private String description;		//音乐描述
 	private String musicURL;		//音乐链接

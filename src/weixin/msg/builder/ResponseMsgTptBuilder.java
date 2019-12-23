@@ -31,7 +31,7 @@ import weixin.msg.model.tpt.TemplateMsg;
  * @version 0.0.1
  * 
  */
-public class ResponseTptMsgBuilder {
+public class ResponseMsgTptBuilder {
 	
 	/**
 	 * 发送设置所属行业消息

@@ -1,10 +1,11 @@
 /**
- * 包到位小程序SaaS
+ * 
+ * 微信-公众号-封装接口JAVA版本
  * weixin.material
  * MediaManager.java
  * Ver0.0.1
  * 2016年6月27日-下午4:09:31
- *  2014-2019 全智道(北京)科技有限公司
+ * 2014-2019 ©全智道(北京)科技有限公司
  * 
  */
 package weixin.material;
@@ -23,14 +24,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import weixin.base.APIURL;
-import weixin.util.HTTPSDataManager;
 import weixin.util.HttpsFileUpload;
 
 /**
  * 
  * MediaManager 临时素材管理
  * 
- * 李华栋
  * 李华栋
  * 2016年6月27日 下午4:09:31
  * 
@@ -40,19 +39,20 @@ import weixin.util.HttpsFileUpload;
 public class MediaManager {
 	
 	private String accesstoken;
-	  
+	private JSONObject resultJSON;
+	
 	public MediaManager(String accesstoken){
 		this.accesstoken = accesstoken;
+		resultJSON = null;
 	}
 	
 	/**
-	 * addMedia 新增临时素材
+	 * 新增临时素材addMedia 
 	 * @param filePath
 	 * @param type
 	 * @return
 	 */
-	public HashMap<String, String> addMedia(String filePath,String type){
-		HashMap<String, String> hm = new HashMap<String, String>();
+	public JSONObject addMedia(String filePath,String type){
 		
 		String url = APIURL.ADD_MEDIA+ this.accesstoken+"&type="+type;
 		HttpsFileUpload hf = new HttpsFileUpload();
@@ -61,29 +61,15 @@ public class MediaManager {
 		String response = hf.formUpload(url, null, fileMap);
 		
 		try {
-			JSONObject res = new JSONObject(response);
-			if(response.contains("created_at")){
-				hm.put("type",res.getString("type"));
-				hm.put("create_at", res.getString("created_at"));
-				if(type.equals("thumb")){
-					hm.put("thumb_media_id", res.getString("thumb_media_id"));
-				} else{
-					hm.put("media_id", res.getString("media_id"));
-				}
-				System.out.println(response);
-			}
-			else{
-				System.out.println(response);
-			}
+			resultJSON = new JSONObject(response);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-		
-		return hm;
+		return resultJSON;
 	}
 	
 	/**
-	 * downMedia 获取临时素材（图片、视频、语音、缩略图）
+	 * 下载永久素材到本地（除图文）downMedia  获取临时素材（图片、视频、语音、缩略图）
 	 * @param mediaId
 	 * @param filePath
 	 * @param fileName
@@ -91,7 +77,7 @@ public class MediaManager {
 	 */
 	public boolean downMedia(String mediaId, String filePath, String fileName){
 		
-		boolean success = true;
+		boolean flag = true;
 		String url = APIURL.GET_MEDIA+ this.accesstoken+"&media_id="+mediaId;
 		
 		try {
@@ -117,7 +103,6 @@ public class MediaManager {
 				//下载临时视频素材
 				if(response.contains("video_url")){
 					String video_url = response.substring(14,response.length()-2);
-					//System.out.println(video_url);
 					URL videoUrl = new URL(video_url);
 					outputStream.close();
 		            bis.close();
@@ -134,7 +119,7 @@ public class MediaManager {
 					}
 				} else{
 					fileName = "getMedia_ErrorLog.txt";
-					success = false;
+					flag = false;
 				}
 			}
 			File file = new File(filePath + fileName);    
@@ -146,77 +131,13 @@ public class MediaManager {
             bis.close();
             mediaConn.disconnect();
 		} catch (IOException e) {
-			success = false;
+			flag = false;
 			e.printStackTrace();
 		}
-		return success;
+		return flag;
 	}
 	
-	/**
-	 * getVideoUrl 获取临时视频素材url
-	 * @param mediaId
-	 * @return
-	 */
-	public String getVideoUrl(String mediaId){
-		String video_url = "";
-		
-		String url = APIURL.GET_MEDIA+ this.accesstoken+"&media_id="+mediaId;
-		String response = HTTPSDataManager.sendData(url);
-		if(response.contains("video_url")){
-			video_url = response.substring(14,response.length()-2);
-		} else{
-			System.out.println(response);
-		}
-		
-		return video_url;
-	}
+
 	
-	/**
-	 * main(这里用一句话描述这个方法的作用)
-	 * (这里描述这个方法适用条件 – 可选)
-	 * @param args 
-	 *void
-	 * @exception 
-	 * @since  0.0.1
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		//1、获取accesstoken
-//		AccessTokenManager  atm  = new AccessTokenManager();
-//		AccessTokenManager.accesstoken = "XTdxjNOOLJClpHc1uVbCmno8LuaFZFIyIpa_IjgfVn4bgW5Dm-9B1jzkxbo7VFn27u0ilVmI3K62m1KdHXayodsOMWO0cyfgO_Q6E-z2VnNjSdD-eKNcH55wn74tDoWdOSOgAGACGC";
-		
-		//2、测试新增临时素材	
-//		String type = "image";
-//		String filePath = "D:\\XHR\\ScanLogin\\uploadTest\\wukonglai.jpg";
-//		String type = "video";
-//		String filePath = "D:\\XHR\\ScanLogin\\uploadTest\\coin_RPCA.mp4";
-//		String type = "voice";
-//		String filePath = "D:\\XHR\\ScanLogin\\uploadTest\\1351.amr";
-//		String type = "thumb";
-//		String filePath = "D:\\XHR\\ScanLogin\\uploadTest\\wukonglai.jpg";
-//		
-//		MediaManager mm = new MediaManager();
-//		mm.addMedia(filePath, type);
-		
-		//3、测试获取临时素材
-//		MediaManager mm = new MediaManager();
-//		
-//		String mediaId = "hS5BfXT1lVQ6XG-QaKzXsgPHQEyHK7wX46WWXPB5AR8j8DbCHQrl6TjjWrNf09ez";
-//		System.out.println(mm.downMedia(mediaId, "D:\\", "test.jpg"));
-//		String mediaId = "-2WpkXTV2v6aIGgHzWINmTHSnPEBbI9IxtG0Ir0e5n9aNuhkGRWzfNPIOIIIpLCl";
-//		System.out.println(mm.downMedia(mediaId, "D:\\", "test.mp4"));
-//		String mediaId = "rdTq08C7bsMESzds7RsB0M6y7ncziLCkUE8MPynMublwCBMbi8Rbt1WF-IGETWIc";
-//		System.out.println(mm.downMedia(mediaId, "D:\\", "test.amr"));
-//		String mediaId = "4w2GWvlnvv-iS6ASWHmMtxsuqndMw2kVJOtTWCQgm8LcOlgfjPgliavohzxl18n9";
-//		System.out.println(mm.downMedia(mediaId, "D:\\", "test2.jpg"));
-		
-		//4、测试获取临时视频素材url
-//		MediaManager mm = new MediaManager();
-//		String mediaId = "-2WpkXTV2v6aIGgHzWINmTHSnPEBbI9IxtG0Ir0e5n9aNuhkGRWzfNPIOIIIpLCl";
-//		String url = mm.getVideoUrl(mediaId);
-//		System.out.println("----------video url----------");
-//		System.out.println(url);
-		
-	}
+
 }

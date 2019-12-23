@@ -20,7 +20,7 @@ import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 
-import weixin.msg.builder.RequestEventMsgBuilder;
+import weixin.msg.builder.RequestMsgEventBuilder;
 import weixin.msg.builder.RequestMsgBuilder;
 import weixin.msg.model.base.WeixinMsgBase;
 
@@ -69,7 +69,7 @@ public class RequestMsg {
 				if(msgType.equals("event")){
 					
 					//事件类微信消息
-					RequestEventMsgBuilder rem = new RequestEventMsgBuilder();
+					RequestMsgEventBuilder rem = new RequestMsgEventBuilder();
 					wxmsg = rem.getEventMessage(list);
 				}
 				else{

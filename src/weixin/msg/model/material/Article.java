@@ -15,7 +15,6 @@ package weixin.msg.model.material;
  * Article
  * 
  * 李华栋
- * 李华栋
  * 2016年6月28日 上午9:52:53
  * 
  * @version 0.0.1

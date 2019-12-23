@@ -46,7 +46,7 @@ import weixin.msg.model.event.minapp.UserEnterTempsession;
  * @version 0.0.1
  * 
  */
-public class RequestEventMsgBuilder {
+public class RequestMsgEventBuilder {
 	
 	private String toUserName;
 	private String fromUserName;

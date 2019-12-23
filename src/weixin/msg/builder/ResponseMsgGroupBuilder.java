@@ -25,7 +25,7 @@ import org.json.JSONObject;
  * @version 0.0.1
  * 
  */
-public class ResponseGroupMsgBuilder {
+public class ResponseMsgGroupBuilder {
 	
 	/**
 	 * articles_tag(根据标签群发图文消息)
