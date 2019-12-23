@@ -31,6 +31,8 @@ public class Article {
 	private String content;			//图文消息的具体内容，支持HTML标签，必须少于2万字符，小于1M，且此处会去除JS
 	private String content_source_url;	//图文消息的原文地址，即点击“阅读原文”后的URL
 	private String url;				//图文页的URL
+	private int need_open_comment;		//Uint32 是否打开评论，0不打开，1打开
+	private int only_fans_can_comment;	//Uint32 是否粉丝才可评论，0所有人可评论，1粉丝才可评论
 	
 	/**
 	 * @return the title
@@ -127,6 +129,19 @@ public class Article {
 	 */
 	public void setUrl(String url) {
 		this.url = url;
+	}
+	
+	public int getNeed_open_comment() {
+		return need_open_comment;
+	}
+	public void setNeed_open_comment(int need_open_comment) {
+		this.need_open_comment = need_open_comment;
+	}
+	public int getOnly_fans_can_comment() {
+		return only_fans_can_comment;
+	}
+	public void setOnly_fans_can_comment(int only_fans_can_comment) {
+		this.only_fans_can_comment = only_fans_can_comment;
 	}
 	
 }
