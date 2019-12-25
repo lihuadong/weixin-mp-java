@@ -1,5 +1,14 @@
 package weixin.material;
 
+import java.util.List;
+
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
+import weixin.material.MaterialManager;
+import weixin.msg.model.material.*;
+
 public class MaterialTester {
 
 	/**
@@ -14,36 +23,35 @@ public class MaterialTester {
 
 		
 		//1、获取accesstoken
-//		AccessTokenManager  atm  = new AccessTokenManager();
-//		AccessTokenManager.accesstoken = "Ee2jCrzRQ1yqbs8Ibb4F_-OW5kXO9scYrWXQtCwk6Zd9uNKfLTIGSj3wZm_Re8cHs4sLga3snqy9lVhClgAFk1L-wc0GED4RjOFDfZkwY7KU27yJGbiuN5VD-Itz93ZpGAIcAHABVD";
-			
+		String token = "28_elC3corNVjDMwH3wzZ74DrWoPGKJG6I0uNZATSEb2DVUSRZVHuVk4h14pD0IGEmmtA1vSldIJkcTeO9s6dudyqkGDdzUoxys9s8IzlZzx4N6p6r98ccIgkuCbJheiZrdIuRKj3IWRIAabcAbKHKhADAWTW";	
+		
 		//2、测试新增永久图文素材
-//		MaterialManager mm = new MaterialManager();
-//		List<Article> list = new ArrayList<Article>();
-//		//单图文
-//		Article article = new Article();
-//		article.setTitle("test");
-//		article.setThumb_media_id("DNkPiq_x1JFtepHpgHXo59cGUTU749G5cnBcjtBcFRg");
-//		article.setAuthor("tt");
-//		article.setDigest("this is digest");
-//		article.setShow_cover_pic("1");
-//		article.setContent("test1\ntest2\ntest3\nyou are beautiful");
-//		article.setContent_source_url("http://www.ipaiban.com");
-//		list.add(article);
-//		//多图文
-//		article = new Article();
-//		article.setTitle("testtest");
-//		article.setThumb_media_id("DNkPiq_x1JFtepHpgHXo59cGUTU749G5cnBcjtBcFRg");
-//		article.setAuthor("tt2");
-//		article.setDigest("this is another digest");
-//		article.setShow_cover_pic("1");
-//		article.setContent("test1\ntest2\ntest3\nyou are handsome");
-//		article.setContent_source_url("http://www.ipaiban.com");
-//		list.add(article);
-//		
-//		String mediaId = mm.addNews(list);
-//		System.out.println("----------add news----------");
-//		System.out.println(mediaId);
+		MaterialManager mm = new MaterialManager(token);
+		List<Article> articles = new ArrayList<Article>();
+		//单图文
+		Article article = new Article();
+		article.setTitle("test");
+		article.setThumb_media_id("lO3n7dlOTQ9VH7Yw7SjxGea9xNPjN7tCztVmmYjzmmUKpFicduPwRRTHfisArSAV");
+		article.setAuthor("tt");
+		article.setDigest("this is digest");
+		article.setShow_cover_pic("1");
+		article.setContent("test1\ntest2\ntest3\nyou are beautiful");
+		article.setContent_source_url("http://www.fullstackeer.com");
+		articles.add(article);
+		//多图文
+		article = new Article();
+		article.setTitle("testtest");
+		article.setThumb_media_id("lO3n7dlOTQ9VH7Yw7SjxGea9xNPjN7tCztVmmYjzmmUKpFicduPwRRTHfisArSAV");
+		article.setAuthor("tt2");
+		article.setDigest("this is another digest");
+		article.setShow_cover_pic("1");
+		article.setContent("test1\ntest2\ntest3\nyou are handsome");
+		article.setContent_source_url("http://lihuadong.cn");
+		articles.add(article);
+		
+		JSONObject resultJSON = mm.addMaterial4News(articles);
+		System.out.println("----------add news----------");
+		System.out.println(resultJSON.toString());
 		
 		//3、测试上传图文消息里的图片获取URL
 //		MaterialManager mm = new MaterialManager();

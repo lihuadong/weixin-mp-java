@@ -10,6 +10,13 @@
  */
 package weixin.material;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,7 +34,6 @@ import weixin.util.HttpsFileUpload;
  * 
  * MaterialManager 永久素材管理
  * 
- * 李华栋
  * 李华栋
  * 2016年6月27日 下午4:09:23
  * 
@@ -156,6 +162,76 @@ public class MaterialManager {
 		
 
 	/**
+	 * 下载永久素材到本地（除图文）downMedia  获取临时素材（图片、视频、语音、缩略图）
+	 * @param mediaId
+	 * @param filePath
+	 * @param fileName
+	 * @return
+	 */
+	public boolean downMaterial(String mediaId, String filePath, String fileName){
+		
+		boolean flag = true;
+		String url = APIURL.GET_MEDIA+ this.accesstoken+"&media_id="+mediaId;
+		
+		try {
+			URL mediaUrl = new URL(url);
+			HttpURLConnection mediaConn;
+			mediaConn = (HttpURLConnection) mediaUrl.openConnection();
+			mediaConn.setDoOutput(true);
+			mediaConn.setRequestMethod("GET");
+			
+			//获取媒体文件
+			ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+			BufferedInputStream bis = new BufferedInputStream(mediaConn.getInputStream());
+			byte[] buf = new byte[8096];
+			int size = 0;
+			while ((size = bis.read(buf)) != -1) {
+				outputStream.write(buf, 0, size);
+			}
+			
+			//将媒体文件写到本地文件
+			String contentType = mediaConn.getHeaderField("Content-Type");
+			if(contentType.equals("text/plain")){
+				String response = outputStream.toString();
+				//下载临时视频素材
+				if(response.contains("video_url")){
+					String video_url = response.substring(14,response.length()-2);
+					URL videoUrl = new URL(video_url);
+					outputStream.close();
+		            bis.close();
+		            mediaConn.disconnect();
+					mediaConn = (HttpURLConnection) videoUrl.openConnection();
+					mediaConn.setDoOutput(true);
+					mediaConn.setRequestMethod("GET");
+					outputStream = new ByteArrayOutputStream();
+					bis = new BufferedInputStream(mediaConn.getInputStream());
+					buf = new byte[8096];
+					size = 0;
+					while ((size = bis.read(buf)) != -1) {
+						outputStream.write(buf, 0, size);
+					}
+				} else{
+					fileName = "getMedia_ErrorLog.txt";
+					flag = false;
+				}
+			}
+			File file = new File(filePath + fileName);    
+            FileOutputStream fops = new FileOutputStream(file);    
+            fops.write(outputStream.toByteArray());
+            fops.flush();
+            fops.close();
+            outputStream.close();
+            bis.close();
+            mediaConn.disconnect();
+		} catch (IOException e) {
+			flag = false;
+			e.printStackTrace();
+		}
+		return flag;
+	}
+	
+	
+	/**
 	 * 修改永久图文素材updateMaterialNews 
 	 * @param mediaId
 	 * @param index 要更新的文章在图文消息中的位置（多图文消息时，此字段才有意义），第一篇为0
@@ -216,10 +292,7 @@ public class MaterialManager {
 		}
 		return resultJSON;
 	}
-	
-	
-	
-	
+		
 	/**
 	 * 上传图文消息里的图片获取URLuploadImg 
 	 * 本接口所上传的图片不占用公众号的素材库中图片数量的100000个的限制。图片仅支持jpg/png格式，大小必须在1MB以下。
@@ -239,6 +312,49 @@ public class MaterialManager {
 			resultJSON = new JSONObject(response);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultJSON;
+	}
+
+	/////////////////////////////////////////////////////////临时素材///////////////////////////////////////////////////
+
+	/**
+	 * 新增临时素材addMaterialTemp
+	 * @param filePath
+	 * @param type : thumb /
+	 * @return
+	 */
+	public JSONObject addMaterialTemp(String filePath,String type){
+		
+		String url = APIURL.ADD_MEDIA+ this.accesstoken+"&type="+type;
+		HttpsFileUpload hf = new HttpsFileUpload();
+		Map<String, String> fileMap = new HashMap<String, String>();
+		fileMap.put("media", filePath);
+		String response = hf.formUpload(url, null, fileMap);
+		
+		try {
+			resultJSON = new JSONObject(response);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return resultJSON;
+	}
+	
+	/**
+	 * 获取临时素材getMaterialTemp 
+	 * @param filePath
+	 * @param type : thumb /
+	 * @return
+	 */
+	public JSONObject getMaterialTemp(String media_id){
+		
+		String url = APIURL.GET_MEDIA+ this.accesstoken+"&media_id="+media_id;
+		String response = HTTPSDataManager.sendData(url);
+		
+		try {
+			resultJSON = new JSONObject(response);
+		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 		return resultJSON;
