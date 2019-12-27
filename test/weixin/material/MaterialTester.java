@@ -26,7 +26,7 @@ public class MaterialTester {
 		String token = "28_elC3corNVjDMwH3wzZ74DrWoPGKJG6I0uNZATSEb2DVUSRZVHuVk4h14pD0IGEmmtA1vSldIJkcTeO9s6dudyqkGDdzUoxys9s8IzlZzx4N6p6r98ccIgkuCbJheiZrdIuRKj3IWRIAabcAbKHKhADAWTW";	
 		
 		//2、测试新增永久图文素材
-		MaterialManager mm = new MaterialManager(token);
+/*		MaterialManager mm = new MaterialManager(token);
 		List<Article> articles = new ArrayList<Article>();
 		//单图文
 		Article article = new Article();
@@ -51,7 +51,7 @@ public class MaterialTester {
 		
 		JSONObject resultJSON = mm.addMaterial4News(articles);
 		System.out.println("----------add news----------");
-		System.out.println(resultJSON.toString());
+		System.out.println(resultJSON.toString());*/
 		
 		//3、测试上传图文消息里的图片获取URL
 //		MaterialManager mm = new MaterialManager();
@@ -214,13 +214,13 @@ public class MaterialTester {
 //		}
 		
 		//11、测试获取永久素材列表
-//		MaterialManager mm = new MaterialManager();
-//		String type = "image";
+		MaterialManager mm = new MaterialManager(token);
+		String type = "image";
 //		String type = "voice";
 //		String type = "video";
 //		String type = "news";
-//		int offset = 2;
-//		int count = 2;
+		int offset = 2;
+		int count = 2;
 //		List<HashMap> list = mm.getMaterilaList(type, offset, count);
 //		System.out.println("----------get material list----------");
 //		//非图文
