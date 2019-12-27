@@ -26,9 +26,9 @@ import weixin.util.HTTPSDataManager;
  * @version 0.0.1
  * 
  */
-public class JSTicketManager {
+public class WebTicketManager {
 
-	private static Logger logger = Logger.getLogger(JSTicketManager.class);   
+	private static Logger logger = Logger.getLogger(WebTicketManager.class);   
 	
 	//JS Ticket 与微信服务器通讯的重要票据
 	public 	 String jsTicket = null;
@@ -57,7 +57,7 @@ public class JSTicketManager {
 	}
 
 	
-	public JSTicketManager(String accesstoken){
+	public WebTicketManager(String accesstoken){
         
 		String url = APIURL.JSTICKET_URL+accesstoken+"&type=jsapi";
 		//发送Https请求
@@ -77,18 +77,5 @@ public class JSTicketManager {
 				}
 				logger.info("JSTicketManager-JS-Ticket:"+jsTicket);
 		}
-	}
-
-	/**
-	 * main(这里用一句话描述这个方法的作用)
-	 * (这里描述这个方法适用条件 – 可选)
-	 * @param args 
-	 *void
-	 * @exception 
-	 * @since  0.0.1
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
 }
