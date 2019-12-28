@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import weixin.material.MaterialManager;
@@ -23,7 +24,7 @@ public class MaterialTester {
 
 		
 		//1、获取accesstoken
-		String token = "28_elC3corNVjDMwH3wzZ74DrWoPGKJG6I0uNZATSEb2DVUSRZVHuVk4h14pD0IGEmmtA1vSldIJkcTeO9s6dudyqkGDdzUoxys9s8IzlZzx4N6p6r98ccIgkuCbJheiZrdIuRKj3IWRIAabcAbKHKhADAWTW";	
+//		String token = "28_elC3corNVjDMwH3wzZ74DrWoPGKJG6I0uNZATSEb2DVUSRZVHuVk4h14pD0IGEmmtA1vSldIJkcTeO9s6dudyqkGDdzUoxys9s8IzlZzx4N6p6r98ccIgkuCbJheiZrdIuRKj3IWRIAabcAbKHKhADAWTW";	
 		
 		//2、测试新增永久图文素材
 /*		MaterialManager mm = new MaterialManager(token);
@@ -214,8 +215,8 @@ public class MaterialTester {
 //		}
 		
 		//11、测试获取永久素材列表
-		MaterialManager mm = new MaterialManager(token);
-		String type = "image";
+//		MaterialManager mm = new MaterialManager(token);
+//		String type = "image";
 //		String type = "voice";
 //		String type = "video";
 //		String type = "news";
@@ -248,6 +249,33 @@ public class MaterialTester {
 //				System.out.println("content_source_url: "+article.getContent_source_url());
 //			}
 //		}
+		
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//  临时素材		
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		String token  = "28_E7twA3X6OLFJupNNbxjxGx1SjBhEEtMyx6A9KbVg1ybrF-M-HZTSnvvFvviTuQOnKrgAk_EHh_-Iv1A4UAAQIIW_Bg_VdARKhCva1fnbcZEBH5pmRtd76iyF2kBnpdaCx-RrR-B7p789ZlsxEKRbAIAAGN\n" + 
+				"";
+		MaterialManager  mm  = new MaterialManager(token);
+		String imagePath = "image.gif";
+		String voicePath = "mp3.mp3";
+		String videoPath = "mp4.mp4";
+		String thumbPath = "thumb.jpg";
+		
+		String currentPath  = System.getProperty("user.dir");
+	    String materialPath = "/test/weixin/material/";
+		System.out.println(currentPath+materialPath+imagePath);
+		
+		JSONObject res1 = mm.addMaterialTemp("/Users/lihuadong/Documents/Codes/weixin-mp-java/test/weixin/material/image.gif", "image");
+		JSONObject res2 = mm.addMaterialTemp(voicePath, "voice");
+		JSONObject res3 = mm.addMaterialTemp(videoPath, "video");
+		JSONObject res4 = mm.addMaterialTemp(thumbPath, "thumb");
+		
+		System.out.println(res1.toString());
+		System.out.println(res2.toString());
+		System.out.println(res3.toString());
+		System.out.println(res4.toString());
+	
+		
 
 	}
 }
