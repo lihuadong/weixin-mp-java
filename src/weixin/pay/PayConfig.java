@@ -11,7 +11,7 @@
 package weixin.pay;
 
 
-import weixin.util.Util4Properties;
+import weixin.util.PropertiesUtil;
 
 /**
  * 
@@ -28,17 +28,17 @@ public class PayConfig {
 
 	//=======【基本信息设置】=====================================
 	//微信公众号身份的唯一标识。审核通过后，在微信发送的邮件中查看
-	final static String APPID = Util4Properties.readPropertiesFile(PayConfig.class.getResourceAsStream("/weixin.properties"),"APPID");
+	final static String APPID = PropertiesUtil.readPropertiesFile(PayConfig.class.getResourceAsStream("/weixin.properties"),"APPID");
 	//审核后在公众平台开启开发模式后可查看
-	final static  String APPSECRET = Util4Properties.readPropertiesFile(PayConfig.class.getResourceAsStream("/weixin.properties"),"APPSECRET");
+	final static  String APPSECRET = PropertiesUtil.readPropertiesFile(PayConfig.class.getResourceAsStream("/weixin.properties"),"APPSECRET");
 	//受理商ID，身份标识
-	final static  String MCHID = Util4Properties.readPropertiesFile(PayConfig.class.getResourceAsStream("/wxpay.properties"),"MCHID");
+	final static  String MCHID = PropertiesUtil.readPropertiesFile(PayConfig.class.getResourceAsStream("/wxpay.properties"),"MCHID");
 	//商户支付密钥Key。审核通过后，在微信发送的邮件中查看
-	final static String KEY = Util4Properties.readPropertiesFile(PayConfig.class.getResourceAsStream("/wxpay.properties"),"KEY");
+	final static String KEY = PropertiesUtil.readPropertiesFile(PayConfig.class.getResourceAsStream("/wxpay.properties"),"KEY");
 
 	//=======【异步通知url设置】===================================
 	//异步通知url，商户根据实际开发过程设定
-	final static String NOTIFY_URL = Util4Properties.readPropertiesFile(PayConfig.class.getResourceAsStream("/wxpay.properties"),"NOTIFY_URL");
+	final static String NOTIFY_URL = PropertiesUtil.readPropertiesFile(PayConfig.class.getResourceAsStream("/wxpay.properties"),"NOTIFY_URL");
 	
 	//=======【JSAPI路径设置】===================================
 	//获取access_token过程中的跳转uri，通过跳转将code传入jsapi支付页面

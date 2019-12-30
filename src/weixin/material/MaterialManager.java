@@ -28,7 +28,7 @@ import org.json.JSONObject;
 import weixin.base.APIURL;
 import weixin.msg.model.material.Article;
 import weixin.util.HTTPSDataManager;
-import weixin.util.HttpsFileUpload;
+import weixin.util.HTTPSFileUpload;
 
 /**
  * 
@@ -110,7 +110,7 @@ public class MaterialManager {
 				rootJson.put("introduction", description.get("introduction"));
 				textMap.put("description", rootJson.toString());
 			}
-			HttpsFileUpload hf = new HttpsFileUpload();
+			HTTPSFileUpload hf = new HTTPSFileUpload();
 			String response = hf.formUpload(url, textMap, fileMap);
 			resultJSON = new JSONObject(response);
 		} catch (JSONException e) {
@@ -303,7 +303,7 @@ public class MaterialManager {
 		
 		String url = APIURL.UPLOAD_IMG + this.accesstoken;
 		
-		HttpsFileUpload hf = new HttpsFileUpload();
+		HTTPSFileUpload hf = new HTTPSFileUpload();
 		Map<String, String> fileMap = new HashMap<String, String>();
 		fileMap.put("media", filePath);
 		String response = hf.formUpload(url, null, fileMap);
@@ -328,7 +328,8 @@ public class MaterialManager {
 	public JSONObject addMaterialTemp(String filePath,String type){
 		
 		String url = APIURL.ADD_MEDIA+ this.accesstoken+"&type="+type;
-		HttpsFileUpload hf = new HttpsFileUpload();
+		
+		HTTPSFileUpload hf = new HTTPSFileUpload();
 		Map<String, String> fileMap = new HashMap<String, String>();
 		fileMap.put("media", filePath);
 		String response = hf.formUpload(url, null, fileMap);

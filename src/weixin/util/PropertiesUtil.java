@@ -25,7 +25,7 @@ import java.util.Properties;
  * @version 0.0.1
  * 
  */
-public class Util4Properties {
+public class PropertiesUtil {
 
     //读取weixin.properties配置文件
     public static String readPropertiesFile(InputStream is,String key){

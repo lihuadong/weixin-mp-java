@@ -20,7 +20,7 @@ import weixin.msg.model.post.Music;
 import weixin.msg.model.post.Text;
 import weixin.msg.model.post.Video;
 import weixin.msg.model.post.Voice;
-import weixin.util.Utils;
+import weixin.util.TimeUtils;
 
 /**
  * 
@@ -53,7 +53,7 @@ public class ResponseMsgBuilder {
 		rootXML.addContent(new Element("Content").setText(text.getContent()));
 		
 		//转换为xml格式字符串
-		returnStr = Utils.getXMLType(rootXML);
+		returnStr = TimeUtils.getXMLType(rootXML);
 		return returnStr;
 	}
 	
@@ -79,7 +79,7 @@ public class ResponseMsgBuilder {
 		rootXML.addContent(fXML);
 		
 		//转换为xml格式字符串
-		returnStr = Utils.getXMLType(rootXML);
+		returnStr = TimeUtils.getXMLType(rootXML);
 		return returnStr;
 	}
 	
@@ -105,7 +105,7 @@ public class ResponseMsgBuilder {
 		rootXML.addContent(fXML);
 		
 		//转换为xml格式字符串
-		returnStr = Utils.getXMLType(rootXML);
+		returnStr = TimeUtils.getXMLType(rootXML);
 		return returnStr;
 	}
 	
@@ -133,7 +133,7 @@ public class ResponseMsgBuilder {
 		rootXML.addContent(mXML);
 		
 		//转换为xml格式字符串
-		returnStr = Utils.getXMLType(rootXML);
+		returnStr = TimeUtils.getXMLType(rootXML);
 		return returnStr;
 	}
 	
@@ -163,7 +163,7 @@ public class ResponseMsgBuilder {
 		rootXML.addContent(mXML);
 		
 		//转换为xml格式字符串
-		returnStr = Utils.getXMLType(rootXML);
+		returnStr = TimeUtils.getXMLType(rootXML);
 		return returnStr;
 	}
 	
@@ -203,7 +203,7 @@ public class ResponseMsgBuilder {
 		}
 		
 		//转换为xml格式字符串
-		returnStr = Utils.getXMLType(rootXML);
+		returnStr = TimeUtils.getXMLType(rootXML);
 		return returnStr;
 	}
 

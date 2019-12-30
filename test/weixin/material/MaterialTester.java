@@ -272,9 +272,7 @@ public class MaterialTester {
 		System.out.println(res1.toString());
 		System.out.println(res2.toString());
 		System.out.println(res3.toString());
-		System.out.println(res4.toString());
-	
-		
+		System.out.println(res4.toString());			
 
 	}
 }

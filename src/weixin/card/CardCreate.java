@@ -15,7 +15,7 @@ import org.json.JSONObject;
 
 import weixin.base.APIURL;
 import weixin.util.HTTPSDataManager;
-import weixin.util.HttpsFileUpload;
+import weixin.util.HTTPSFileUpload;
 /**
  * 
 * @Title: CardManager.java
@@ -44,7 +44,7 @@ public class CardCreate {
 		
 
 		String url = APIURL.CARD_LOGO_URL+this.accesstoken;
-		HttpsFileUpload fileUpload = new HttpsFileUpload();
+		HTTPSFileUpload fileUpload = new HTTPSFileUpload();
 		String res = fileUpload.uploadMedia(url ,imagePath, imagePath.substring(imagePath.lastIndexOf(".")));
 		return res;
 	}
