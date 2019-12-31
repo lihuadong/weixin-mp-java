@@ -22,6 +22,7 @@ import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
+import org.jdom.output.XMLOutputter;
 
 /**
  * 
@@ -104,5 +105,15 @@ public class XMLUtil {
         
         return sb.toString();
     }
+    
+	/**
+	 * 转换为XML格式字符串
+	 * @return String	XML格式字符串
+	 */
+	public static String getXMLType(Element e){
+		Document doc = new Document(e); 
+		XMLOutputter XMLOut = new XMLOutputter();  
+		return XMLOut.outputString(doc);
+	}
     
 }

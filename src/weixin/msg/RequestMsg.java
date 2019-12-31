@@ -20,8 +20,8 @@ import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 
-import weixin.msg.builder.RequestMsgEventBuilder;
 import weixin.msg.builder.RequestMsgBuilder;
+import weixin.msg.builder.RequestMsgEventBuilder;
 import weixin.msg.model.base.WeixinMsgBase;
 
 /**
