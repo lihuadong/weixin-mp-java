@@ -7,7 +7,7 @@
 
      
 <%@ page import="weixin.util.EncoderHandler" %>
-<%@ page import="weixin.util.TimeUtils" %>
+<%@ page import="weixin.util.TimeUtil" %>
 <%@ page import="weixin.msg.RequestMsg"%>
 <%@ page import="weixin.msg.model.base.WeixinMsgBase"%>
 <%! String TOKEN = "lihuadong4weixin"; %>
