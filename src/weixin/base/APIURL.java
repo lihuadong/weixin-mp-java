@@ -79,8 +79,7 @@ public class APIURL {
 		 * 通过API推送订阅模板消息给到授权微信用户
 		 */
 		public  final static  String  MSG_SUBSCRIBE_URL  =CURRENT_API+"cgi-bin/message/template/subscribe?access_token=";
-			
-			
+		
 		/****************************************************************************************************
 		 * 
 		 * 微信卡券
