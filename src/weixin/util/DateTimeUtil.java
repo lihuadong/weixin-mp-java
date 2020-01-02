@@ -29,7 +29,7 @@ import java.util.Date;
  * @version 0.0.1
  * 
  */
-public class TimeUtil {
+public class DateTimeUtil {
 
 	/**
 	 * 获取当前时间(yyyyMMddHHmmss)
