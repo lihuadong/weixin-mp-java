@@ -1,17 +1,11 @@
 package weixin.material;
 
-import java.util.List;
-
 import org.json.JSONObject;
-
-import java.io.File;
-import java.util.ArrayList;
-
 import weixin.material.MaterialManager;
-import weixin.msg.model.material.*;
 
 public class MaterialTester {
 
+	
 	/**
 	 * main(这里用一句话描述这个方法的作用)
 	 * (这里描述这个方法适用条件 – 可选)
@@ -206,13 +200,11 @@ public class MaterialTester {
 //		System.out.println(success);
 		
 		//10、测试获取永久素材总数
-//		MaterialManager mm = new MaterialManager();
-//		HashMap<String, Integer> hm = mm.getMaterialCount();
-//		Object[] keys = hm.keySet().toArray();
-//		System.out.println("----------get material count----------");
-//		for(int i=0;i<keys.length;i++){
-//			System.out.println(keys[i]+": "+hm.get(keys[i]));
-//		}
+//		String token = "29_mlJW_c5SJIn0LgbOjOqC7GQ85XCe0D_YUrGQD2RYhbJS9uYcBMTNGx5izlrxVwaCi8-J9sSzCUnYXwd5Q90ypU_R1OLXYwMZWdQAaiQTnGUtPGXD7w27Ldos5n7O0YLqrsfa59_ob_0JP0ubBZMdAAAECP";
+//		MaterialManager mm = new MaterialManager(token);
+//		JSONObject res1 = mm.getMaterialCount();
+//		System.out.println(res1.toString());
+		
 		
 		//11、测试获取永久素材列表
 //		MaterialManager mm = new MaterialManager(token);
@@ -253,26 +245,29 @@ public class MaterialTester {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //  临时素材		
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		String token  = "28_fjdlXeLqT-a1Ys9GoNAhiOUhnArYKaKMpBlwtirPfyzVh6TaEWYgZxNPo0wPuEdyC75gUYREmgfkeFgJTWnEIMZV4mFyAJ6hn4pU2u1MSk4JimGn3cCmkg4VU-rn-pCmPEHxyR2CKYcZ6oLaGNYgAJAVCN";
-		
-		MaterialManager  mm  = new MaterialManager(token);
-		String imagePath = "image.gif";
-		String voicePath = "mp3.mp3";
-		String videoPath = "mp4.mp4";
-		String thumbPath = "thumb.jpg";
-		
-		String currentPath  = System.getProperty("user.dir");
-	    String materialPath = "/test/weixin/material/";
-		
-		JSONObject res1 = mm.addMaterialTemp(currentPath+materialPath+imagePath, "image");
-		JSONObject res2 = mm.addMaterialTemp(currentPath+materialPath+voicePath, "voice");
-		JSONObject res3 = mm.addMaterialTemp(currentPath+materialPath+videoPath, "video");
-		JSONObject res4 = mm.addMaterialTemp(currentPath+materialPath+thumbPath, "thumb");
-		
-		System.out.println(res1.toString());
-		System.out.println(res2.toString());
-		System.out.println(res3.toString());
-		System.out.println(res4.toString());			
+
+
+//		String token  = "";		
+//		MaterialManager  mm  = new MaterialManager(token);
+//		String imagePath = "image.gif";
+//		String voicePath = "mp3.mp3";
+//		String videoPath = "mp4.mp4";
+//		String thumbPath = "thumb.jpg";
+//		
+//		String currentPath  = System.getProperty("user.dir");
+//	    String materialPath = "/test/weixin/material/";
+//		
+//		JSONObject res1 = mm.addMaterialTemp(currentPath+materialPath+imagePath, "image");
+//		JSONObject res2 = mm.addMaterialTemp(currentPath+materialPath+voicePath, "voice");
+//		JSONObject res3 = mm.addMaterialTemp(currentPath+materialPath+videoPath, "video");
+//		JSONObject res4 = mm.addMaterialTemp(currentPath+materialPath+thumbPath, "thumb");
+//		
+//		System.out.println(res1.toString());
+//		System.out.println(res2.toString());
+//		System.out.println(res3.toString());
+//		System.out.println(res4.toString());			
 
 	}
+	
+	
 }
