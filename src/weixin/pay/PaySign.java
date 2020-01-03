@@ -64,7 +64,7 @@ public class PaySign {
             }
         }
         sb.append("key=" +key);
-        String sign = MD5Util.MD5Encode(sb.toString(), characterEncoding).toUpperCase();
+        String sign = MD5Util.MD5Lower(sb.toString(), characterEncoding).toUpperCase();
         return sign.toUpperCase();
         
     }
@@ -85,7 +85,7 @@ public class PaySign {
             }
         }
         sb.append("key=" + PayConfig.KEY);
-        String sign = MD5Util.MD5Encode(sb.toString(), characterEncoding).toUpperCase();
+        String sign = MD5Util.MD5Lower(sb.toString(), characterEncoding).toUpperCase();
         return sign;
     }
 	
