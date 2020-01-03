@@ -1,6 +1,6 @@
 package weixin.util;
 
-public class TimeUtilTester {
+public class DateTimeUtilTester {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
