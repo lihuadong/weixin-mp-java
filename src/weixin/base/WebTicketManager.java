@@ -62,20 +62,15 @@ public class WebTicketManager {
 		String url = APIURL.JSTICKET_URL+accesstoken+"&type=jsapi";
 		//发送Https请求
 		String result = HTTPSDataManager.sendData(url);
-		
-		if(result.contains("invalid credential")){
-				logger.info("JSTicketManager-JS-Ticket:"+result);
-		}else {
-
-				try {
-					JSONObject json = new JSONObject(result);
-					jsTicket  = json.getString("ticket");
-					expires_in =  json.getInt("expires_in");
-				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				logger.info("JSTicketManager-JS-Ticket:"+jsTicket);
+		try {
+			JSONObject json = new JSONObject(result);
+			jsTicket  = json.getString("ticket");
+			expires_in =  json.getInt("expires_in");
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			logger.info("JSTicketManager-JS-Ticket:"+result);
+			e.printStackTrace();
 		}
+		logger.info("JSTicketManager-JS-Ticket:"+jsTicket);
 	}
 }
