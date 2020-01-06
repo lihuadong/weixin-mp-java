@@ -8,7 +8,7 @@
  * 2014全智道(北京)科技有限公司-版权所有
  * 
  */
-package weixin.msg.model.post;
+package weixin.msg.model.normal;
 
 import weixin.msg.model.base.WeixinMsgBase;
 

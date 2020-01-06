@@ -10,7 +10,7 @@
  */
 package weixin.msg.model.kefu;
 
-import weixin.msg.model.base.KefuMsgBase;
+import weixin.msg.model.base.KeFuMsgBase;
 
 /**
  * 
@@ -23,7 +23,7 @@ import weixin.msg.model.base.KefuMsgBase;
  * @version 0.0.1
  * 
  */
-public class News extends KefuMsgBase {
+public class News extends KeFuMsgBase {
 
 	/**
 	 * news

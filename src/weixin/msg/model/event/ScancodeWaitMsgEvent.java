@@ -23,7 +23,7 @@ import weixin.msg.model.base.WeixinMsg4Event;
  * 
  */
 
-public class ScancodeWaitmsgEvent extends WeixinMsg4Event{
+public class ScancodeWaitMsgEvent extends WeixinMsg4Event{
 	
 	//ToUserName	开发者微信号(From WeixinMsg)
 	//FromUserName	发送方帐号（一个OpenID）(From WeixinMsg)
@@ -40,7 +40,7 @@ public class ScancodeWaitmsgEvent extends WeixinMsg4Event{
 	private String scanType;		//扫描类型，一般是qrcode
 	private String scanResult;		//扫描结果，即二维码对应的字符串信息
 	
-	public ScancodeWaitmsgEvent(){
+	public ScancodeWaitMsgEvent(){
 		setMsgType("event");
 		setEvent("scancode_waitmsg");
 	}

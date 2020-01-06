@@ -9,6 +9,7 @@
  * 
  */
 
+
 package weixin.msg.builder;
 
 import java.util.ArrayList;

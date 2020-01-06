@@ -44,7 +44,7 @@ public class RequestMsg {
 	 * @exception 
 	 * @since  0.0.1
 	 */
-	public  WeixinMsgBase getMessage(InputStream is){
+	public static WeixinMsgBase getMessage(InputStream is){
 		
 		WeixinMsgBase wxmsg = null;
 		

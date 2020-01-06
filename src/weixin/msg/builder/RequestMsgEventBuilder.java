@@ -24,7 +24,7 @@ import weixin.msg.model.event.PicSysphotoEvent;
 import weixin.msg.model.event.PicWeixinEvent;
 import weixin.msg.model.event.ScanEvent;
 import weixin.msg.model.event.ScancodePushEvent;
-import weixin.msg.model.event.ScancodeWaitmsgEvent;
+import weixin.msg.model.event.ScancodeWaitMsgEvent;
 import weixin.msg.model.event.SubscribeEvent;
 import weixin.msg.model.event.TemplateSendJobFinishEvent;
 import weixin.msg.model.event.ViewEvent;
@@ -416,8 +416,8 @@ public class RequestMsgEventBuilder {
 	/**
 	 *构造 ScancodeWaitmsgEvent对象 
 	 **/
-	private ScancodeWaitmsgEvent getScancodeWaitmsg(){
-		ScancodeWaitmsgEvent se = new ScancodeWaitmsgEvent();
+	private ScancodeWaitMsgEvent getScancodeWaitmsg(){
+		ScancodeWaitMsgEvent se = new ScancodeWaitMsgEvent();
 		
 		se.setToUserNameGID(toUserName);
 		se.setFromUserNameOpenID(fromUserName);

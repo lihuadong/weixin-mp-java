@@ -92,7 +92,5 @@ public class ResponseMsg {
 		 String url = APIURL.MSG_SUBSCRIBE_URL+ this.accesstoken;
 		 return HTTPSDataManager.sendData(url, strJSON);		 
 	 }
-	 
-	 
 
 }

@@ -15,12 +15,12 @@ import java.util.List;
 import org.jdom.Element;
 
 import weixin.msg.model.base.WeixinMsgBase;
-import weixin.msg.model.post.Image;
-import weixin.msg.model.post.Link;
-import weixin.msg.model.post.Location;
-import weixin.msg.model.post.Text;
-import weixin.msg.model.post.Video;
-import weixin.msg.model.post.Voice;
+import weixin.msg.model.normal.Image;
+import weixin.msg.model.normal.Link;
+import weixin.msg.model.normal.Location;
+import weixin.msg.model.normal.Text;
+import weixin.msg.model.normal.Video;
+import weixin.msg.model.normal.Voice;
 
 /**
  * 

@@ -11,13 +11,13 @@
 
 package weixin.msg.model.kefu;
 
-import weixin.msg.model.base.KefuMsgBase;
+import weixin.msg.model.base.KeFuMsgBase;
 
 /**
  * @author tpx
  * 微信卡券
  */
-public class Card extends KefuMsgBase{
+public class Card extends KeFuMsgBase{
 
 	//卡券的id
 	private String card_id;

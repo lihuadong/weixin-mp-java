@@ -20,7 +20,7 @@ package weixin.msg.model.base;
  * @version 0.0.1
  * http://mp.weixin.qq.com/wiki/index.php?title=%E5%8F%91%E9%80%81%E5%AE%A2%E6%9C%8D%E6%B6%88%E6%81%AF#.E5.8F.91.E9.80.81.E5.9B.BE.E7.89.87.E6.B6.88.E6.81.AF
  */
-public class KefuMsgBase {
+public class KeFuMsgBase {
 	
 	private String touser;	//发给的用户
 	private String msgtype;	//消息类型

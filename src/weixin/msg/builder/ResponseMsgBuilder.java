@@ -14,12 +14,12 @@ import java.util.List;
 
 import org.jdom.Element;
 
-import weixin.msg.model.post.Article;
-import weixin.msg.model.post.Image;
-import weixin.msg.model.post.Music;
-import weixin.msg.model.post.Text;
-import weixin.msg.model.post.Video;
-import weixin.msg.model.post.Voice;
+import weixin.msg.model.normal.Article;
+import weixin.msg.model.normal.Image;
+import weixin.msg.model.normal.Music;
+import weixin.msg.model.normal.Text;
+import weixin.msg.model.normal.Video;
+import weixin.msg.model.normal.Voice;
 import weixin.util.XMLUtil;
 
 /**
