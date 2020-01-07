@@ -8,7 +8,7 @@
  * 2014-2019 ©全智道(北京)科技有限公司
  * 
  */
-package weixin.jssdk;
+package weixin.jssign;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
