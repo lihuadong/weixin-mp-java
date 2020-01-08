@@ -1,7 +1,8 @@
 package weixin.jssign;
 
-import weixin.jssdk.JSSign;
 import java.util.Map;
+
+import weixin.jssign.JSSign;
 
 public class JSSignTester {
 
