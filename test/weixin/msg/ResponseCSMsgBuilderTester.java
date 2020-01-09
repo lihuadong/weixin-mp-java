@@ -1,4 +1,4 @@
-package weixin.msg.builder;
+package weixin.msg;
 
 public class ResponseCSMsgBuilderTester {
 

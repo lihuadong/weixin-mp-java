@@ -19,10 +19,14 @@ import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import weixin.base.APIURL;
 import weixin.msg.builder.RequestMsgBuilder;
 import weixin.msg.builder.RequestMsgEventBuilder;
 import weixin.msg.model.base.WeixinMsgBase;
+import weixin.util.HTTPSDataManager;
 
 /**
  * 
@@ -84,4 +88,20 @@ public class RequestMsg {
 		return wxmsg;
 	}
 
+	/**
+	 * 获取自动回复的所有规则
+	 * @param accesstoken
+	 * @return
+	 */
+	public static JSONObject getAutoReplyRules(String accesstoken) {
+		String url = APIURL.MSG_AUTOREPLY_RULE_URL+ accesstoken;
+	    String result = HTTPSDataManager.sendData(url);
+	    try {
+			return new JSONObject(result);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    return null;
+	}
 }

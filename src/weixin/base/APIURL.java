@@ -80,6 +80,10 @@ public class APIURL {
 		 */
 		public  final static  String  MSG_SUBSCRIBE_URL  =CURRENT_API+"cgi-bin/message/template/subscribe?access_token=";
 		
+		
+		//获取公众号当前使用的自动回复规则，包括关注后自动回复、消息自动回复（60分钟内触发一次）、关键词自动回复
+		public  final static  String  MSG_AUTOREPLY_RULE_URL  = CURRENT_API+"cgi-bin/get_current_autoreply_info?access_token=";
+		
 		/****************************************************************************************************
 		 * 
 		 * 微信卡券
