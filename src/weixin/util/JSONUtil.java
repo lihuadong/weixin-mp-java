@@ -5,7 +5,7 @@ import org.apache.log4j.spi.LoggerFactory;
 
 public class JSONUtil {
 
-	  private static final Logger LOGGER = LoggerFactory.getLogger(JSONUtil.class);
+	  private static final Logger LOGGER = Logger.getLogger(JSONUtil.class);
 
 	    private static final ObjectMapper OBJECT_MAPPER =new ObjectMapper();
 
