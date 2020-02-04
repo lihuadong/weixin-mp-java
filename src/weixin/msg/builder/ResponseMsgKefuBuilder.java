@@ -35,7 +35,7 @@ import weixin.msg.model.kefu.Voice;
  * @version 0.0.1
  * 
  */
-public class ResponseMsgCSBuilder {
+public class ResponseMsgKefuBuilder {
 	
 	/**
 	 * 客服发送文本消息
