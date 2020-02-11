@@ -7,7 +7,7 @@ public class QRCodeManagerTester {
 	public static void main(String[] args) {
 
 		// TODO Auto-generated method stub
-		String accesstoken = "28_KKIVDsyVXonIV1I41c0SmQqZyUJzqSotU3nJtkJIlJiFo25SSnv9MsYK4jXDAtINffNvCHi9ED4sfI6OCJfCg13JNKcuhac70vWZvjcQHvse06IrRaGPXCxBBp2Ap6NsnwM1ymHV7ofVdt_wDEGjAEAJKM";
+		String accesstoken = "30_SfHAGLIoNk1ruvsDLqIPTK3sDgtiRLPy40DeQIDkJSUzEGrwbKrHwBWDInOgghzE6cfdiKPgmJ-6C7Qo7Cr6fISVH8WebfEWF1I4ym0gEzcNsAsjPxtze3rcjCW6dbIuLDYdzl1hOUn2ObcLXVCfAEAIGN";
 		QRCodeManager  qr  = new QRCodeManager(accesstoken);
 		
 		JSONObject  qr1  = qr.getTempQRcode(3600);
@@ -27,6 +27,9 @@ public class QRCodeManagerTester {
 		
 		JSONObject  qr6  = qr.getPermQRcode("wukonglai");
 		System.out.println("qr6:"+qr6.toString());
+		
+		JSONObject  qr100  = qr.getTempQRcode(1800, 66);
+		System.out.println("qr100:"+qr100.toString());
 	}
 
 }
