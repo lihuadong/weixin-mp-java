@@ -10,6 +10,7 @@
 <%@ page import="weixin.util.DateTimeUtil" %>
 <%@ page import="weixin.msg.RequestMsg"%>
 <%@ page import="weixin.msg.model.base.WeixinMsgBase"%>
+
 <%! String TOKEN = "lihuadong4weixin"; %>
 
 <%
@@ -49,10 +50,9 @@
 	     
 			try{
 	              InputStream is = request.getInputStream();
-	              RequestMsg req  = new RequestMsg();
-	              req.getMessage(is);
+	              RequestMsg.getMessage(is);
 	              //业务进行处理
-	              outer.write("");
+	              outer.write("这里需要回填XML的内容");
 	              is.close();
 		       }catch (Exception e) {
 		    	  e.printStackTrace();
