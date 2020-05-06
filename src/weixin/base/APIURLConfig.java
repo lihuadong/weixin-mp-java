@@ -24,14 +24,14 @@ import java.util.Properties;
  * @version 0.0.1
  * 
  */
-public class APIURL {
+public class APIURLConfig {
 
 	//有不同区域的服务结点 
 	private static String CURRENT_API; 
 	
 	static{
 		Properties prop = new Properties();  
-		InputStream in = APIURL.class.getResourceAsStream("/weixin.properties"); 
+		InputStream in = APIURLConfig.class.getResourceAsStream("/weixin.properties"); 
 		
 		try {  
             prop.load(in);  

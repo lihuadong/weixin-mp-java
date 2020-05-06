@@ -59,7 +59,7 @@ public class WebTicketManager {
 	
 	public WebTicketManager(String accesstoken){
         
-		String url = APIURL.JSTICKET_URL+accesstoken+"&type=jsapi";
+		String url = APIURLConfig.JSTICKET_URL+accesstoken+"&type=jsapi";
 		//发送Https请求
 		String result = HTTPSDataManager.sendData(url);
 		try {
