@@ -25,7 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import weixin.base.APIURL;
+import weixin.base.APIURLConfig;
 import weixin.msg.model.material.Article;
 import weixin.util.HTTPSDataManager;
 import weixin.util.HTTPSFileUpload;
@@ -57,7 +57,7 @@ public class MaterialManager {
 	 */
 	public JSONObject addMaterial4News(List<Article> articles){
 		
-		String url = APIURL.ADD_NEWS + this.accesstoken;
+		String url = APIURLConfig.ADD_NEWS + this.accesstoken;
 		try {
 			JSONObject rootJson = new JSONObject();
 			JSONArray artArray = new JSONArray();
@@ -96,7 +96,7 @@ public class MaterialManager {
 	 */
 	public JSONObject addMaterial(String filePath, String type, Map<String,String> description){
 
-		String url = APIURL.ADD_MATERIAL + this.accesstoken+"&type="+type;
+		String url = APIURLConfig.ADD_MATERIAL + this.accesstoken+"&type="+type;
 		
 		try {
 			Map<String, String> fileMap = new HashMap<String, String>();
@@ -126,7 +126,7 @@ public class MaterialManager {
 	 * @return
 	 */
 	public JSONObject deleteMaterial(String mediaId){
-		String url = APIURL.DELETE_MATERIAL + this.accesstoken;
+		String url = APIURLConfig.DELETE_MATERIAL + this.accesstoken;
 		try {
 			JSONObject rootJson = new JSONObject();
 			rootJson.put("media_id", mediaId);
@@ -146,7 +146,7 @@ public class MaterialManager {
 	 */
 	public JSONObject getMaterial(String mediaId){
 
-		String url = APIURL.GET_MATERIAL + this.accesstoken;
+		String url = APIURLConfig.GET_MATERIAL + this.accesstoken;
 		try {
 			JSONObject rootJson = new JSONObject();
 			rootJson.put("media_id", mediaId);
@@ -171,7 +171,7 @@ public class MaterialManager {
 	public boolean downMaterial(String mediaId, String filePath, String fileName){
 		
 		boolean flag = true;
-		String url = APIURL.GET_MEDIA+ this.accesstoken+"&media_id="+mediaId;
+		String url = APIURLConfig.GET_MEDIA+ this.accesstoken+"&media_id="+mediaId;
 		
 		try {
 			URL mediaUrl = new URL(url);
@@ -239,7 +239,7 @@ public class MaterialManager {
 	 * @return
 	 */
 	public JSONObject updateMaterialNews(String mediaId, int index, JSONObject articleJSON){
-		String url = APIURL.UPDATE_NEWS + this.accesstoken;
+		String url = APIURLConfig.UPDATE_NEWS + this.accesstoken;
 		try {
 			String response = HTTPSDataManager.sendData(url,articleJSON.toString());
 			resultJSON  = new JSONObject(response);
@@ -259,7 +259,7 @@ public class MaterialManager {
 	 */
 	public JSONObject getMaterialCount(){
 
-		String url = APIURL.GET_MATERIAL_COUNT + this.accesstoken;
+		String url = APIURLConfig.GET_MATERIAL_COUNT + this.accesstoken;
 		String response = HTTPSDataManager.sendData(url);
 		try {
 			resultJSON = new JSONObject(response);
@@ -278,7 +278,7 @@ public class MaterialManager {
 	 */
 	public JSONObject getMaterilaBatch(String type, int offset, int count){
 		
-		String url = APIURL.GET_MATERIAL_LIST + this.accesstoken;
+		String url = APIURLConfig.GET_MATERIAL_LIST + this.accesstoken;
 		try {
 			JSONObject rootJson = new JSONObject();
 			rootJson.put("type", type);
@@ -301,7 +301,7 @@ public class MaterialManager {
 	 */
 	public JSONObject uploadImg(String filePath){
 		
-		String url = APIURL.UPLOAD_IMG + this.accesstoken;
+		String url = APIURLConfig.UPLOAD_IMG + this.accesstoken;
 		
 		HTTPSFileUpload hf = new HTTPSFileUpload();
 		Map<String, String> fileMap = new HashMap<String, String>();
@@ -327,7 +327,7 @@ public class MaterialManager {
 	 */
 	public JSONObject addMaterialTemp(String filePath,String type){
 		
-		String url = APIURL.ADD_MEDIA+ this.accesstoken+"&type="+type;
+		String url = APIURLConfig.ADD_MEDIA+ this.accesstoken+"&type="+type;
 		
 		HTTPSFileUpload hf = new HTTPSFileUpload();
 		Map<String, String> fileMap = new HashMap<String, String>();
@@ -350,7 +350,7 @@ public class MaterialManager {
 	 */
 	public JSONObject getMaterialTemp(String media_id){
 		
-		String url = APIURL.GET_MEDIA+ this.accesstoken+"&media_id="+media_id;
+		String url = APIURLConfig.GET_MEDIA+ this.accesstoken+"&media_id="+media_id;
 		String response = HTTPSDataManager.sendData(url);
 		
 		try {

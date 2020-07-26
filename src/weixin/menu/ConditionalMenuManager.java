@@ -8,12 +8,13 @@
  * 2014-2019 全智道(北京)科技有限公司
  * 
  */
+
 package weixin.menu;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import weixin.base.APIURL;
+import weixin.base.APIURLConfig;
 import weixin.util.HTTPSDataManager;
 
 /**
@@ -40,7 +41,7 @@ public class ConditionalMenuManager {
 	
 	public JSONObject createMenu(String jsonStr){		
 		//调用个性化菜单创建接口
-	    String url = APIURL.CREATE_CONDITIONAL_MENU + this.accesstoken;
+	    String url = APIURLConfig.CREATE_CONDITIONAL_MENU + this.accesstoken;
 	    String response = HTTPSDataManager.sendData(url, jsonStr);
 	    
 	    //解析对应的JSON代码
@@ -72,7 +73,7 @@ public class ConditionalMenuManager {
 	public JSONObject tryMatchMenu(String jsonStr){
 		
 		//调用个性化菜单测试接口
-		String url = APIURL.TRYMATCH_CONDITIONAL_MENU+this.accesstoken;
+		String url = APIURLConfig.TRYMATCH_CONDITIONAL_MENU+this.accesstoken;
 		String response = HTTPSDataManager.sendData(url,jsonStr);
 		
 		//解析对应的JSON代码

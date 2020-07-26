@@ -8,12 +8,13 @@
  * 2014-2019 ©全智道(北京)科技有限公司
  * 
  */
+
 package weixin.menu;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import weixin.base.APIURL;
+import weixin.base.APIURLConfig;
 import weixin.util.HTTPSDataManager;
 
 /**
@@ -53,7 +54,7 @@ public class MenuManager {
 	public JSONObject createMenu(String jsonStr){
 		
 		//调用自定义菜单创建接口
-	    String url = APIURL.CREATE_MENU+this.accesstoken;
+	    String url = APIURLConfig.CREATE_MENU+this.accesstoken;
 	    String response = HTTPSDataManager.sendData(url, jsonStr);
 	    	    
 	    try {
@@ -78,7 +79,7 @@ public class MenuManager {
 	public JSONObject getMenu(){
 		
 		//调用自定义菜单查询接口
-		String url = APIURL.GET_MENU+this.accesstoken;
+		String url = APIURLConfig.GET_MENU+this.accesstoken;
 		String response = HTTPSDataManager.sendData(url);
 		
 		try {
@@ -101,7 +102,7 @@ public class MenuManager {
 	public JSONObject deleteMenu(){
 		
 		//调用自定义菜单删除接口
-		String url = APIURL.DELETE_MENU+this.accesstoken;
+		String url = APIURLConfig.DELETE_MENU+this.accesstoken;
 		String response = HTTPSDataManager.sendData(url);
 		
 		//解析对应的JSON代码
